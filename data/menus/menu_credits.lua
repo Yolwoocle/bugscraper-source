@@ -14,7 +14,7 @@ return Menu:new(game, "{menu.credits.title}", {
     { "<<< {menu.credits.game_by} >>>" },
     { "{menu.credits.leo_bernard} (Yolwoocle) 🔗", func_url("https://yolwoocle.com/") },
     { "" },
-    { "<<< {menu.credits.music} >>>" },
+    { "<<< {menu.credits.music} + {menu.credits.sound_design} >>>" },
     { "OLX 🔗", func_url("https://linktr.ee/olxart") },
     { "" },
     { "<<< {menu.credits.sound_design} >>>" },
