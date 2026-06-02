@@ -80,6 +80,7 @@ function CloudDropper:init(x, y)
                 self.gravity = 0
                 self.vx = 0
                 self.vy = 0
+                self:play_sound_var("sfx_ennemy_dropper_trigger_{01-04}", 0.1, 1.1)
             end,
             update = function(state, dt)
                 if self.t % 0.2 < 0.1 then
