@@ -640,8 +640,8 @@ local waves_defs = {
     },
 
     {
-        min = 4,
-        max = 4,
+        min = 5,
+        max = 5,
 
         enemies = {
             { E.DrillBee,   30 },
@@ -657,6 +657,8 @@ local waves_defs = {
 
         enemies = {
             { E.Larva,       3 },
+            { E.HoneypotAnt, 4 },
+            { E.Bee,      3 },
         },
         fixed_enemies = {
             { E.FlyingSpawner, 1 },
@@ -1182,7 +1184,6 @@ local waves_defs = {
         enemies = {
             { E.Bee, 30 },
             { E.CloudStormZone, 30 },
-            { E.Shooter, 30 },
             { E.Rollopod, 30 },
         },
     },
@@ -1314,9 +1315,7 @@ local waves_defs = {
 
         enemies = {
             { E.GoldenBeetle, 30 },
-            { E.CloudStormZone, 30 },
             { E.Rollopod, 30 },
-            { E.Shooter, 30 },
             { E.CloudDropper, 30 },
         },
         fixed_enemies = {

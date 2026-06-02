@@ -24,7 +24,7 @@ function CloudStormZone:init(x, y, size)
     self.gravity = 0
     self.friction_y = self.friction_x
 
-    self.life = 12
+    self.life = 6
 
     self.flip_mode = ENEMY_FLIP_MODE_MANUAL
     self.lightning_angle_offset = 0.0

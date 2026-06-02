@@ -50,7 +50,7 @@ function MoleBoss:init(x, y)
     self.damage_on_stomp = 10
     self.can_be_stomped_if_falling_down = false
     self.is_killed_on_negative_life = false
-    self.head_ratio = 0.33
+    self.head_ratio = 0.5
     self.do_stomp_animation = false
     
     self.score = 500
@@ -80,7 +80,7 @@ function MoleBoss:init(x, y)
             enter = function(state)
                 self.walk_speed = 0
                 self.damage = 0
-                self.state_timer:start(0.5)
+                self.state_timer:start(1.0)
 
                 self.gravity = 0
                 self.is_stompable = false
