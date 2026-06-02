@@ -226,23 +226,54 @@ local waves_defs = {
     --     elevator = ElevatorW1,
     -- },
     
+    -- {
+    --     min = 1,
+    --     max = 1,
+        
+    --     enemies = {
+    --         { E.MoleBoss, 30, position = { CANVAS_WIDTH / 2 - 40, 15*16 - 80 } },
+    --     },
+
+    --     run = function(self, level)
+    --         game.actor_manager:remove_actors_with_name("progressing_arc")
+    --     end,
+
+    --     background = backgrounds.BackgroundGreenhouse:new(),
+
+    --     cutscene = "mole_boss_enter",
+    --     music = "boss_w4",
+    --     elevator = ElevatorW1,
+    -- },
+
+    
     {
+        roll_type = WAVE_ROLL_TYPE_FIXED,
+
         min = 1,
         max = 1,
-        
         enemies = {
-            { E.MoleBoss, 30, position = { CANVAS_WIDTH / 2 - 40, 15*16 - 80 } },
+            { E.FinalBoss, 1, position = { 12.5 * 16, 10 * 16 + 8 }, args = {{init_state = "introduction"}} }
         },
 
-        run = function(self, level)
-            game.actor_manager:remove_actors_with_name("progressing_arc")
+        elevator = ElevatorW0,
+        music = "boss_w5",
+
+        counter_display_func = function(_)
+            -- Pseudo random looking floor counter
+            local frame = math.floor(game.in_game_frame / 5)
+            local nb = (32849 * frame) % 999
+            return math.floor(clamp(nb, 100, 999))
         end,
 
-        background = backgrounds.BackgroundGreenhouse:new(),
+        run = function(self, level)
+            for _, actor in pairs(game.actors) do
+                if actor.name == "final_boss" then
+                    actor.state_machine:set_state("start")
+                end
+            end
 
-        cutscene = "mole_boss_enter",
-        music = "boss_w4",
-        elevator = ElevatorW1,
+            level.freeze_fury_override = false
+        end
     },
 
     --- --- --- --- --- --- --- --- --- --- --- ---
@@ -1346,7 +1377,7 @@ local waves_defs = {
         floor_type = FLOOR_TYPE_CAFETERIA,
         roll_type = WAVE_ROLL_TYPE_FIXED,
         music = "off",
-        ambience = "cafeteria",
+        ambience = "off",
         
         run = function(self, level)
             for _, actor in pairs(game.actors) do

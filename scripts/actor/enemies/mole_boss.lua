@@ -55,8 +55,9 @@ function MoleBoss:init(x, y)
     
     self.score = 500
 
-    self.sound_death = "sfx_enemy_kill_general_gore_{01-10}"
-    self.sound_stomp = "sfx_enemy_kill_general_gore_{01-10}"
+    self.sound_death = ""
+    self.sound_stomp = ""
+    self.sound_damage = "sfx_boss_rollossus_damage_{01-06}"
 
     self.is_immune_to_bullets = true
     self.destroy_bullet_on_impact = false
@@ -103,7 +104,7 @@ function MoleBoss:init(x, y)
                 local ptc_y = self.mid_y - self.up_vect.y * self.w/4
                 Particles:smoke(ptc_x, ptc_y, 40, {COL_WHITE, COL_LIGHTEST_GRAY, COL_LIGHT_GRAY}, --[[spw_rad]] self.w/2, --[[size]] 8, --[[sizevar]] 5)
                 
-                self:play_sound_var("sfx_boss_rollossus_dig_in")
+                self:play_sound_var("sfx_boss_rollossus_dig_in_{01-03}")
             end,
             update = function(state, dt)
                 if self.state_timer:get_time_passed() < 0.1 then
@@ -239,7 +240,7 @@ function MoleBoss:init(x, y)
                     vy_variation = math.abs(self.up_vect.y) * 50 + math.abs(side_y) * 20,
                 }
                 Particles:smoke(ptc_x, ptc_y, 40, {COL_WHITE, COL_LIGHTEST_GRAY, COL_LIGHT_GRAY}, --[[spw_rad]] self.w/2, --[[size]] 8, --[[sizevar]] 5, params)
-                self:play_sound("sfx_boss_rollossus_dig_out")
+                self:play_sound("sfx_boss_rollossus_dig_out_{01-04}")
 
                 self.spr:set_scale(0.5)
 

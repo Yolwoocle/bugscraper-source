@@ -288,16 +288,28 @@ local sfxnames = {
 	
 	-- Rollossus
 	["sfx_boss_rollossus_intro"] =                     {"sfx/enemy/rollossus/sfx_boss_rollossus_intro.ogg", "static"},
-	["sfx_boss_rollossus_dig_in"] =                    {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_in.ogg", "static"},
+	["sfx_boss_rollossus_dig_in_{01-03}"] =            {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_in_{}.ogg", "static"},
 	["sfx_boss_rollossus_digging_lp_{01-02}"] =        {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_digging_lp_{}.ogg", "static", {looping = true}},
 	["sfx_boss_rollossus_telegraph_dig_out_{01-04}"] = {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_telegraph_dig_out_{}.ogg", "static"},
-	["sfx_boss_rollossus_dig_out"] =                   {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_out.ogg", "static"},
+	["sfx_boss_rollossus_dig_out_{01-03}"] =           {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_out_{}.ogg", "static"},
 	["sfx_boss_rollossus_telegraph_jumping_{01-04}"] = {"sfx/enemy/rollossus/jumping/sfx_boss_rollossus_telegraph_jumping_{}.ogg", "static"},
 	["sfx_boss_rollossus_jumping_impact_{01-05}"] =    {"sfx/enemy/rollossus/jumping/sfx_boss_rollossus_jumping_impact_{}.ogg", "static"},
 	["sfx_boss_rollossus_telegraph_rolling_{01-03}"] = {"sfx/enemy/rollossus/rolling/sfx_boss_rollossus_telegraph_rolling_{}.ogg", "static"},
 	["sfx_boss_rollossus_rolling_lp"] =                {"sfx/enemy/rollossus/rolling/sfx_boss_rollossus_rolling_lp.ogg", "static", {looping = true}},
+	["sfx_boss_rollossus_damage_{01-06}"] =            {"sfx/enemy/rollossus/damage/sfx_boss_rollossus_damage_{}.ogg", "static"},
 	["sfx_boss_rollossus_death"] =                     {"sfx/enemy/rollossus/sfx_boss_rollossus_death.ogg", "static"},
 
+	-- W5 
+	["sfx_boss_ceo_intro"] =                           {"sfx/enemy/ceo/sfx_boss_ceo_intro.ogg", "static"},
+	["sfx_boss_ceo_fish_stomp_{01-06}"] =              {"sfx/enemy/ceo/fish/sfx_boss_ceo_fish_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_fish_starring_lp"] =                {"sfx/enemy/ceo/fish/sfx_boss_ceo_fish_starring_lp.ogg", "stream", {looping=true}},
+	["sfx_boss_ceo_telegraph_dash_{01-04}"] =          {"sfx/enemy/ceo/dash/sfx_boss_ceo_telegraph_dash_{}.ogg", "static"},
+	["sfx_boss_ceo_dash_{01-06}"] =                    {"sfx/enemy/ceo/dash/sfx_boss_ceo_dash_{}.ogg", "static"},
+	["sfx_boss_ceo_telegraph_stomp_{01-04}"] =         {"sfx/enemy/ceo/stomp/sfx_boss_ceo_telegraph_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_stomp_{01-04}"] =                   {"sfx/enemy/ceo/stomp/sfx_boss_ceo_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_telegraph_lob_{01-04}"] =           {"sfx/enemy/ceo/lob/sfx_boss_ceo_telegraph_lob_{}.ogg", "static"},
+	["sfx_boss_ceo_phase2"] =                          {"sfx/enemy/ceo/sfx_boss_ceo_phase2.ogg", "static"},
+	["sfx_boss_ceo_death"] =                           {"sfx/enemy/ceo/sfx_boss_ceo_death.ogg", "static"},
 
 	-- UPGRADES
 	["sfx_upgrades_apple_juice_pickedup"] = {"sfx/upgrades/sfx_upgrades_apple_juice_pickedup.ogg", "static"},

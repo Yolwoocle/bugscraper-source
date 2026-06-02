@@ -99,7 +99,7 @@ local function generate_menus()
         { image = images.boss_intro_mole_boss_layer9, z_mult = 1.5 },
     })
     
-    menus.w5_boss_intro = BossIntroMenu:new(game, { 38 / 255, 43 / 255, 68 / 255, 0.8 }, Text:text("enemy.boss_5"), "", {
+    menus.w5_boss_intro = BossIntroMenu:new(game, { 38 / 255, 43 / 255, 68 / 255, 0.8 }, Text:text("enemy.boss_5"), "sfx_boss_ceo_intro", {
         { image = images.boss_intro_ceo_layer0, z_mult = 0.75 },
         { image = images.boss_intro_ceo_layer1, z_mult = 1.0 },
         { image = images.boss_intro_ceo_layer2, z_mult = 0.85 },

@@ -44,6 +44,9 @@ function FinalBossMinion:init(x, y, params)
     self.star_rot = 0
     self.is_front = true
 
+    self.sound_death = ""
+    self.sound_stomp = ""
+
 	self.score = 10
 
     self.is_killed_on_negative_life = false
@@ -70,6 +73,10 @@ function FinalBossMinion:init(x, y, params)
         aim = {
             enter = function(state)
                 self.damage = 0
+
+                self:play_sound_var("sfx_boss_ceo_fish_stomp_{01-06}", 0.1, 1.1)
+
+	            self:set_constant_sound("star", "sfx_boss_ceo_fish_starring_lp", true)
             end,
             update = function(state, dt)
                 self.star_rot = self.star_rot + dt*8
