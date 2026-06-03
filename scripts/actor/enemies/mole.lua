@@ -30,7 +30,7 @@ function Mole:init(x, y)
             {images.mole_outside}, 0.1
         },
         rolling = {
-            {images.mole_boss_roll}, 0.1
+            {images.rollossus_roll}, 0.1
         },
     })
     self.spr:set_anchor(SPRITE_ANCHOR_CENTER_CENTER)

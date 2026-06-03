@@ -231,7 +231,7 @@ local waves_defs = {
     --     max = 1,
         
     --     enemies = {
-    --         { E.MoleBoss, 30, position = { CANVAS_WIDTH / 2 - 40, 15*16 - 80 } },
+    --         { E.Rollossus, 30, position = { CANVAS_WIDTH / 2 - 40, 15*16 - 80 } },
     --     },
 
     --     run = function(self, level)
@@ -240,7 +240,7 @@ local waves_defs = {
 
     --     background = backgrounds.BackgroundGreenhouse:new(),
 
-    --     cutscene = "mole_boss_enter",
+    --     cutscene = "rollossus_enter",
     --     music = "boss_w4",
     --     elevator = ElevatorW1,
     -- },
@@ -1359,7 +1359,7 @@ local waves_defs = {
         max = 1,
         
         enemies = {
-            { E.MoleBoss, 30 },
+            { E.Rollossus, 30, position={CANVAS_WIDTH / 2 - 40, 160} },
         },
 
         run = function(self, level)
@@ -1368,7 +1368,7 @@ local waves_defs = {
 
         background = backgrounds.BackgroundGreenhouse:new(),
 
-        cutscene = "mole_boss_enter",
+        cutscene = "rollossus_enter",
         music = "boss_w4",
     },
 

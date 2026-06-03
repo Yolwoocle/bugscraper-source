@@ -63,9 +63,9 @@ local enemies = {
 	ArumTitanMinion =    require "scripts.actor.enemies.arum_titan_minion", 
 	CentipedeBoss =      require "scripts.actor.enemies.centipede_boss", 
 	Mole =               require "scripts.actor.enemies.mole", 
-	MoleBoss =           require "scripts.actor.enemies.mole_boss", 
+	Rollossus =           require "scripts.actor.enemies.rollossus", 
+	RollossusMinion =     require "scripts.actor.enemies.rollossus_minion", 
 	MoleMinion =         require "scripts.actor.enemies.mole_minion", 
-	FlyingDungMole =     require "scripts.actor.enemies.flying_dung_mole", 
 
 	-- W5 	
 	FinalBoss =          require "scripts.actor.enemies.final_boss",

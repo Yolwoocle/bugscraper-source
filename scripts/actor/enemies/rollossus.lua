@@ -7,34 +7,34 @@ local StateMachine = require "scripts.state_machine"
 local Timer = require "scripts.timer"
 local WallWalker = require "scripts.actor.enemies.wall_walker"
 local AnimatedSprite = require "scripts.graphics.animated_sprite"
-local FlyingDungMole = require "scripts.actor.enemies.flying_dung_mole"
+local RollossusMinion = require "scripts.actor.enemies.rollossus_minion"
 
-local MoleBoss = WallWalker:inherit()
+local Rollossus = WallWalker:inherit()
 
-function MoleBoss:init(x, y) 
-    MoleBoss.super.init(self, x, y, images.mole_boss_digging_1, 80, 80)
-    self.name = "mole_boss"
+function Rollossus:init(x, y) 
+    Rollossus.super.init(self, x, y, images.rollossus_digging_1, 80, 80)
+    self.name = "rollossus"
     self.is_pushable = false
     self.is_boss = true
 
     self.spr = AnimatedSprite:new({
         digging = {
-            {images.mole_boss_digging_1}, 0.1
+            {images.rollossus_digging_1}, 0.1
         },
         telegraph = {
-            {images.mole_boss_telegraph_1}, 0.1
+            {images.rollossus_telegraph_1}, 0.1
         },
         telegraph_spiked = {
-            {images.mole_boss_telegraph_spiked}, 0.1
+            {images.rollossus_telegraph_spiked}, 0.1
         },
         flying = {
-            {images.mole_boss_outside}, 0.1
+            {images.rollossus_outside}, 0.1
         },
         rolling = {
-            {images.mole_boss_roll}, 0.1
+            {images.rollossus_roll}, 0.1
         },
         jump_telegraph = {
-            {images.mole_boss_eyes_closed}, 0.1
+            {images.rollossus_eyes_closed}, 0.1
         },
     }, "digging")
     self.spr:set_anchor(SPRITE_ANCHOR_CENTER_CENTER)
@@ -246,7 +246,7 @@ function MoleBoss:init(x, y)
 
                 -- Spawn obstacles
                 local a = atan2(self.up_vect.y, self.up_vect.x)
-                local flying_dung = create_actor_centered(FlyingDungMole, self.mid_x, self.mid_y, self, {
+                local flying_dung = create_actor_centered(RollossusMinion, self.mid_x, self.mid_y, self, {
                     start_angle = a - pi/4,
                 })
                 game:new_actor(flying_dung)
@@ -505,7 +505,7 @@ function MoleBoss:init(x, y)
                 })
                 Particles:pop_layer()
 
-                game.actor_manager:kill_actors_with_name("flying_dung_mole")
+                game.actor_manager:kill_actors_with_name("rollossus_minion")
                 self.spr:set_animation("flying")
 
                 self:play_sound("sfx_boss_rollossus_death")
@@ -571,10 +571,10 @@ function MoleBoss:init(x, y)
     }, "init")
 end
 
-function MoleBoss:ready()
+function Rollossus:ready()
 end
 
-function MoleBoss:update(dt)
+function Rollossus:update(dt)
     self.state_machine:update(dt)
     if self.reburrow_when_possible and self.can_burrow_back then
         self.state_machine:set_state("dig_linger")
@@ -591,7 +591,7 @@ function MoleBoss:update(dt)
         self.jump_flag = false
     end
 
-    MoleBoss.super.update(self, dt)
+    Rollossus.super.update(self, dt)
 
 
     -- self.debug_values[1] = self.is_stompable
@@ -602,21 +602,21 @@ function MoleBoss:update(dt)
 
 end
 
-function MoleBoss:on_collision(col, other)
-    MoleBoss.super.on_collision(self, col, other)
+function Rollossus:on_collision(col, other)
+    Rollossus.super.on_collision(self, col, other)
     self.state_machine:_call("on_collision", col, other)
 end
 
-function MoleBoss:after_collision(col, other)
-    MoleBoss.super.after_collision(self, col, other)
+function Rollossus:after_collision(col, other)
+    Rollossus.super.after_collision(self, col, other)
     self.state_machine:_call("after_collision", col, other)
 end
 
-function MoleBoss:draw()
-    MoleBoss.super.draw(self)
+function Rollossus:draw()
+    Rollossus.super.draw(self)
 end
 
-function MoleBoss:find_player_in_dig_phase()
+function Rollossus:find_player_in_dig_phase()
     if self.up_vect.x ~= 0 then
         return false
     end
@@ -629,8 +629,8 @@ function MoleBoss:find_player_in_dig_phase()
     return false
 end
 
-function MoleBoss:on_stomped(player)
-    MoleBoss.super.on_stomped(self, player)
+function Rollossus:on_stomped(player)
+    Rollossus.super.on_stomped(self, player)
     
     game:frameskip(10)
     game:screenshake(8) 
@@ -650,8 +650,8 @@ function MoleBoss:on_stomped(player)
     end
 end
 
-function MoleBoss:on_negative_life()
+function Rollossus:on_negative_life()
     self.state_machine:set_state("dying")
 end
 
-return MoleBoss
+return Rollossus

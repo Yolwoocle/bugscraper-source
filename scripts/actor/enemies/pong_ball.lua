@@ -25,6 +25,7 @@ function PongBall:init(x, y, spr, w, h, params)
     self:init_pong(params)
 
     self.sound_pong_bounce = "sfx_enemy_snail_bounce_{01-06}"
+    self.sound_pong_bounce_volume = 0.7
     
     self.spr:set_anchor(SPRITE_ANCHOR_CENTER_CENTER)
 end
@@ -65,7 +66,7 @@ function PongBall:after_collision_pong_ball(col, other)
     if col.type ~= "cross" then
         if self.is_ponging then
             local s = self.sound_pong_bounce
-            self:play_sound_var(s, 0.3, 1.1, {pitch=1.0, volume=0.7})
+            self:play_sound_var(s, 0.3, 1.1, {pitch=1.0, volume=self.sound_pong_bounce_volume})
             Particles:smoke(col.touch.x, col.touch.y)
 
             local dx, dy = bounce_vector_cardinal(math.cos(self.pong_direction), math.sin(self.pong_direction), col.normal.x, col.normal.y)

@@ -7,16 +7,17 @@ local Timer = require "scripts.timer"
 local PongBall = require "scripts.actor.enemies.pong_ball"
 local Loot = require "scripts.actor.loot"
 
-local FlyingDungMole = PongBall:inherit()
+local RollossusMinion = PongBall:inherit()
 
-function FlyingDungMole:init(x, y, spawner, params)
+function RollossusMinion:init(x, y, spawner, params)
     params = params or {}
     params = params.speed or 100 
-    FlyingDungMole.super.init(self, x, y, images.mole_minion, 20, 20)
-    self.name = "flying_dung_mole"
+    RollossusMinion.super.init(self, x, y, images.rollossus_minion, 20, 20)
+    self.name = "rollossus_minion"
     self.spawner = spawner
 
     self.life = 4
+    self.z = -1
 
     self.invul = true
     self.invul_timer = Timer:new(0.5)
@@ -30,17 +31,22 @@ function FlyingDungMole:init(x, y, spawner, params)
     self.is_stompable = false
     self.damage = 0
 
+    self.sound_pong_bounce = "sfx_boss_rollossus_minion_bump_{01-06}"
+    self.sound_pong_bounce_volume = 0.5
+
     self.score = 10
+
+    self.fury_stomp_multiplier = 3.0
 
     self.is_spiky = random_range(0, 1) <= 0.2
     if self.is_spiky then
-        self:set_image(images.mole_minion_spiked)
+        self:set_image(images.rollossus_minion_spiked)
     end
 
     Particles:smoke(self.mid_x, self.mid_y)
 end
 
-function FlyingDungMole:update(dt)
+function RollossusMinion:update(dt)
     self:update_pong_ball(dt)
 
     if self.invul_timer:update(dt) then
@@ -53,11 +59,11 @@ function FlyingDungMole:update(dt)
     end
 end
 
-function FlyingDungMole:draw()
+function RollossusMinion:draw()
     self:draw_pong_ball()
 end
 
-function FlyingDungMole:after_collision(col, other)
+function RollossusMinion:after_collision(col, other)
     self:after_collision_pong_ball(col, other)
 
     if col.type ~= "cross" then
@@ -67,7 +73,7 @@ function FlyingDungMole:after_collision(col, other)
     end
 end
 
-function FlyingDungMole:on_death()
+function RollossusMinion:on_death()
 end
 
-return FlyingDungMole
+return RollossusMinion

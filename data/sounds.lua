@@ -288,6 +288,7 @@ local sfxnames = {
 	
 	-- Rollossus
 	["sfx_boss_rollossus_intro"] =                     {"sfx/enemy/rollossus/sfx_boss_rollossus_intro.ogg", "static"},
+	["sfx_boss_rollossus_minion_bump_{01-06}"] =       {"sfx/enemy/rollossus/minion_bump/sfx_boss_rollossus_minion_bump_{}.ogg", "static"},
 	["sfx_boss_rollossus_dig_in_{01-03}"] =            {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_in_{}.ogg", "static"},
 	["sfx_boss_rollossus_digging_lp_{01-02}"] =        {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_digging_lp_{}.ogg", "static", {looping = true}},
 	["sfx_boss_rollossus_telegraph_dig_out_{01-04}"] = {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_telegraph_dig_out_{}.ogg", "static"},
