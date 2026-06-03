@@ -23,9 +23,9 @@ function BossDoor:init(x, y, params)
     self.change_break_state_particle_image = {images.wood_fragment_1, images.wood_fragment_2, images.wood_fragment_3}
     self.break_particle_image = {images.wood_fragment_1, images.wood_fragment_2, images.wood_fragment_3}
 
-    self.sound_fracture = {"glass_fracture"}
-    self.sound_break = {"glass_break"}
-    self.sounds_impact = "sfx_impactglass_light_{001-005}"
+    self.sound_fracture = {"sfx_cutscene_door_cracked"}
+    self.sound_break = {"sfx_cutscene_door_break"}
+    self.sounds_impact = "sfx_cutscene_door_impact_{01-04}"
 end
 
 function BossDoor:on_death()

@@ -89,7 +89,7 @@ return Cutscene:new("ceo_escape_w3", {
         end,
     }),
     CutsceneScene:new({
-        description = "",
+        description = "Clap",
 
         duration = (0.02 * 3),
         enter = function(cutscene, data)
@@ -97,11 +97,12 @@ return Cutscene:new("ceo_escape_w3", {
         end,
     }),
     CutsceneScene:new({
-        description = "",
+        description = "Clap linger",
 
         duration = 1.0,
         enter = function(cutscene, data)
             data.shake = 3.0
+            data.ceo:play_sound("sfx_w2_cutscene_clap")
 
             Particles:static_image(images.clap_effect, math.floor(data.ceo.x), math.floor(data.ceo.y - 32), 0, 0.3)
         end,
@@ -114,7 +115,7 @@ return Cutscene:new("ceo_escape_w3", {
         end
     }),
     CutsceneScene:new({
-        description = "",
+        description = "shake",
 
         duration = 1.0,
         enter = function(cutscene, data)
@@ -124,11 +125,12 @@ return Cutscene:new("ceo_escape_w3", {
         end,
     }),
     CutsceneScene:new({
-        description = "",
+        description = "Shake flash",
 
         duration = 1.0,
         enter = function(cutscene, data)
             data.t = 0
+            data.ceo:play_sound("sfx_cutscene_ceo_leaving_binary")
         end,
         update = function(cutscene, data, dt)
             data.ceo.spr:update_offset(random_neighbor(2), random_neighbor(2))
@@ -141,7 +143,7 @@ return Cutscene:new("ceo_escape_w3", {
         end
     }),
     CutsceneScene:new({
-        description = "",
+        description = "Levitate",
 
         duration = 1.0,
         enter = function(cutscene, data)

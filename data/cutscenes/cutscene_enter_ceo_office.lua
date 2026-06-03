@@ -164,6 +164,7 @@ return Cutscene:new("enter_ceo_office", {
 
         duration = 1.0,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_w2_cutscene_clap")
             Particles:static_image(images.clap_effect, math.floor(data.ceo.x), math.floor(data.ceo.y - 32), 0, 0.3)
 
             data.shake = 3.0
@@ -193,6 +194,7 @@ return Cutscene:new("enter_ceo_office", {
         enter = function(cutscene, data)
             data.btn_t = 0
             data.button.is_visible = true
+            data.button:play_sound("sfx_cutscene_button_coming_out")
             game:screenshake(4)
         end,
         update = function(cutscene, data, dt)
@@ -213,6 +215,8 @@ return Cutscene:new("enter_ceo_office", {
             data.ceo.friction_x = 1.0
             data.ceo.vx = -16
             data.ceo.vy = -400
+            
+            data.ceo:play_sound("sfx_cutscene_ceo_jumps_button")
         end,
         update = function(cutscene, data, dt)
         end,
@@ -221,7 +225,8 @@ return Cutscene:new("enter_ceo_office", {
             data.ceo.friction_x = 1.0
             data.ceo.vx = 0
             data.ceo.vy = 0
-
+            
+            data.ceo:play_sound("sfx_cutscene_door_impact_{01-04}")
             game:screenshake(4)
         end
     }),
@@ -231,13 +236,18 @@ return Cutscene:new("enter_ceo_office", {
         description = "Wait",
 
         duration = 0.7,
+        enter = function(cutscene, data)
+        end
     }),
-
+    
     CutsceneScene:new({
         description = "Shake button",
-
+        
         duration = 0.7,
-
+        
+        enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_glass_stress")
+        end,
         update = function(cutscene, data, dt)
             data.ceo.spr:update_offset(random_neighbor(1), random_neighbor(1))
             data.button.spr:update_offset(random_neighbor(1), random_neighbor(1))
@@ -272,7 +282,6 @@ return Cutscene:new("enter_ceo_office", {
         duration = 0.04,
 
         enter = function(cutscene, data)
-            Audio:play("sfx_actor_button_small_glass_break", nil, nil, {x=data.button.mid_x, y=data.button.mid_y})
             Particles:image(data.button.mid_x, data.button.mid_y, 60, images.glass_shard, 8, 400, 0.3)
             data.button.spr:set_animation("pressed")
             data.t = 0
@@ -283,7 +292,6 @@ return Cutscene:new("enter_ceo_office", {
             data.ceo.y = lerp(data.ceo_y_start, data.ceo_y_start + 8, data.t)
         end,
         exit = function(cutscene, data)
-            Audio:play("sfx_actor_button_small_pressed", nil, nil, {x=data.button.mid_x, y=data.button.mid_y})
             game:screenshake(5)
         end
     }),
@@ -299,6 +307,9 @@ return Cutscene:new("enter_ceo_office", {
 
         duration = 1.0,
 
+        enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_rumbling")
+        end,
         update = function(cutscene, data, dt)
             game:screenshake(1)
         end,
@@ -377,7 +388,10 @@ return Cutscene:new("enter_ceo_office", {
                 -- Effects
                 game:frameskip(25)
                 game:screenshake(15)
-
+                for _, player in pairs(game.players) do
+                    Audio:play("sfx_cutscene_punch_0" .. tostring(player.n))
+                end
+                
                 -- Star effect
                 Particles:push_layer(PARTICLE_LAYER_BACK)
                 for _, player in pairs(game.players) do
@@ -450,6 +464,8 @@ return Cutscene:new("enter_ceo_office", {
 
         duration = 5.0,
         enter = function(cutscene, data)
+            game.draw_shadows = false
+            
             game.level.backroom.background_state = "void"
             game.level.world_generator:reset()
 
@@ -521,6 +537,8 @@ return Cutscene:new("enter_ceo_office", {
             game.level:start_background_transition(data.bg_w4, -1)
             data.fake_counter = 80
             game.level.backroom.background_state = "bg"
+
+            Audio:play("sfx_cutscene_numbers")
         end,
         update = function(cutscene, data, dt)
             data.bg_w4.offset_y = 160
@@ -610,6 +628,7 @@ return Cutscene:new("enter_ceo_office", {
         duration = 3.0,
 
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_mio_impact_on_ground")
             data.spd = 0
 
             for ix = CANVAS_WIDTH/2 - 4*16, CANVAS_WIDTH/2 + 4*16, 16 do

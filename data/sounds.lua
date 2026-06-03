@@ -175,6 +175,21 @@ local sfxnames = {
 	["sfx_w2_cutscene_clap"] =            {"sfx/cutscene/sfx_w2_cutscene_clap.ogg", "static"},
 	["sfx_w2_cutscene_bees_beeingbees"] = {"sfx/cutscene/sfx_w2_cutscene_bees_beeingbees.ogg", "static"},
 	["sfx_w2_cutscene_roof_breaking"] =   {"sfx/cutscene/sfx_w2_cutscene_roof_breaking.ogg", "static"},
+	
+	-- W3 CEO escape cutscene
+	["sfx_cutscene_ceo_leaving_binary"] =   {"sfx/cutscene/sfx_cutscene_ceo_leaving_binary.ogg", "static"},
+	
+	-- W4 CEO office cutscene
+	["sfx_cutscene_door_impact_{01-04}"] =   {"sfx/cutscene/door/sfx_cutscene_door_impact_{}.ogg", "static"},
+	["sfx_cutscene_door_cracked"] =          {"sfx/cutscene/door/sfx_cutscene_door_cracked.ogg", "static"},
+	["sfx_cutscene_door_break"] =            {"sfx/cutscene/door/sfx_cutscene_door_break.ogg", "static"},
+	["sfx_cutscene_button_coming_out"] =     {"sfx/cutscene/sfx_cutscene_button_coming_out.ogg", "static"},
+	["sfx_cutscene_ceo_jumps_button"] =      {"sfx/cutscene/sfx_cutscene_ceo_jumps_button.ogg", "static"},
+	["sfx_cutscene_ceo_glass_stress"] =      {"sfx/cutscene/sfx_cutscene_ceo_glass_stress.ogg", "static"},
+	["sfx_cutscene_rumbling"] =              {"sfx/cutscene/sfx_cutscene_rumbling.ogg", "static"},
+	["sfx_cutscene_punch_{01-04}"] =         {"sfx/cutscene/punch/sfx_cutscene_punch_{}.ogg", "static"},
+	["sfx_cutscene_numbers"] =               {"sfx/cutscene/sfx_cutscene_numbers.ogg", "static"},
+	["sfx_cutscene_mio_impact_on_ground"] =  {"sfx/cutscene/sfx_cutscene_mio_impact_on_ground.ogg", "static"},
 
 	["sfx_cutscene_boss_claps"] =         {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
 
