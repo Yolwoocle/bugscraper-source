@@ -649,6 +649,7 @@ function Guns:init()
 		self.random_angle_offset = 0
 		self.is_auto = true
 		self.sfx = "sfx_weapon_bigberry_shoot_{01-04}"
+		self.sound_pickup = "sfx_cutscene_pickup_letter"
 		
 		self.cooldown = 0.5
 		self.jetpack_force = 1000

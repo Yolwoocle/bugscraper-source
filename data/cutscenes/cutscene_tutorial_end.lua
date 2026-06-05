@@ -16,6 +16,8 @@ return Cutscene:new("tutorial_end", {
             game.can_join_game = false 
             game.game_ui.logo_y_target = -70
             game.game_ui.cinematic_bars_enabled = true
+
+            Audio:play("placeholder_IntroCutscene")
         end,
     }),
     CutsceneScene:new({
@@ -44,17 +46,31 @@ return Cutscene:new("tutorial_end", {
     CutsceneScene:new({
         description = "Pan camera up",
 
-        duration = 6.0,
+        duration = 4.0,
         enter = function(cutscene, data)
             game.camera.follows_players = false
             game.camera.max_speed = DEFAULT_CAMERA_MAX_SPEED*2
             game.camera.min_y = -2000000    
-            game.camera.target_y = -2350
+            data.camera_start_y = game.camera.y
 
             for _, player in pairs(game.players) do
                 player:set_code_input_mode_target_x(nil)
                 player:reset_virtual_controller()
             end
+        end,
+
+        update = function(cutscene, data, dt)
+            local r = cutscene:get_current_scene_time_ratio()
+            local ty = easeinoutquart(data.camera_start_y, -2350, r)
+            ty = game.camera.y + min(ty - game.camera.y, 10*dt)
+            game.camera:set_position(game.camera.x, ty)
+        end
+    }),
+    CutsceneScene:new({
+        description = "Wait for a bit",
+
+        duration = 4.0,
+        enter = function(cutscene, data)
         end,
     }),
     CutsceneScene:new({
@@ -68,7 +84,7 @@ return Cutscene:new("tutorial_end", {
     }),
     CutsceneScene:new({
         description = "End dark fadeout",
-        duration = 0.1,
+        duration = 0.02,
 
         enter = function(cutscene, data)
             game.menu_manager:set_can_pause(true)

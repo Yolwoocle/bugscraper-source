@@ -649,6 +649,8 @@ function OpenedDoorParticle:init(img, x,y, params)
 
 	self.linger_time = param(params.linger_time, 1.0)
 	self.phase = "open"
+
+	Audio:play("sfx_cutscene_door_open", 1.0, 1.0, {x = self.x, y = self.y})
 end
 
 function OpenedDoorParticle:update(dt)
@@ -671,9 +673,15 @@ function OpenedDoorParticle:update(dt)
 			self.rot_3d_acc = 40
 			self.rot_3d_vel = 0 
 		end
-
+		
 	elseif self.phase == "close" then
+		if self.rot_3d >= pi/2 - 0.0001 then
+			Audio:play("sfx_cutscene_door_slam", 1.0, 1.0, {x = self.x, y = self.y})
+			self.phase = "disabled" 
+		end
 
+	elseif self.phase == "disabled" then
+		
 	end
 end
 

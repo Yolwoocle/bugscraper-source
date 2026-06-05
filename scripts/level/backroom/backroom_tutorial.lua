@@ -28,11 +28,7 @@ function BackroomTutorial:generate(world_generator)
 
 	-- Exit trigger
 	game:new_actor(enemies.PlayerTrigger:new(87*16, 9*16, 8*16, 5*16, function()
-		if Metaprogression:get("has_played_tutorial") then
-			game:play_cutscene("tutorial_end_short")
-		else
-			game:play_cutscene("tutorial_end")
-		end
+		game:play_cutscene("tutorial_end")
 		game.game_ui.offscreen_indicators_enabled = false
 
 		local ax, ay, bx, by = unpack(RECT_TUTORIAL_PARAMS)

@@ -86,4 +86,16 @@ function Cutscene:update(dt)
     end
 end
 
+function Cutscene:get_current_scene_elapsed_time()
+    return self.timer:get_time_passed()
+end
+
+function Cutscene:get_current_scene_time_ratio()
+    return self.timer:get_ratio()
+end
+
+function Cutscene:get_current_scene_duration()
+    return self.timer.duration
+end
+
 return Cutscene

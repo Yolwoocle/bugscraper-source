@@ -965,6 +965,7 @@ function random_weighted(li, rng)
 end
 
 function random_polar(rad)
+	rad = rad or 1.0
 	local rnd_ang = love.math.random() * pi2
 	local rnd_rad = love.math.random() * rad
 	local x = math.cos(rnd_ang) * rnd_rad

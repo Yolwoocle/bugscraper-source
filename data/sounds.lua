@@ -191,7 +191,19 @@ local sfxnames = {
 	["sfx_cutscene_numbers"] =               {"sfx/cutscene/sfx_cutscene_numbers.ogg", "static"},
 	["sfx_cutscene_mio_impact_on_ground"] =  {"sfx/cutscene/sfx_cutscene_mio_impact_on_ground.ogg", "static"},
 
-	["sfx_cutscene_boss_claps"] =         {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
+	-- Final CEO death cutscene
+	["sfx_cutscene_rocket_flying"] =            {"sfx/cutscene/sfx_cutscene_rocket_flying.ogg", "static"},
+	["sfx_cutscene_rocket_stops"] =             {"sfx/cutscene/sfx_cutscene_rocket_stops.ogg", "static"},
+	["sfx_cutscene_rocket_explode"] =           {"sfx/cutscene/sfx_cutscene_rocket_explode.ogg", "static"},
+	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"},
+	["sfx_cutscene_pickup_letter"] =            {"sfx/cutscene/sfx_cutscene_pickup_letter.ogg", "static"},
+	["sfx_cutscene_ceo_afraid_anger_{01-04}"] = {"sfx/cutscene/ceo_afraid_anger/sfx_cutscene_ceo_afraid_anger_{}.ogg", "static"},
+	["sfx_cutscene_ceo_boingboing"] =           {"sfx/cutscene/sfx_cutscene_ceo_boingboing.ogg", "static"},
+	["sfx_cutscene_mio_slaps_ceo"] =            {"sfx/cutscene/sfx_cutscene_mio_slaps_ceo.ogg", "static"},
+	["sfx_cutscene_door_slam"] =                {"sfx/cutscene/door/sfx_cutscene_door_slam.ogg", "static"},
+	["sfx_cutscene_door_open"] =                {"sfx/cutscene/door/sfx_cutscene_door_open.ogg", "static"},
+
+	["sfx_cutscene_boss_claps"] =            {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
 
 	-- W2	
 	-- Timed spikes
@@ -373,6 +385,7 @@ local sfxnames = {
 	["sfx_bullet_bounce_{01-02}"] = {"placeholder/sfx_bullet_bounce_{}.ogg", "static"},
 	["chipper_telegraph"] = {"placeholder/chipper_telegraph.ogg", "static"},
 	["sfx_enemy_death"] = {"placeholder/sfx_enemy_death.ogg", "static"},
+	["placeholder_IntroCutscene"] = {"placeholder/placeholder_IntroCutscene.mp3", "static"},
 
 	-- CUTSCENE
 	["sfx_cutscene_rocket"] = {"sfx/cutscene/sfx_cutscene_rocket.ogg", "stream"},

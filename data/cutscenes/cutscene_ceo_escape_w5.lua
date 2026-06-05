@@ -76,7 +76,8 @@ return Cutscene:new("ceo_escape_w5", {
                 player:set_input_mode(PLAYER_INPUT_MODE_CODE)
                 player:reset_virtual_controller()
                 if player ~= data.resigning_player then
-                    player:set_code_input_mode_target_x(data.init_ceo_x - 64 - n * 16)
+                    player:set_code_input_mode_target_x(data.init_ceo_x - 80 - n * 16)
+                    n = n + 1
                 end
             end
         end,
@@ -90,6 +91,7 @@ return Cutscene:new("ceo_escape_w5", {
             data.ceo.draw_faint_halo = false
             
             data.shake = 3.0
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_01")
 
             Particles:static_image(images.surprise_effect, data.ceo.x - 16, data.ceo.y - 30, 0, 0.3)
         end,
@@ -115,6 +117,8 @@ return Cutscene:new("ceo_escape_w5", {
             data.ceo.spr:set_animation("sitting")
             data.shake = 3.0
 			Particles:sweat(data.ceo.x - 15, data.ceo.y - 30, true)
+
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_02")
         end,
         update = function(cutscene, data, dt)
             data.ceo.spr:update_offset(random_neighbor(data.shake), 0)
@@ -130,6 +134,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.spr:set_animation("shocked")
             data.ceo.vy = -200
             dust_particles(data)
@@ -140,6 +145,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -149,6 +155,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -167,6 +174,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 1.0,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -186,6 +194,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -196,6 +205,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -234,6 +244,8 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.3,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_mio_slaps_ceo")
+
             Particles:push_layer(PARTICLE_LAYER_BACK)
             Particles:static_image(
                 images.star_big, 

@@ -216,114 +216,87 @@ local thorns_arc_params = {
 }
 
 local waves_defs = {
-    -- {
-    --     min = 1,
-    --     max = 1,
-    --     enemies = {
-    --         { E.FinalBoss, 1, entrances = { "main" } },
-    --     },
 
-    --     elevator = ElevatorW1,
-    -- },
-    
-    -- {
-    --     min = 1,
-    --     max = 1,
-        
-    --     enemies = {
-    --         { E.Rollossus, 30, position = { CANVAS_WIDTH / 2 - 40, 15*16 - 80 } },
-    --     },
-
-    --     run = function(self, level)
-    --         game.actor_manager:remove_actors_with_name("progressing_arc")
-    --     end,
-
-    --     background = backgrounds.BackgroundGreenhouse:new(),
-
-    --     cutscene = "rollossus_enter",
-    --     music = "boss_w4",
-    --     elevator = ElevatorW1,
-    -- },
-
-    
-    -- {
-    --     roll_type = WAVE_ROLL_TYPE_FIXED,
-
-    --     min = 1,
-    --     max = 1,
-    --     enemies = {
-    --         { E.FinalBoss, 1, position = { 12.5 * 16, 10 * 16 + 8 }, args = {{init_state = "introduction"}} }
-    --     },
-
-    --     elevator = ElevatorW0,
-    --     music = "boss_w5",
-
-    --     counter_display_func = function(_)
-    --         -- Pseudo random looking floor counter
-    --         local frame = math.floor(game.in_game_frame / 5)
-    --         local nb = (32849 * frame) % 999
-    --         return math.floor(clamp(nb, 100, 999))
-    --     end,
-
-    --     run = function(self, level)
-    --         for _, actor in pairs(game.actors) do
-    --             if actor.name == "final_boss" then
-    --                 actor.state_machine:set_state("start")
-    --             end
-    --         end
-
-    --         level.freeze_fury_override = false
-    --     end
-    -- },
-
-    {
-        min = 0,
-        max = 0,
-        enemies = {
-            { E.Larva, 3, entrances = { "main" } },
-        },
-        music = "w1",
-        fade_out_music = false,
-        ambience = "w1",
-
-        over_title = get_world_prefix(1),
-        title = get_world_name(1),
-        over_title_color = COL_LIGHT_GRAY,
-        title_color = {COL_LIGHTEST_GRAY, COL_WHITE, COL_MID_GRAY, COL_MID_GRAY, stacked=true},
-        title_outline_color = COL_BLACK_BLUE,
-
-        elevator = ElevatorW1,
-    },
-
-    
-    -- CEO's office
-    {
-        floor_type = FLOOR_TYPE_CAFETERIA,
+    { -- FINAL BOSS
         roll_type = WAVE_ROLL_TYPE_FIXED,
-        music = "off",
-        ambience = "off",
-        
-        run = function(self, level)
-            for _, actor in pairs(game.actors) do
-                if actor.name == "poison_cloud" then
-                    actor.lifespan = 1
-                end
-                if actor.name == "floor_hole_spawner" or actor.name == "pendulum" then
-                    actor:remove()
-                end   
-            end
-            game.actor_manager:remove_actors_with_name("progressing_arc")
-        end, 
 
         min = 1,
         max = 1,
-        enemies = {},
+        enemies = {
+            { E.FinalBoss, 1, 
+                position = { 12.5 * 16, 10 * 16 + 8 }, 
+                life = 1,
+                args = {{init_state = "introduction"}} }
+        },
 
-        bounds = RECT_CEO_OFFICE,
-        backroom = BackroomCEOOffice,
+        -- cutscene = "final_boss_enter",
 
-        achievements = {"ach_complete_w4"},
+        counter_display_func = function(_)
+            -- Pseudo random looking floor counter
+            local frame = math.floor(game.in_game_frame / 5)
+            local nb = (32849 * frame) % 999
+            return math.floor(clamp(nb, 100, 999))
+        end,
+
+        run = function(self, level)
+            for _, actor in pairs(game.actors) do
+                if actor.name == "final_boss" then
+                    actor.state_machine:set_state("start")
+                end
+            end
+
+            level.freeze_fury_override = false
+        end
     },
+
+    -- {
+    --     min = 0,
+    --     max = 0,
+    --     enemies = {
+    --         { E.Larva, 3, entrances = { "main" } },
+    --     },
+    --     music = "w1",
+    --     fade_out_music = false,
+    --     ambience = "w1",
+
+    --     over_title = get_world_prefix(1),
+    --     title = get_world_name(1),
+    --     over_title_color = COL_LIGHT_GRAY,
+    --     title_color = {COL_LIGHTEST_GRAY, COL_WHITE, COL_MID_GRAY, COL_MID_GRAY, stacked=true},
+    --     title_outline_color = COL_BLACK_BLUE,
+
+    --     elevator = ElevatorW1,
+    -- },
+
+    
+    -- -- CEO's office
+    -- {
+    --     floor_type = FLOOR_TYPE_CAFETERIA,
+    --     roll_type = WAVE_ROLL_TYPE_FIXED,
+    --     music = "off",
+    --     ambience = "off",
+        
+    --     run = function(self, level)
+    --         for _, actor in pairs(game.actors) do
+    --             if actor.name == "poison_cloud" then
+    --                 actor.lifespan = 1
+    --             end
+    --             if actor.name == "floor_hole_spawner" or actor.name == "pendulum" then
+    --                 actor:remove()
+    --             end   
+    --         end
+    --         game.actor_manager:remove_actors_with_name("progressing_arc")
+    --     end, 
+
+    --     min = 1,
+    --     max = 1,
+    --     enemies = {},
+
+    --     bounds = RECT_CEO_OFFICE,
+    --     backroom = BackroomCEOOffice,
+
+    --     achievements = {"ach_complete_w4"},
+    -- },
     
     --- --- --- --- --- --- --- --- --- --- --- ---
 
