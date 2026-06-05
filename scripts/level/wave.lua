@@ -85,6 +85,7 @@ function Wave:get_parsed_enemy_table(enemy_table)
 		enemy_class = enemy_table[1],
 		args = enemy_table.args or {},
 		position = enemy_table.position,
+		life = enemy_table.life,
 		entrances = enemy_table.entrances or {"main"},
 		ignore_position_clamp = enemy_table.ignore_position_clamp,
 	}
@@ -165,6 +166,8 @@ function Wave:spawn_roll(elevator, roll, spawned_enemies)
 		local enemy_class = enemy_classes[i].enemy_class
 		local args = enemy_classes[i].args
 		local position = enemy_classes[i].position or {x, y}
+
+		local life = enemy_classes[i].life
 		
 		local enemy_instance = enemy_class:new(position[1], position[2], unpack(args))
 
@@ -181,6 +184,10 @@ function Wave:spawn_roll(elevator, roll, spawned_enemies)
 
 		if not (enemy_classes[i].position or enemy_classes[i].ignore_position_clamp) then
 			clamp_actor(enemy_instance)
+		end
+
+		if life then
+			enemy_instance.life = life
 		end
 
 		game:new_actor(enemy_instance)
