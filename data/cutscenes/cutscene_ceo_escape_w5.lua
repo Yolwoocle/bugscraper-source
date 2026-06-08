@@ -174,6 +174,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 1.0,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_03")
             data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vx = 200
             data.ceo.vy = -200
@@ -194,6 +195,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_04")
             data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vx = 200
             data.ceo.vy = -200
@@ -224,7 +226,7 @@ return Cutscene:new("ceo_escape_w5", {
     CutsceneScene:new({
         description = "Big ass slap in the face (jump)",
 
-        duration = 0.35,
+        duration = 0.37,
         enter = function(cutscene, data)
             data.resigning_player.virtual_controller.actions["jump"] = true
             data.frames = 0
@@ -245,6 +247,8 @@ return Cutscene:new("ceo_escape_w5", {
         duration = 0.3,
         enter = function(cutscene, data)
             data.ceo:play_sound("sfx_cutscene_mio_slaps_ceo")
+            game:frameskip(20)
+            game:screenshake(5)
 
             Particles:push_layer(PARTICLE_LAYER_BACK)
             Particles:static_image(
@@ -386,6 +390,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -395,6 +400,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -405,6 +411,8 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.8,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_endingscreen")
+
             local x = data.ceo.x - game.camera.x
             local y = data.ceo.y - game.camera.y - 16
             game.game_ui:start_iris_transition(x, y, 0.8, CANVAS_WIDTH, 50)
@@ -417,6 +425,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -426,6 +435,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -435,6 +445,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_boingboing")
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -444,7 +455,9 @@ return Cutscene:new("ceo_escape_w5", {
         description = "Iris end",
 
         duration = 1.0,
-        enter = function(cutscene, data)
+        enter = function(cutscene, data)            
+            Audio:play("sfx_cutscene_endingscreen")
+
             local x = data.ceo.x - game.camera.x
             local y = data.ceo.y - game.camera.y - 16
             game.game_ui:start_iris_transition(x, y, 0.5, 50, 0)

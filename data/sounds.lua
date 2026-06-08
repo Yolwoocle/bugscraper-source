@@ -165,6 +165,9 @@ local sfxnames = {
 	["sfx_boss_mrdung_jump_telegraph_{01-04}"] = {"sfx/enemy/mrdung/jump_telegraph/sfx_boss_mrdung_jump_telegraph_{}.ogg", "static"},
 	["sfx_boss_mrdung_jump_moment_{01-06}"] = {"sfx/enemy/mrdung/jump_moment/sfx_boss_mrdung_jump_moment_{}.ogg", "static"},
 	
+	-- CUTSCENE
+	["sfx_cutscene_rocket"] =             {"sfx/cutscene/sfx_cutscene_rocket.ogg", "stream"},
+
 	-- W1 CEO escape cutscene
 	["sfx_w1_cutscene_surprise"] =        {"sfx/cutscene/sfx_w1_cutscene_surprise.ogg", "static"},
 	["sfx_w1_cutscene_glass_break"] =     {"sfx/cutscene/sfx_w1_cutscene_glass_break.ogg", "static"},
@@ -191,11 +194,13 @@ local sfxnames = {
 	["sfx_cutscene_numbers"] =               {"sfx/cutscene/sfx_cutscene_numbers.ogg", "static"},
 	["sfx_cutscene_mio_impact_on_ground"] =  {"sfx/cutscene/sfx_cutscene_mio_impact_on_ground.ogg", "static"},
 
-	-- Final CEO death cutscene
+	-- CEO boss fight death cutscene
 	["sfx_cutscene_rocket_flying"] =            {"sfx/cutscene/sfx_cutscene_rocket_flying.ogg", "static"},
 	["sfx_cutscene_rocket_stops"] =             {"sfx/cutscene/sfx_cutscene_rocket_stops.ogg", "static"},
 	["sfx_cutscene_rocket_explode"] =           {"sfx/cutscene/sfx_cutscene_rocket_explode.ogg", "static"},
 	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"},
+	
+	-- Final "W5 escape" CEO cutscene
 	["sfx_cutscene_pickup_letter"] =            {"sfx/cutscene/sfx_cutscene_pickup_letter.ogg", "static"},
 	["sfx_cutscene_ceo_afraid_anger_{01-04}"] = {"sfx/cutscene/ceo_afraid_anger/sfx_cutscene_ceo_afraid_anger_{}.ogg", "static"},
 	["sfx_cutscene_ceo_boingboing"] =           {"sfx/cutscene/sfx_cutscene_ceo_boingboing.ogg", "static"},
@@ -203,7 +208,9 @@ local sfxnames = {
 	["sfx_cutscene_door_slam"] =                {"sfx/cutscene/door/sfx_cutscene_door_slam.ogg", "static"},
 	["sfx_cutscene_door_open"] =                {"sfx/cutscene/door/sfx_cutscene_door_open.ogg", "static"},
 
-	["sfx_cutscene_boss_claps"] =            {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
+	["sfx_cutscene_boss_claps"] =               {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
+	["sfx_cutscene_endingscreen"] =             {"sfx/cutscene/sfx_cutscene_endingscreen.ogg", "static"},
+	["sfx_cutscene_openingscreen"] =            {"sfx/cutscene/sfx_cutscene_openingscreen.ogg", "static"},
 
 	-- W2	
 	-- Timed spikes
@@ -370,7 +377,7 @@ local sfxnames = {
 	-- Achievements
 	["sfx_ui_achievement"] = {"sfx/ui/sfx_ui_achievement.ogg", "static"},
 	["sfx_ui_unlock"] = {"sfx/ui/sfx_ui_unlock.ogg", "static"},
-	["sfx_ui_xpbar_{01-03}"] = {"sfx/ui/sfx_ui_xpbar_tick_{}.ogg", "static"},
+	["sfx_ui_xpbar_tick"] = {"sfx/ui/sfx_ui_xpbar_tick.ogg", "static"},
 
 	-- LEVEL
 	["sfx_door_open"] = {"sfx/level/door/sfx_door_open.ogg", "static"},
@@ -387,9 +394,6 @@ local sfxnames = {
 	["sfx_enemy_death"] = {"placeholder/sfx_enemy_death.ogg", "static"},
 	["placeholder_IntroCutscene"] = {"placeholder/placeholder_IntroCutscene.mp3", "static"},
 
-	-- CUTSCENE
-	["sfx_cutscene_rocket"] = {"sfx/cutscene/sfx_cutscene_rocket.ogg", "stream"},
-	
 	-- Ambience
 	["amb_pad_cafeteria_lp"] = {"sfx/ambience/amb_pad_cafeteria_lp.ogg", "stream", {looping = true}},
 	["amb_pad_lobby_lp"] = {"sfx/ambience/amb_pad_lobby_lp.ogg", "stream", {looping = true}},
