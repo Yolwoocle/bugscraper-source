@@ -39,9 +39,9 @@ local img_names = {
 
 	-----------------------------------------------------
 
-	-- players
-	leo =              "actors/players/leo",
+	gamelogo =         "gamelogo",
 
+	-- players
 	mio_idle =         "actors/players/mio_idle",
 	mio_walk_down =    "actors/players/mio_walk_down",
 	mio_airborne =     "actors/players/mio_airborne",
@@ -100,6 +100,7 @@ local img_names = {
 	nob_wall_slide =    "actors/players/nob_wall_slide",
 	nob_dead =          "actors/players/nob_dead",
 
+	leo =              "actors/players/leo",
 	duck =             "actors/players/duck",
 
 	-- NPCs

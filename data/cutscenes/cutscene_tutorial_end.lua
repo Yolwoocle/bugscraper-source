@@ -17,7 +17,7 @@ return Cutscene:new("tutorial_end", {
             game.game_ui.logo_y_target = -70
             game.game_ui.cinematic_bars_enabled = true
 
-            Audio:play("placeholder_IntroCutscene")
+            Audio:play("music_cutscene_tutorial_end")
         end,
     }),
     CutsceneScene:new({

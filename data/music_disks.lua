@@ -71,4 +71,8 @@ return {
         [MUSIC_MODE_INGAME] = sounds.music_cafeteria_empty_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_cafeteria_paused.source,
     }),
+    ["credits"] = disk_class:new({
+        [MUSIC_MODE_INGAME] = sounds.music_credits.source,
+        [MUSIC_MODE_PAUSE] = sounds.music_credits.source,
+    }, { loop_start = 13.708, loop_end = 60+54.857 }),
 }

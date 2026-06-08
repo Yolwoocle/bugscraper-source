@@ -4,49 +4,23 @@ local CutsceneScene = require "scripts.game.cutscene_scene"
 return Cutscene:new("credits", {
     -- [[
     CutsceneScene:new({
-        description = "Start", 
+        description = "Linger on logo",
 
-        duration = 0,
+        duration = 4.0,
         enter = function(cutscene, data)
-            game.game_ui:start_iris_transition(0, 0, 0, 0, 0)
-
-            game.game_ui.show_timer = false
+            game.level.backroom.draw_logo = true
         end,
     }),
+
     CutsceneScene:new({
-        description = "Iris",
+        description = "",
 
-        duration = 1.0,
+        duration = 0.5,
         enter = function(cutscene, data)
-            game.game_ui:start_iris_transition(380, 188, 0.5, 0, 64)
+            game.level.backroom.draw_logo = false
         end,
     }),
-    CutsceneScene:new({
-        description = "Wait",
 
-        duration = 1.0,
-        enter = function(cutscene, data)
-        end,
-    }),
-    CutsceneScene:new({
-        description = "Iris",
-
-        duration = 1.0,
-        enter = function(cutscene, data)
-            game.game_ui:start_iris_transition(380, 188, 1.0, 64, CANVAS_WIDTH)
-        end,
-        exit = function(cutscene, data)
-            game.game_ui:set_iris(false)
-        end
-    }),
-    CutsceneScene:new({
-        description = "Wait",
-
-        duration = 1.0,
-        enter = function(cutscene, data)
-        end,
-    }),
-    
     CutsceneScene:new({
         description = "",
 
@@ -102,12 +76,31 @@ return Cutscene:new("credits", {
         duration = 8.0,
         enter = function(cutscene, data)
             game.game_ui:start_title({
+                "< {language.pl} >",
                 "Jakub Piłasiewicz",
+                "",
+                "< {language.pt_BR} >" ,
                 "Nicole Sanches (rhysuki)",
-                "itzKiwiSky",
-                "Alejandro Alzate Sánchez",
+                "kiwisky",
+                "parinamais",
+            }, "", "{menu.credits.localization}", 0.5, 7.0, 0.5)
+        end,
+    }),
+
+    CutsceneScene:new({
+        description = "",
+
+        duration = 8.0,
+        enter = function(cutscene, data)
+            game.game_ui:start_title({
+                "< {language.es} >",
+                "Alejandro Alzate Sánchez", 
+                "",
+                "< {language.ja} >" ,
                 "Sora",
-                "Polyglot Project"
+                "Clément Macheret",
+                "",
+                "Polyglot Project",
             }, "", "{menu.credits.localization}", 0.5, 7.0, 0.5)
         end,
     }),
@@ -123,38 +116,6 @@ return Cutscene:new("credits", {
             }, "", "{menu.credits.trailer}", 0.5, 7.0, 0.5)
         end,
     }),
-
-    CutsceneScene:new({
-        description = "",
-
-        duration = 8.0,
-        enter = function(cutscene, data)
-            game.game_ui:start_title({
-                "AnnaWorldEater",
-                "Azuras03 (NicolasYT)",
-                "Binary Sunrise",
-                "Corentin Vaillant",
-                "Guillaume Tran",
-                "hades140701",
-            }, "", "{menu.credits.playtesting}", 0.5, 7.0, 0.5)
-        end,
-    }),
-    CutsceneScene:new({
-        description = "",
-
-        duration = 8.0,
-        enter = function(cutscene, data)
-            game.game_ui:start_title({
-                "Lars Loe (MadByte)",
-                "Lucas Froehlinger 😎",
-                "NerdOfGamers + partner",
-                "Sylvain Fraresso",
-                "Tom Le Ber",
-                "{menu.credits.more}",
-            }, "", "{menu.credits.playtesting}", 0.5, 7.0, 0.5)
-        end,
-    }),
-    --]]
 
     CutsceneScene:new({
         description = "",
@@ -237,13 +198,16 @@ return Cutscene:new("credits", {
     CutsceneScene:new({
         description = "",
 
-        duration = 8.0,
+        duration = 8.0,  
+        
         enter = function(cutscene, data)
             game.game_ui:start_title({
                 "Alexis Belmonte",
+                "Azuras03 (NicolasYT)",
                 "AuramoBalzoni",
                 "Axel 'Vlad' Born",
                 "Bettina Delaveaud",
+                "Binary Sunrise",
                 "Corentin Vaillant",
                 "Fabien Delpiano",
                 "Fantine Delpiano-Manfrini",
@@ -260,10 +224,12 @@ return Cutscene:new("credits", {
         enter = function(cutscene, data)
             game.game_ui:start_title({
                 "Guillaume Tran",
+                "hades140701",
                 "Herweins",
                 "Indie Game Lyon",
                 "Jan Willem Nijman",
                 "Kaïs",
+                "Lars Loe (MadByte)",
                 "Léo Lanteri Thauvin",
                 "LinkyLorelei",
                 "Louie Chapman",
@@ -279,10 +245,12 @@ return Cutscene:new("credits", {
         enter = function(cutscene, data)
             game.game_ui:start_title({
                 "LÖVE Discord members",
+                "Lucas Froehlinger 😎",
                 "Maman & Papa ❤",      
                 "MatthJ4",
                 "Médiathèque José Cabanis",
                 "Noba",
+                "NerdOfGamers + partner",
                 "Nolan Carlisi (arkanyota)",
                 "oat_addict",
                 "Play Sorbonne Université",
@@ -298,10 +266,14 @@ return Cutscene:new("credits", {
             game.game_ui:start_title({
                 "Raphytator",
                 "Solluco",
+                "Sylvain Fraresso",
                 "Tahina Dombrowski",
                 "Théodore Billotte",
                 "Thomas Saurel",
+                "Tom Le Ber",
                 "Toulouse Game Dev",
+                "",
+                "{menu.credits.more}",
             }, "", "{menu.credits.special_thanks}", 0.5, 7.0, 0.5)
         end,
     }),
@@ -331,7 +303,9 @@ return Cutscene:new("credits", {
         
         duration = 1.0,
         enter = function(cutscene, data)
-            game.game_ui:start_iris_transition(380, 188, 0.5, CANVAS_WIDTH, 64)
+            Audio:play("sfx_cutscene_endingscreen")
+            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, CANVAS_WIDTH, 64)
+            game.music_player:fade_out("off", 3.0)
         end,
     }),
     CutsceneScene:new({
@@ -344,18 +318,21 @@ return Cutscene:new("credits", {
         
         duration = 1.0,
         enter = function(cutscene, data)
-            game.game_ui:start_iris_transition(380, 188, 0.5, 64, 0)
+            Audio:play("sfx_cutscene_endingscreen")
+            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, 64, 0)
         end,
+    }),
+    CutsceneScene:new({
+        description = "",
+        
+        duration = 1.0,
     }),
     CutsceneScene:new({
         description = "",
         
         duration = 0.0,
         enter = function(cutscene, data)
-            game:new_game({
-                dark_overlay_alpha = 1.0,
-                dark_overlay_alpha_target = 0.0,
-            })
+        	game.menu_manager:set_menu("win")
         end,
     }),
 })

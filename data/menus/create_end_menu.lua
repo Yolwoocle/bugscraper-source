@@ -155,10 +155,7 @@ local function create_items(item_order)
             function(item)
                     -- scotch
                     if game.has_finished_game_over_animation then
-                        game:new_game({ 
-                            backroom = BackroomCredits:new(),
-                            iris_params = {0, 0, 0, 0, 0}
-                        })
+                        game:new_game()
                     end
                 end,
                 function(item)

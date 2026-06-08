@@ -35,6 +35,8 @@ local sfxnames = {
 	["music_cafeteria_ingame"] =            { "music/music_cafeteria_ingame.ogg", "stream", { looping = true } },
 	["music_cafeteria_paused"] =            { "music/music_cafeteria_paused.ogg", "stream", { looping = true } },
 	["music_cafeteria_empty_ingame"] =      { "music/music_cafeteria_empty_ingame.ogg", "stream", { looping = true } },
+	["music_credits"] =                     { "music/music_credits.ogg", "stream", { looping = true } },
+	["music_cutscene_tutorial_end"] =       {"music/music_cutscene_tutorial_end.mp3", "stream"},
 
 	["music_boss_w1_ingame"] =              { "music/music_boss_w1_ingame.ogg", "stream", { looping = true } },
 	["music_boss_w1_paused"] =              { "music/music_boss_w1_paused.ogg", "stream", { looping = true } },
@@ -392,7 +394,6 @@ local sfxnames = {
 	["sfx_bullet_bounce_{01-02}"] = {"placeholder/sfx_bullet_bounce_{}.ogg", "static"},
 	["chipper_telegraph"] = {"placeholder/chipper_telegraph.ogg", "static"},
 	["sfx_enemy_death"] = {"placeholder/sfx_enemy_death.ogg", "static"},
-	["placeholder_IntroCutscene"] = {"placeholder/placeholder_IntroCutscene.mp3", "static"},
 
 	-- Ambience
 	["amb_pad_cafeteria_lp"] = {"sfx/ambience/amb_pad_cafeteria_lp.ogg", "stream", {looping = true}},

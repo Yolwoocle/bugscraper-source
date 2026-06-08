@@ -13,7 +13,9 @@ local BackroomEnding = BackroomCityOutside:inherit()
 function BackroomEnding:init(params)
 	params = params or {}
     BackroomEnding.super.init(self, params)
-	self.name = "credits"
+	self.name = "ending"
+
+	self.draw_logo = true
 end
 
 function BackroomEnding:generate(world_generator)
@@ -91,7 +93,7 @@ function BackroomEnding:generate(world_generator)
 		end
 	}), 440, 105)
 	
-	-- Start cutscene
+	
 end
 
 function BackroomEnding:get_default_player_position(player_n)
@@ -122,6 +124,10 @@ end
 
 function BackroomEnding:draw_background()
 	BackroomEnding.super.draw_background(self)
+
+	if self.draw_logo then
+		draw_centered(images.gamelogo, CANVAS_CENTER[1], -400 + CANVAS_CENTER[2])
+	end
 end
 
 -- function BackroomEnding:draw_front_walls()
