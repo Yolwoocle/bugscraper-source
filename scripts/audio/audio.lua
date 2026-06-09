@@ -22,12 +22,18 @@ function AudioManager:init()
 		spread = 0.7 , -- [-1, 1] 
 	})
 	self.current_effect = nil
+
+	self.disable_playing = false
 end
 
 function AudioManager:update(dt)
 end
 
 function AudioManager:play(snd, volume, pitch, params)
+	if self.disable_playing then
+		return
+	end
+
 	params = params or {}
 	local layer = params.layer or "sfx"
 	

@@ -44,4 +44,8 @@ return {
     ["bee_boss_crowd_cheer"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.sfx_boss_majesty_crowd_cheer.source,
     }, { volume = 1.0 }),
+
+    ["basement_rocket_rumble"] = disk_class:new({
+        [MUSIC_MODE_INGAME] = sounds.sfx_cutscene_rocket_rumble_lp.source,
+    }, { volume = 1.0 }),
 }

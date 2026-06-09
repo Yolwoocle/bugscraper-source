@@ -62,11 +62,13 @@ end
 function Cutscene:update(dt)
     if self.is_playing then
         if game.skip_cutscene_flag then
+            Audio.disable_playing = true
             for i = self.current_scene_i+1, #self.scenes do
                 self:set_current_scene(i)
             end
             self:stop()
             game.skip_cutscene_flag = false
+            Audio.disable_playing = false
             return
         end
         

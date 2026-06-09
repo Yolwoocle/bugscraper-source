@@ -21,6 +21,7 @@ return Cutscene:new("basement_zoom_into_rocket", {
         description = "",
         duration = 3.0,
         enter = function(cutscene, data)
+            game.ambience_player:set_disk("basement_rocket_rumble")
         end,
         update = function(cutscene, data, dt)
             game:screenshake(1)
@@ -30,6 +31,7 @@ return Cutscene:new("basement_zoom_into_rocket", {
         description = "",
         duration = 1.0,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_voice_countdown")
             game.game_ui.ending_counter_text = "3"
         end,
         update = function(cutscene, data, dt)
@@ -74,6 +76,8 @@ return Cutscene:new("basement_zoom_into_rocket", {
 
             data.rocket_vy = 0.0
             data.rocket_ay = -20.0
+
+            Audio:play("sfx_cutscene_rocket_takeoff")
         end,
         update = function(cutscene, data, dt)
             data.new_rocket_ptc = function()
@@ -100,6 +104,8 @@ return Cutscene:new("basement_zoom_into_rocket", {
         description = "",
         duration = 1.0,
         enter = function(cutscene, data)
+            game.ambience_player:fade_out("off", 1.0)
+
             game.game_ui.ending_counter_text = nil
 
         	local cx, cy = math.floor(game.camera:get_real_position())

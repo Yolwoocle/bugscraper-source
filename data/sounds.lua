@@ -201,7 +201,14 @@ local sfxnames = {
 	["sfx_cutscene_rocket_stops"] =             {"sfx/cutscene/sfx_cutscene_rocket_stops.ogg", "static"},
 	["sfx_cutscene_rocket_explode"] =           {"sfx/cutscene/sfx_cutscene_rocket_explode.ogg", "static"},
 	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"},
-	
+
+	-- Falling to rocket
+	["sfx_cutscene_mio_falling_to_rocket"] =    {"sfx/cutscene/sfx_cutscene_mio_falling_to_rocket.ogg", "static"},
+	["sfx_cutscene_mio_crashes_rocket"] =       {"sfx/cutscene/sfx_cutscene_mio_crashes_rocket.ogg", "static"},
+	["sfx_cutscene_rocket_rumble_lp"] =         {"sfx/cutscene/sfx_cutscene_rocket_rumble_lp.ogg", "static", {looping=true}},
+	["sfx_cutscene_voice_countdown"] =          {"sfx/cutscene/sfx_cutscene_voice_countdown.ogg", "static"},
+	["sfx_cutscene_rocket_takeoff"] =           {"sfx/cutscene/sfx_cutscene_rocket_takeoff.ogg", "static"},
+
 	-- Final "W5 escape" CEO cutscene
 	["sfx_cutscene_pickup_letter"] =            {"sfx/cutscene/sfx_cutscene_pickup_letter.ogg", "static"},
 	["sfx_cutscene_ceo_afraid_anger_{01-04}"] = {"sfx/cutscene/ceo_afraid_anger/sfx_cutscene_ceo_afraid_anger_{}.ogg", "static"},
