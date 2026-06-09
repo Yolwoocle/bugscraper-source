@@ -179,7 +179,7 @@ return Cutscene:new("credits", {
             --     Text:text("menu.credits.x_by_y", "'Splat'", "Sarcose"),
             --     Text:text("menu.credits.x_by_y", "'End toastal abuse'", "Clem"),
             --     Text:text("menu.credits.x_by_y", "'A-salt rifle'", "Clem"),
-            --     Text:text("menu.credits.x_by_y", "'Beatleblock'", "Dimitri Sophinos (DPS2004)"),  
+            --     Text:text("menu.credits.x_by_y", "'Beatleblock'", "Daphne Sophinos (DPS2004)"),  
             --     Text:text("menu.credits.x_by_y", "'Bugscrapers aren't enough'", "pkhead"),
             --     Text:text("menu.credits.x_by_y", "'Optical Studio'", "pkhead"),
             --     Text:text("menu.credits.x_by_y", "'Soon (TM)'", "pixelbath"),

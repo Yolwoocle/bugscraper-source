@@ -103,7 +103,7 @@ return Menu:new(game, "{menu.credits.title}", {
     { "behck", empty_func },
     { "Corentin Vaillant", empty_func },
     { "clem", empty_func },
-    { "Dimitri Sophinos (DPS2004)", empty_func },
+    { "Daphne Sophinos (DPS2004)", empty_func },
     { "ellraiser", empty_func },
     { "Guillaume Tran", empty_func },
     { "Hector SK (Nextop Games)", empty_func },    
