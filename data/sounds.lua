@@ -218,8 +218,10 @@ local sfxnames = {
 	["sfx_cutscene_door_open"] =                {"sfx/cutscene/door/sfx_cutscene_door_open.ogg", "static"},
 
 	["sfx_cutscene_boss_claps"] =               {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
-	["sfx_cutscene_endingscreen"] =             {"sfx/cutscene/sfx_cutscene_endingscreen.ogg", "static"},
-	["sfx_cutscene_openingscreen"] =            {"sfx/cutscene/sfx_cutscene_openingscreen.ogg", "static"},
+	["sfx_cutscene_endingscreen_part1"] =       {"sfx/cutscene/opening_ending_screen/sfx_cutscene_endingscreen_part1.ogg", "static"},
+	["sfx_cutscene_endingscreen_part2"] =       {"sfx/cutscene/opening_ending_screen/sfx_cutscene_endingscreen_part2.ogg", "static"},
+	["sfx_cutscene_openingscreen_part1"] =      {"sfx/cutscene/opening_ending_screen/sfx_cutscene_openingscreen_part1.ogg", "static"},
+	["sfx_cutscene_openingscreen_part2"] =      {"sfx/cutscene/opening_ending_screen/sfx_cutscene_openingscreen_part2.ogg", "static"},
 
 	-- W2	
 	-- Timed spikes
