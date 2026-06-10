@@ -30,7 +30,7 @@ function TvPresentation:init(x, y, params)
         ["slide_011"] = { images.tv_slideshow_011, 0.035 },  -- Splat commercial         by Sarcose
         ["slide_012"] = { images.tv_slideshow_012, 0.03 },   -- End toastal abuse        by clem 
         ["slide_013"] = { images.tv_slideshow_013, 0.03 },   -- A salt rifle             by clem 
-        ["slide_014"] = { images.tv_slideshow_014, 0.08 },   -- Beatleblock              by Dimitri Sophinos (DPS2004)
+        ["slide_014"] = { images.tv_slideshow_014, 0.08 },   -- Beatleblock              by Daphne Sophinos (DPS2004)
         ["slide_015"] = { images.tv_slideshow_015, 0.3 },    -- bugscrapers arent enough by pkhead
         ["slide_016"] = { images.tv_slideshow_016, 0 },      -- optic studio             by pkhead
         ["slide_017"] = { images.tv_slideshow_017, 0.08 },   -- Soon(tm)                 by pixelbath
