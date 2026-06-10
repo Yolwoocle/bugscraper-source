@@ -10,7 +10,7 @@ function OptionsManager:init()
 		language = "default",
 
 		volume = 1.0,
-		music_volume = 0.5,
+		music_volume = 0.75,
 		sfx_volume = 1.0,
 		screenshake = 1.0,
 		sound_on = true,
