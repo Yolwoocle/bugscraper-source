@@ -167,7 +167,8 @@ function Player:reset(n, skin)
 	-- Invicibility
 	self.is_invincible = false
 	self.invincible_time = 0
-	self.max_invincible_time = 3
+	self.def_max_invincible_time = 3
+	self.max_invincible_time = self.def_max_invincible_time
 
 	self.blink_default_freq = 0.2
 	self.blink_freq = 0.2

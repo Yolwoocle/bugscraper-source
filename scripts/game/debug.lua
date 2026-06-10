@@ -312,9 +312,18 @@ function Debug:init(game)
             -- game.menu_manager:set_menu("debug_command")
         end },
         ["o"] = { "toggle invincibility", function()
+            __debug_invincible = not __debug_invincible
+
             for _, player in pairs(game.players) do
-                player.invincible_time = math.huge
-                player.max_invincible_time = math.huge
+                if __debug_invincible then
+                    player.invincible_time = math.huge
+                    player.max_invincible_time = math.huge
+                    player.debug_values[10] = "inv"
+                else
+                    player.invincible_time = 0
+                    player.max_invincible_time = player.def_max_invincible_time
+                    player.debug_values[10] = nil
+                end
             end
         end },
         ["r"] = { "start game", function()

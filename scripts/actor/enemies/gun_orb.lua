@@ -1,5 +1,4 @@
 require "scripts.util"
-local Enemy = require "scripts.actor.enemy"
 local images = require "data.images"
 local Prop = require "scripts.actor.enemies.prop"
 local Loot = require "scripts.actor.loot"
