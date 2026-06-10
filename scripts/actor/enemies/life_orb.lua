@@ -8,10 +8,13 @@ local utf8 = require "utf8"
 
 local LifeOrb = Prop:inherit()
 
-function LifeOrb:init(x, y, life)
+function LifeOrb:init(x, y, life, vx, vy)
     LifeOrb.super.init(self, x, y, images.gun_orb, 16, 16)
     self.name = "life_orb"
     
+    self.vx = vx
+    self.vy = vy
+
     self.life = life or 1
 	self.counts_as_enemy = false
 

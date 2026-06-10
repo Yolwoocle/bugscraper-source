@@ -1211,7 +1211,9 @@ function Game:screenshot()
 end
 
 function Game:new_life_orb(x, y, value)
-	return LifeOrb:new(x, y, value or 1.0)
+    local vx = random_neighbor(300)
+    local vy = random_range(-200, -500)
+	return LifeOrb:new(x, y, value or 1.0, vx, vy)
 end
 
 function Game:play_cutscene(cutscene_name)

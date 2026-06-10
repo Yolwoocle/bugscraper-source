@@ -86,7 +86,7 @@ function Enemy:init_enemy(x,y, img, w,h)
 
 	self.loot = {
 		{nil, 180},
-		{Loot.Life, 6, loot_type="life", value=1},
+		{Loot.Life, 8, loot_type="life", value=1},
 		{Loot.Gun, 3, loot_type="gun"},
 	}
 
