@@ -64,6 +64,10 @@ function GoldenBeetle:update(dt)
     self.spr:set_rotation(self.direction)
 
     if self.exploding then
+        Particles:push_layer(PARTICLE_LAYER_BACK)
+        Particles:dust(self.mid_x, self.mid_y)
+        Particles:pop_layer()
+
         if self.exploding_timer:get_ratio() > 0.5 then
             self.spr:set_flashing_white(self.exploding_timer.time % 0.1 < 0.05)
         else

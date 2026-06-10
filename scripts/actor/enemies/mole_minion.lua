@@ -7,7 +7,7 @@ local StateMachine = require "scripts.state_machine"
 local MoleMinion = Enemy:inherit()
 
 function MoleMinion:init(x, y)
-    self:init_enemy(x,y, images.mole_minion, 12, 12)
+    self:init_enemy(x,y, images.rollossus_minion, 12, 12)
     self.name = "grasshopper"
     self.life = 7
     self.follow_player = false

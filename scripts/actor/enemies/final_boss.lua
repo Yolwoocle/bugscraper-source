@@ -219,6 +219,8 @@ function FinalBoss:init(x, y, params)
                 state.jumps = 7
                 state.y = -16
                 state.vy = 0
+
+                self:play_sound("sfx_boss_ceo_phase2")
             end,
             update = function(state, dt)
                 self.furious_smoke_spr:update(dt)
@@ -277,6 +279,8 @@ function FinalBoss:init(x, y, params)
                 self.telegraph_t = 0
                 self.telegraph_vx = 0
                 self.telegraph_vy = 0
+
+                self:play_sound("sfx_boss_ceo_telegraph_lob_{01-04}")
             end,
             update = function(state, dt)
                 local ox = 0
@@ -334,6 +338,7 @@ function FinalBoss:init(x, y, params)
                     self.vx = 0
                     Input:vibrate_all(0.2, 0.5)
                     game:screenshake(6)
+                    self:play_sound_var("sfx_boss_ceo_stomp_{01-04}", 0.1, 1.1)
                 end
             end
         },
@@ -370,6 +375,8 @@ function FinalBoss:init(x, y, params)
                 self.state_timer:start(charge_time)
 
                 self.telegraph_t = 0
+
+                self:play_sound("sfx_boss_ceo_telegraph_dash_{01-04}")
             end,
             update = function(state, dt)
                 self.telegraph_t = (self.telegraph_t + dt * 200) % images.ceo_telegraph_arrow:getWidth()
@@ -411,6 +418,7 @@ function FinalBoss:init(x, y, params)
             end,
             after_collision = function(state, col)
                 if col.type ~= "cross" and math.abs(col.normal.x) == 1 then
+                    self:play_sound_var("sfx_boss_ceo_dash_{01-06}", 0.1, 1.1)
                     self:wait_then_random_wave()
                     Input:vibrate_all(0.2, 0.5)
                     game:screenshake(6)
@@ -462,6 +470,7 @@ function FinalBoss:init(x, y, params)
                 self.vy = 0
 
                 self.telegraph_timer:start()
+                self:play_sound_var("sfx_boss_ceo_telegraph_stomp_{01-04}", 0.1, 1.1)
             end,
             update = function(state, dt)
                 self.speed_x = 0
@@ -496,6 +505,8 @@ function FinalBoss:init(x, y, params)
                     else
                         self.state_machine:set_state("thwomp_rise")
                     end
+
+                    self:play_sound_var("sfx_boss_ceo_stomp_{01-04}", 0.1, 1.1)
                     Input:vibrate_all(0.2, 0.5)
                     game:screenshake(6)
                     self:set_spike_waves()
@@ -561,6 +572,7 @@ function FinalBoss:init(x, y, params)
                 state.f = 2
 
                 game:play_cutscene("final_boss_death")
+                self:play_sound("sfx_boss_ceo_death")
 
                 self.do_minion_spawning = false
                 for _, m in pairs(self.minions) do
@@ -611,7 +623,9 @@ function FinalBoss:update(dt)
         self.layers[LAYER_GLASS].spr:set_animation("break_"..tostring(clamp(new_glass_break_state, 0, 3)))
         game:screenshake(4)
         Input:vibrate_all(0.1, 0.3)
-        self:play_sound_var("sfx_actor_upgrade_display_break_{01-04}", 0.1, 1.1)
+        if self.life > 0 then
+            self:play_sound_var("sfx_actor_upgrade_display_break_{01-04}", 0.1, 1.1)
+        end
     end
 
     -- minions

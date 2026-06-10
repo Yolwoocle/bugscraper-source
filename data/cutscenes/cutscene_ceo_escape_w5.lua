@@ -76,7 +76,8 @@ return Cutscene:new("ceo_escape_w5", {
                 player:set_input_mode(PLAYER_INPUT_MODE_CODE)
                 player:reset_virtual_controller()
                 if player ~= data.resigning_player then
-                    player:set_code_input_mode_target_x(data.init_ceo_x - 64 - n * 16)
+                    player:set_code_input_mode_target_x(data.init_ceo_x - 80 - n * 16)
+                    n = n + 1
                 end
             end
         end,
@@ -90,6 +91,7 @@ return Cutscene:new("ceo_escape_w5", {
             data.ceo.draw_faint_halo = false
             
             data.shake = 3.0
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_01")
 
             Particles:static_image(images.surprise_effect, data.ceo.x - 16, data.ceo.y - 30, 0, 0.3)
         end,
@@ -115,6 +117,8 @@ return Cutscene:new("ceo_escape_w5", {
             data.ceo.spr:set_animation("sitting")
             data.shake = 3.0
 			Particles:sweat(data.ceo.x - 15, data.ceo.y - 30, true)
+
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_02")
         end,
         update = function(cutscene, data, dt)
             data.ceo.spr:update_offset(random_neighbor(data.shake), 0)
@@ -130,6 +134,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.spr:set_animation("shocked")
             data.ceo.vy = -200
             dust_particles(data)
@@ -140,6 +145,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -149,6 +155,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -167,6 +174,8 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 1.0,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_03")
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -186,6 +195,8 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_04")
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -196,6 +207,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -214,7 +226,7 @@ return Cutscene:new("ceo_escape_w5", {
     CutsceneScene:new({
         description = "Big ass slap in the face (jump)",
 
-        duration = 0.35,
+        duration = 0.37,
         enter = function(cutscene, data)
             data.resigning_player.virtual_controller.actions["jump"] = true
             data.frames = 0
@@ -234,6 +246,10 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.3,
         enter = function(cutscene, data)
+            data.ceo:play_sound("sfx_cutscene_mio_slaps_ceo")
+            game:frameskip(20)
+            game:screenshake(5)
+
             Particles:push_layer(PARTICLE_LAYER_BACK)
             Particles:static_image(
                 images.star_big, 
@@ -374,6 +390,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -383,6 +400,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -393,9 +411,6 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.8,
         enter = function(cutscene, data)
-            local x = data.ceo.x - game.camera.x
-            local y = data.ceo.y - game.camera.y - 16
-            game.game_ui:start_iris_transition(x, y, 0.8, CANVAS_WIDTH, 50)
         end,
     }),
 
@@ -405,6 +420,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -414,6 +430,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -423,27 +440,48 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
     }),
 
-    CutsceneScene:new({
-        description = "Iris end",
-
-        duration = 1.0,
-        enter = function(cutscene, data)
-            local x = data.ceo.x - game.camera.x
-            local y = data.ceo.y - game.camera.y - 16
-            game.game_ui:start_iris_transition(x, y, 0.5, 50, 0)
-        end,
-    }),
-    
     CutsceneScene:new({
         description = "Wait",
 
+        duration = 1.0,
+        enter = function(cutscene, data)            
+        end,
+    }),
+    
+    CutsceneScene:new({
+        description = "Pan Camera",
+
         duration = 3.0,
         enter = function(cutscene, data)
+            game.camera.follows_players = false
+            game.camera.max_speed = 10000000
+            game.camera.min_y = -2000000
+            data.camera_start_y = game.camera.y
+
+            game.ambience_player:fade_out("off", 3.0)
+            game.music_player:set_disk("credits")
+        end,
+        update = function(cutscene, data, dt)
+            local r = cutscene:get_current_scene_time_ratio()
+            local ty = easeinoutquart(data.camera_start_y, -400, r)
+            if math.abs(-400 - game.camera.y) < 2 then
+                game.camera:set_position(game.camera.x, -400)
+            end
+            game.camera:set_position(game.camera.x, ty)
+        end,
+        exit = function(cutscene, data)
+            Achievements:grant("ach_complete_end")
+            if game.level.last_damage_wave == 0 then
+                Achievements:grant("ach_no_damage_full")
+            end
+
+            game:on_end_game()
         end,
     }),
     
@@ -452,13 +490,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0,
         enter = function(cutscene, data)
-            Achievements:grant("ach_complete_end")
-            if game.level.last_damage_wave == 0 then
-                Achievements:grant("ach_no_damage_full")
-            end
-
-            game:on_end_game()
-        	game.menu_manager:set_menu("win")
+            game:play_cutscene("credits")
         end,
     }),
 })

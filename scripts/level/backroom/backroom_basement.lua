@@ -74,6 +74,8 @@ function BackroomGroundFloor:generate(world_generator)
 	world_generator:write_rect(Rect:new(2, 0, 68, 15), TILE_METAL) -- Wall
 	world_generator:write_rect(Rect:new(2, 15, 68, 15), TILE_STONE) -- Floor
 
+	game.ambience_player:set_disk("off")
+
 	local b = create_actor_centered(enemies.ButtonSmallGlass, floor(15*16), floor(15*16))
 	b.fury_damage_multiplier = 0.0
 	b.fury_stomp_multiplier = 0.0
@@ -91,6 +93,8 @@ function BackroomGroundFloor:generate(world_generator)
                 player:reset_virtual_controller()
 
 				player.wall_slide_stamina = player.wall_slide_max_stamina
+
+				Audio:play_var("sfx_cutscene_mio_falling_to_rocket", 0.1, 1.1)
 
 				if not self.exited_players[player.n] then
 					self.number_of_exited_players = self.number_of_exited_players + 1
@@ -159,6 +163,7 @@ function BackroomGroundFloor:update(dt)
 		if exited_player.y > self.rocket_y + 32 then
 			self.exited_players[n] = nil
 
+			Audio:play_var("sfx_cutscene_mio_crashes_rocket", 0.1, 1.1)
 			game:screenshake(2)
 			for i=1, 10 do
 				table.insert(self.bg_particles, {

@@ -179,8 +179,19 @@ function BackroomGroundFloor:update(dt)
 
 	if game.can_start_game and not self.has_opened_door then
 		self:open_door()
-		game.camera:set_target_offset(-100000, 0)
 		self.has_opened_door = true
+	end
+
+	local is_one_player_on_the_left = false
+	for _, p in pairs(game.players) do
+		if p.mid_x <= 23*16 then
+			is_one_player_on_the_left = true
+		end
+	end
+	if is_one_player_on_the_left and self.has_opened_door and game.game_state == GAME_STATE_WAITING then
+		game.camera:set_target_offset(-100000, 0)
+	else
+		game.camera:set_target_offset(0, 0)
 	end
 
 	self.door_anim_o = move_toward(self.door_anim_o, ternary(self.number_of_players_in_door > 0, 0, 8), dt*130)

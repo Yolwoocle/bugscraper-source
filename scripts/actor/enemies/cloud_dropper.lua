@@ -80,6 +80,7 @@ function CloudDropper:init(x, y)
                 self.gravity = 0
                 self.vx = 0
                 self.vy = 0
+                self:play_sound_var("sfx_ennemy_dropper_trigger_{01-04}", 0.1, 1.1)
             end,
             update = function(state, dt)
                 if self.t % 0.2 < 0.1 then
@@ -103,10 +104,9 @@ function CloudDropper:init(x, y)
                 self.friction_y = 1
                 self.spr:set_animation("fall")
 
-                -- self:play_sound_var("sfx_enemy_honeypot_liquid_falling_{01-04}", 0.2, 1.2)
-                self:set_constant_sound("drop", "sfx_ennemy_dropper_trigger_{01-04}", false)
-                self:set_constant_sound_volume("drop", 1.0 + random_neighbor(0.2))
-                self:play_constant_sound("drop")
+                self:play_sound_var("sfx_enemy_honeypot_liquid_falling_{01-04}", 0.2, 1.2)
+                -- self:set_constant_sound_volume("drop", 1.0 + random_neighbor(0.2))
+                -- self:play_constant_sound("drop")
             end,
             after_collision = function(state, col, other)
                 if col.type ~= "cross" and col.normal.y == -1 then

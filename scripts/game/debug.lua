@@ -164,9 +164,9 @@ function Debug:init(game)
 
             -- game:play_cutscene("final_boss_enter")
 
-            -- game:new_game({ 
-            --     backroom = BackroomEnding:new(),
-            -- })
+            game:new_game({ 
+                backroom = BackroomBasement:new(),
+            })
                 
 
             -- local cabin_rect = game.level.cabin_rect

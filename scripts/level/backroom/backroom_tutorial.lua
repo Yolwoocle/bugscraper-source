@@ -28,11 +28,7 @@ function BackroomTutorial:generate(world_generator)
 
 	-- Exit trigger
 	game:new_actor(enemies.PlayerTrigger:new(87*16, 9*16, 8*16, 5*16, function()
-		if Metaprogression:get("has_played_tutorial") then
-			game:play_cutscene("tutorial_end_short")
-		else
-			game:play_cutscene("tutorial_end")
-		end
+		game:play_cutscene("tutorial_end")
 		game.game_ui.offscreen_indicators_enabled = false
 
 		local ax, ay, bx, by = unpack(RECT_TUTORIAL_PARAMS)
@@ -144,7 +140,7 @@ function BackroomTutorial:draw_items()
 	-- 	alignment = "center",
 	-- 	background_color = transparent_color(COL_BLACK_BLUE, 0.5),
 	-- })
-	Input:draw_input_prompt(1, {}, "🈶 {input.prompts.jetpack}", COL_WHITE, 54*16, 4*16, {
+	Input:draw_input_prompt(1, {}, "⬇ + {input.prompts.shoot} = {input.prompts.jetpack}", COL_WHITE, 54*16, 4*16, {
 		alignment = "center",
 		background_color = transparent_color(COL_BLACK_BLUE, 0.5),
 	})

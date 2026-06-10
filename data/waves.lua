@@ -216,16 +216,88 @@ local thorns_arc_params = {
 }
 
 local waves_defs = {
+
+    { -- FINAL BOSS
+        roll_type = WAVE_ROLL_TYPE_FIXED,
+
+        min = 1,
+        max = 1,
+        enemies = {
+            { E.FinalBoss, 1, 
+                position = { 12.5 * 16, 10 * 16 + 8 }, 
+                life = 1,
+                args = {{init_state = "introduction"}} }
+        },
+
+        -- cutscene = "final_boss_enter",
+
+        counter_display_func = function(_)
+            -- Pseudo random looking floor counter
+            local frame = math.floor(game.in_game_frame / 5)
+            local nb = (32849 * frame) % 999
+            return math.floor(clamp(nb, 100, 999))
+        end,
+
+        run = function(self, level)
+            for _, actor in pairs(game.actors) do
+                if actor.name == "final_boss" then
+                    actor.state_machine:set_state("start")
+                end
+            end
+
+            level.freeze_fury_override = false
+        end
+    },
+
     -- {
-    --     min = 1,
-    --     max = 1,
+    --     min = 0,
+    --     max = 0,
     --     enemies = {
-    --         { E.FinalBoss, 1, entrances = { "main" } },
+    --         { E.Larva, 3, entrances = { "main" } },
     --     },
+    --     music = "w1",
+    --     fade_out_music = false,
+    --     ambience = "w1",
+
+    --     over_title = get_world_prefix(1),
+    --     title = get_world_name(1),
+    --     over_title_color = COL_LIGHT_GRAY,
+    --     title_color = {COL_LIGHTEST_GRAY, COL_WHITE, COL_MID_GRAY, COL_MID_GRAY, stacked=true},
+    --     title_outline_color = COL_BLACK_BLUE,
 
     --     elevator = ElevatorW1,
     -- },
 
+    
+    -- -- CEO's office
+    -- {
+    --     floor_type = FLOOR_TYPE_CAFETERIA,
+    --     roll_type = WAVE_ROLL_TYPE_FIXED,
+    --     music = "off",
+    --     ambience = "off",
+        
+    --     run = function(self, level)
+    --         for _, actor in pairs(game.actors) do
+    --             if actor.name == "poison_cloud" then
+    --                 actor.lifespan = 1
+    --             end
+    --             if actor.name == "floor_hole_spawner" or actor.name == "pendulum" then
+    --                 actor:remove()
+    --             end   
+    --         end
+    --         game.actor_manager:remove_actors_with_name("progressing_arc")
+    --     end, 
+
+    --     min = 1,
+    --     max = 1,
+    --     enemies = {},
+
+    --     bounds = RECT_CEO_OFFICE,
+    --     backroom = BackroomCEOOffice,
+
+    --     achievements = {"ach_complete_w4"},
+    -- },
+    
     --- --- --- --- --- --- --- --- --- --- --- ---
 
     {
@@ -621,8 +693,8 @@ local waves_defs = {
     },
 
     {
-        min = 4,
-        max = 4,
+        min = 5,
+        max = 5,
 
         enemies = {
             { E.DrillBee,   30 },
@@ -638,6 +710,8 @@ local waves_defs = {
 
         enemies = {
             { E.Larva,       3 },
+            { E.HoneypotAnt, 4 },
+            { E.Bee,      3 },
         },
         fixed_enemies = {
             { E.FlyingSpawner, 1 },
@@ -1163,7 +1237,6 @@ local waves_defs = {
         enemies = {
             { E.Bee, 30 },
             { E.CloudStormZone, 30 },
-            { E.Shooter, 30 },
             { E.Rollopod, 30 },
         },
     },
@@ -1295,9 +1368,7 @@ local waves_defs = {
 
         enemies = {
             { E.GoldenBeetle, 30 },
-            { E.CloudStormZone, 30 },
             { E.Rollopod, 30 },
-            { E.Shooter, 30 },
             { E.CloudDropper, 30 },
         },
         fixed_enemies = {
@@ -1310,7 +1381,7 @@ local waves_defs = {
         max = 1,
         
         enemies = {
-            { E.MoleBoss, 30 },
+            { E.Rollossus, 30, position={CANVAS_WIDTH / 2 - 40, 160} },
         },
 
         run = function(self, level)
@@ -1319,7 +1390,7 @@ local waves_defs = {
 
         background = backgrounds.BackgroundGreenhouse:new(),
 
-        cutscene = "mole_boss_enter",
+        cutscene = "rollossus_enter",
         music = "boss_w4",
     },
 
@@ -1328,7 +1399,7 @@ local waves_defs = {
         floor_type = FLOOR_TYPE_CAFETERIA,
         roll_type = WAVE_ROLL_TYPE_FIXED,
         music = "off",
-        ambience = "cafeteria",
+        ambience = "off",
         
         run = function(self, level)
             for _, actor in pairs(game.actors) do

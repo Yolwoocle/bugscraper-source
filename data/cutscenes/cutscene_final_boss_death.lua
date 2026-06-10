@@ -54,12 +54,18 @@ return Cutscene:new("final_boss_death", {
             data.bg.offset_y = 100
             game.level:set_background(data.bg)
             game.level.background_speed_lines = false
+
+            game.ambience_player:set_disk("off")
         end,
     }),
 
     CutsceneScene:new({ 
+        description = "Rocket",
+
         duration = 5,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_rocket_flying")
+
             data.rocket_shake = 3
             data.t = 0
 
@@ -111,6 +117,8 @@ return Cutscene:new("final_boss_death", {
     CutsceneScene:new({ 
         duration = 0.02,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_rocket_stops")
+
             game:frameskip(30)
             game:reset_screenshake()
             data.bg.draw_star = true
@@ -132,8 +140,12 @@ return Cutscene:new("final_boss_death", {
     }),
 
     CutsceneScene:new({ 
+        description = "Rocket explodes",
+
         duration = 3.0,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_rocket_explode")
+
             game:screenshake(40)
 
             data.bg.rocket_y = 4000 
@@ -171,10 +183,14 @@ return Cutscene:new("final_boss_death", {
         update = function(cutscene, data, dt)
         end,
     }),
-
+    
     CutsceneScene:new({ 
+        description = "Players fall",
+
         duration = 3.0,
         enter = function(cutscene, data)
+            Audio:play("sfx_cutscene_fall")
+
             game.camera:set_position(0, 0)
             
             local bg = BackgroundAboveCity:new(100000)
@@ -189,7 +205,7 @@ return Cutscene:new("final_boss_death", {
                 player.is_vulnerable_to_kill_zone = false
 
                 local sp = 32
-                player:set_position(CANVAS_WIDTH/2 - sp*(num_players-1)*0.5 + n*sp, CANVAS_HEIGHT/2)
+                player:set_position(CANVAS_WIDTH/2 - sp*(num_players-1)*0.5 + n*sp, CANVAS_HEIGHT/2 + random_neighbor(32))
 				player.gravity_mult = 0
                 player.is_visible = true
                 player.friction_x = 0.0
@@ -209,12 +225,19 @@ return Cutscene:new("final_boss_death", {
         end,
         update = function(cutscene, data, dt)
             data.upd = function(dt)
+                local dx, dy = normalize_vect(1, -3)
+                data.fall_dir_dx = dx
+                data.fall_dir_dy = dy
+                local r = random_range(2000, 3000)
+
                 Particles:speed_line(random_range(0, CANVAS_WIDTH), CANVAS_HEIGHT + 64, {
-                    vy = -random_range(800, 1200), 
+                    vx = data.fall_dir_dx * r, 
+                    vy = data.fall_dir_dy * r, 
                 })
     
                 for _, player in pairs(game.players) do
                     player.spr:set_animation("dead")
+                    player.spr.rot = player.spr.rot + dt * 5
                 end
             end
             game.level.level_speed = -1000
@@ -223,21 +246,28 @@ return Cutscene:new("final_boss_death", {
     }),
 
     CutsceneScene:new({ 
+        description = "Pan players down",
+
         duration = 2.0,
         enter = function(cutscene, data)
-            data.cam_vy = 0
+            data.cam_vel = 0
         end,
         update = function(cutscene, data, dt)
             data.upd(dt)
             
-            data.cam_vy = data.cam_vy + 200*dt
+            data.cam_vel = data.cam_vel + 200*dt
             for _, player in pairs(game.players) do
-                player:set_position(player.x, player.y + data.cam_vy * dt)
+                player:set_position(
+                    player.x - data.fall_dir_dx * data.cam_vel * dt, 
+                    player.y - data.fall_dir_dy * data.cam_vel * dt
+                )
             end
         end,
     }),
 
     CutsceneScene:new({ 
+        description = "Tutorial area",
+
         duration = 2.0,
         enter = function(cutscene, data)
             Particles:clear()
@@ -250,9 +280,12 @@ return Cutscene:new("final_boss_death", {
 
             for _, player in pairs(game.players) do
                 player:reset()
-                player:set_position(4*16 + player.n*24, 0*16)
+                player:set_position(7*16 + player.n*16, 0*16)
+                player.spr.rot = 0.0
                 player.show_hud = false
 
+                player.vx = -300
+                player.friction_x = 1.0
                 player.gravity_mult = 3.0
                 player.gravity_cap = math.huge
                 
@@ -273,17 +306,24 @@ return Cutscene:new("final_boss_death", {
     }),
 
     CutsceneScene:new({ 
+        description = "Bring back players",
+
         duration = 1.0,
         enter = function(cutscene, data)
             for _, player in pairs(game.players) do
                 player:reset()
                 player:set_input_mode(PLAYER_INPUT_MODE_CODE)
                 player:reset_virtual_controller()
+                player.show_hud = false
             end
             
             game:screenshake(14)
             
+            local n = 1
             for _, player in pairs(game.players) do
+                if n == 1 then
+                    player:play_sound("sfx_cutscene_mio_impact_on_ground")
+                end
                 Particles:image(
                     player.mid_x, player.y + player.h, 
                     200, --numner

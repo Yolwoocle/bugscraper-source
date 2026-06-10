@@ -10,6 +10,7 @@ local skin_name_to_id = require "data.skin_name_to_id"
 local BackroomBasement = require "scripts.level.backroom.backroom_basement"
 local BackroomCredits = require "scripts.level.backroom.backroom_credits"
 local achievements    = require "data.achievements"
+local backrooms       = require "data.backrooms"
 
 local DebugCommandManager = Class:inherit()
 
@@ -18,16 +19,28 @@ function DebugCommandManager:init()
     self.commands["help"] = DebugCommand:new {
         name = "help",
         description = "Prints help",
-        args = {},
-        run = function()
-            for i, command_name in pairs(self.all_commands) do
-                local command = self.commands[command_name]
-                self:add_message(string.format("- %s: %s", command.signature, command.description))
+        args = {
+            { "page:number", default = 1 }
+        },
+        run = function(page)
+            page = page or 1
+            local commands_per_page = 15
+
+            self:add_message(string.format("Help (page %s / %s)", page, math.ceil(#self.all_commands / commands_per_page)))
+            for i = 1, commands_per_page do
+                local j = (page-1)*commands_per_page + i
+                if self.all_commands[j] then
+                    local command_name = self.all_commands[j]
+                    local command = self.commands[command_name]
+                    self:add_message(string.format("- %s: %s", command.signature, command.description))
+                end
             end
         end
     }
 
     local enemies_keys = table_keys(enemies)
+    table.sort(enemies_keys)
+
     local cutscenes_keys = table_keys(cutscenes)
     local achievements_keys = {}
     for _, ach in pairs(achievements) do
@@ -40,7 +53,12 @@ function DebugCommandManager:init()
         upgrades_keys[i] = utf8.sub(u, 8, #u)
     end
 
-    table.sort(enemies_keys)
+    local backrooms_keys = table_keys(backrooms)
+    for i, u in pairs(backrooms_keys) do
+        backrooms_keys[i] = utf8.sub(u, 10, #u)
+    end
+    table.sort(backrooms_keys)
+
 
     self.commands["listupgrades"] = DebugCommand:new {
         name = "listupgrades",
@@ -78,6 +96,27 @@ function DebugCommandManager:init()
             return true
         end,
     }
+    -- self.commands["backroom"] = DebugCommand:new {
+    --     name = "backroom",
+    --     description = "Starts a game with a backroom",
+    --     args = {
+    --         { "name:string", values = backrooms_keys },
+    --     },
+    --     run = function(name)
+    --         local backroom_class = backrooms["backroom_" .. tostring(name)]
+    --         if not backroom_class then
+    --             return false, "Backroom '" .. name .. "' not found"
+    --         end
+
+    --         self:add_message("Started backroom '" .. name .. "'")
+
+    --         game:new_game({ 
+    --             backroom = backroom_class:new(),
+    --         })
+
+    --         return true
+    --     end,
+    -- }
     self.commands["randomupgrades"] = DebugCommand:new {
         name = "randomupgrades",
         description = "Applies a number of random upgrades",
@@ -464,6 +503,76 @@ function DebugCommandManager:init()
         },
         run = function(prob)
             SMASH_EASTER_EGG_PROBABILITY = prob
+            return true
+        end,
+    }
+    self.commands["_set_to_basement"] = DebugCommand:new {
+        name = "_set_to_basement",
+        description = "Set to basement",
+        args = {
+        },
+        run = function(prob)
+            for _, a in pairs(game.actors) do
+                if not a.is_player then
+                    a:remove()
+                end
+            end
+
+            game.level:begin_backroom(BackroomBasement:new())
+            game.level:set_backroom_on()
+
+            game.light_world:reset_lights()
+
+            local px = 960
+            local avg = 0
+            local nbplayer = 0
+            local LightPoint = require "scripts.graphics.light.light_point"
+            for _, player in pairs(game.players) do
+                player.is_visible = true
+                player.spr:set_rotation(0)
+
+                player.is_affected_by_bounds = true
+                player.is_affected_by_walls = true
+
+                player:reset_virtual_controller()
+				player.gravity_mult = 1
+				player.friction_x = player.default_friction
+				player.vx = 0
+                player.is_vulnerable_to_kill_zone = true
+                player.show_gun = true
+                player.show_hud = false
+                player.do_fury_trail = false
+
+                local x = px + (player.n-1)*16
+                player:set_position(x, 100)
+                player.spr:update_offset(0, 0)
+                avg = avg + player.mid_x
+                nbplayer = nbplayer + 1
+                
+                game.game_ui.ending_counter_text = nil
+
+                game.light_world:new_light(tostring(player.n), LightPoint:new(0, 0, {
+                    radius = 48,
+                    is_active = true,
+                    target = player,
+                }))
+            end
+            data.px = avg / nbplayer
+
+            game.music_player:set_disk("off")
+
+            game.camera:set_position(math.huge, 0)
+            game.camera.follow_speed = DEFAULT_CAMERA_FOLLOW_SPEED
+            game.camera.max_y = 0
+
+            game.game_ui.dark_overlay_alpha_target = 0.0
+            game.game_ui.dark_overlay_alpha = 0.0
+            game.game_ui:start_iris_transition(data.px - game.camera.x, data.py + 8, 1.0, 0, CANVAS_WIDTH)
+
+            game.is_light_on = false
+            game.light_world.darkness_intensity = 1.0
+            game.light_world.custom_fill_color = COL_BLACK_BLUE
+
             return true
         end,
     }

@@ -35,6 +35,8 @@ local sfxnames = {
 	["music_cafeteria_ingame"] =            { "music/music_cafeteria_ingame.ogg", "stream", { looping = true } },
 	["music_cafeteria_paused"] =            { "music/music_cafeteria_paused.ogg", "stream", { looping = true } },
 	["music_cafeteria_empty_ingame"] =      { "music/music_cafeteria_empty_ingame.ogg", "stream", { looping = true } },
+	["music_credits"] =                     { "music/music_credits.ogg", "stream", { looping = true } },
+	["music_cutscene_tutorial_end"] =       {"music/music_cutscene_tutorial_end.mp3", "stream"},
 
 	["music_boss_w1_ingame"] =              { "music/music_boss_w1_ingame.ogg", "stream", { looping = true } },
 	["music_boss_w1_paused"] =              { "music/music_boss_w1_paused.ogg", "stream", { looping = true } },
@@ -165,6 +167,9 @@ local sfxnames = {
 	["sfx_boss_mrdung_jump_telegraph_{01-04}"] = {"sfx/enemy/mrdung/jump_telegraph/sfx_boss_mrdung_jump_telegraph_{}.ogg", "static"},
 	["sfx_boss_mrdung_jump_moment_{01-06}"] = {"sfx/enemy/mrdung/jump_moment/sfx_boss_mrdung_jump_moment_{}.ogg", "static"},
 	
+	-- CUTSCENE
+	["sfx_cutscene_rocket"] =             {"sfx/cutscene/sfx_cutscene_rocket.ogg", "stream"},
+
 	-- W1 CEO escape cutscene
 	["sfx_w1_cutscene_surprise"] =        {"sfx/cutscene/sfx_w1_cutscene_surprise.ogg", "static"},
 	["sfx_w1_cutscene_glass_break"] =     {"sfx/cutscene/sfx_w1_cutscene_glass_break.ogg", "static"},
@@ -175,8 +180,46 @@ local sfxnames = {
 	["sfx_w2_cutscene_clap"] =            {"sfx/cutscene/sfx_w2_cutscene_clap.ogg", "static"},
 	["sfx_w2_cutscene_bees_beeingbees"] = {"sfx/cutscene/sfx_w2_cutscene_bees_beeingbees.ogg", "static"},
 	["sfx_w2_cutscene_roof_breaking"] =   {"sfx/cutscene/sfx_w2_cutscene_roof_breaking.ogg", "static"},
+	
+	-- W3 CEO escape cutscene
+	["sfx_cutscene_ceo_leaving_binary"] =   {"sfx/cutscene/sfx_cutscene_ceo_leaving_binary.ogg", "static"},
+	
+	-- W4 CEO office cutscene
+	["sfx_cutscene_door_impact_{01-04}"] =   {"sfx/cutscene/door/sfx_cutscene_door_impact_{}.ogg", "static"},
+	["sfx_cutscene_door_cracked"] =          {"sfx/cutscene/door/sfx_cutscene_door_cracked.ogg", "static"},
+	["sfx_cutscene_door_break"] =            {"sfx/cutscene/door/sfx_cutscene_door_break.ogg", "static"},
+	["sfx_cutscene_button_coming_out"] =     {"sfx/cutscene/sfx_cutscene_button_coming_out.ogg", "static"},
+	["sfx_cutscene_ceo_jumps_button"] =      {"sfx/cutscene/sfx_cutscene_ceo_jumps_button.ogg", "static"},
+	["sfx_cutscene_ceo_glass_stress"] =      {"sfx/cutscene/sfx_cutscene_ceo_glass_stress.ogg", "static"},
+	["sfx_cutscene_rumbling"] =              {"sfx/cutscene/sfx_cutscene_rumbling.ogg", "static"},
+	["sfx_cutscene_punch_{01-04}"] =         {"sfx/cutscene/punch/sfx_cutscene_punch_{}.ogg", "static"},
+	["sfx_cutscene_numbers"] =               {"sfx/cutscene/sfx_cutscene_numbers.ogg", "static"},
+	["sfx_cutscene_mio_impact_on_ground"] =  {"sfx/cutscene/sfx_cutscene_mio_impact_on_ground.ogg", "static"},
 
-	["sfx_cutscene_boss_claps"] =         {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
+	-- CEO boss fight death cutscene
+	["sfx_cutscene_rocket_flying"] =            {"sfx/cutscene/sfx_cutscene_rocket_flying.ogg", "static"},
+	["sfx_cutscene_rocket_stops"] =             {"sfx/cutscene/sfx_cutscene_rocket_stops.ogg", "static"},
+	["sfx_cutscene_rocket_explode"] =           {"sfx/cutscene/sfx_cutscene_rocket_explode.ogg", "static"},
+	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"},
+
+	-- Falling to rocket
+	["sfx_cutscene_mio_falling_to_rocket"] =    {"sfx/cutscene/sfx_cutscene_mio_falling_to_rocket.ogg", "static"},
+	["sfx_cutscene_mio_crashes_rocket"] =       {"sfx/cutscene/sfx_cutscene_mio_crashes_rocket.ogg", "static"},
+	["sfx_cutscene_rocket_rumble_lp"] =         {"sfx/cutscene/sfx_cutscene_rocket_rumble_lp.ogg", "static", {looping=true}},
+	["sfx_cutscene_voice_countdown"] =          {"sfx/cutscene/sfx_cutscene_voice_countdown.ogg", "static"},
+	["sfx_cutscene_rocket_takeoff"] =           {"sfx/cutscene/sfx_cutscene_rocket_takeoff.ogg", "static"},
+
+	-- Final "W5 escape" CEO cutscene
+	["sfx_cutscene_pickup_letter"] =            {"sfx/cutscene/sfx_cutscene_pickup_letter.ogg", "static"},
+	["sfx_cutscene_ceo_afraid_anger_{01-04}"] = {"sfx/cutscene/ceo_afraid_anger/sfx_cutscene_ceo_afraid_anger_{}.ogg", "static"},
+	["sfx_cutscene_ceo_boingboing"] =           {"sfx/cutscene/sfx_cutscene_ceo_boingboing.ogg", "static"},
+	["sfx_cutscene_mio_slaps_ceo"] =            {"sfx/cutscene/sfx_cutscene_mio_slaps_ceo.ogg", "static"},
+	["sfx_cutscene_door_slam"] =                {"sfx/cutscene/door/sfx_cutscene_door_slam.ogg", "static"},
+	["sfx_cutscene_door_open"] =                {"sfx/cutscene/door/sfx_cutscene_door_open.ogg", "static"},
+
+	["sfx_cutscene_boss_claps"] =               {"sfx/cutscene/sfx_cutscene_boss_claps.ogg", "static"},
+	["sfx_cutscene_endingscreen"] =             {"sfx/cutscene/sfx_cutscene_endingscreen.ogg", "static"},
+	["sfx_cutscene_openingscreen"] =            {"sfx/cutscene/sfx_cutscene_openingscreen.ogg", "static"},
 
 	-- W2	
 	-- Timed spikes
@@ -285,10 +328,32 @@ local sfxnames = {
 	["sfx_enemy_goldenbeetle_trigger"] = {"sfx/enemy/goldenbeetle/sfx_enemy_goldenbeetle_trigger.ogg", "static"},
 	["sfx_enemy_goldenbeetle_explode_{01-03}"] = {"sfx/enemy/goldenbeetle/sfx_enemy_goldenbeetle_explode_{}.ogg", "static"},
 	["sfx_enemy_goldenbeetle_beep"] = {"sfx/enemy/goldenbeetle/sfx_enemy_goldenbeetle_beep.ogg", "static"},
-
+	
 	-- Rollossus
-	["sfx_boss_intro_boss4"] = {"sfx/enemy/boss4/sfx_boss_intro_boss4.ogg", "static"},
+	["sfx_boss_rollossus_intro"] =                     {"sfx/enemy/rollossus/sfx_boss_rollossus_intro.ogg", "static"},
+	["sfx_boss_rollossus_minion_bump_{01-06}"] =       {"sfx/enemy/rollossus/minion_bump/sfx_boss_rollossus_minion_bump_{}.ogg", "static"},
+	["sfx_boss_rollossus_dig_in_{01-03}"] =            {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_in_{}.ogg", "static"},
+	["sfx_boss_rollossus_digging_lp_{01-02}"] =        {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_digging_lp_{}.ogg", "static", {looping = true}},
+	["sfx_boss_rollossus_telegraph_dig_out_{01-04}"] = {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_telegraph_dig_out_{}.ogg", "static"},
+	["sfx_boss_rollossus_dig_out_{01-03}"] =           {"sfx/enemy/rollossus/digging/sfx_boss_rollossus_dig_out_{}.ogg", "static"},
+	["sfx_boss_rollossus_telegraph_jumping_{01-04}"] = {"sfx/enemy/rollossus/jumping/sfx_boss_rollossus_telegraph_jumping_{}.ogg", "static"},
+	["sfx_boss_rollossus_jumping_impact_{01-05}"] =    {"sfx/enemy/rollossus/jumping/sfx_boss_rollossus_jumping_impact_{}.ogg", "static"},
+	["sfx_boss_rollossus_telegraph_rolling_{01-03}"] = {"sfx/enemy/rollossus/rolling/sfx_boss_rollossus_telegraph_rolling_{}.ogg", "static"},
+	["sfx_boss_rollossus_rolling_lp"] =                {"sfx/enemy/rollossus/rolling/sfx_boss_rollossus_rolling_lp.ogg", "static", {looping = true}},
+	["sfx_boss_rollossus_damage_{01-06}"] =            {"sfx/enemy/rollossus/damage/sfx_boss_rollossus_damage_{}.ogg", "static"},
+	["sfx_boss_rollossus_death"] =                     {"sfx/enemy/rollossus/sfx_boss_rollossus_death.ogg", "static"},
 
+	-- W5 
+	["sfx_boss_ceo_intro"] =                           {"sfx/enemy/ceo/sfx_boss_ceo_intro.ogg", "static"},
+	["sfx_boss_ceo_fish_stomp_{01-06}"] =              {"sfx/enemy/ceo/fish/sfx_boss_ceo_fish_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_fish_starring_lp"] =                {"sfx/enemy/ceo/fish/sfx_boss_ceo_fish_starring_lp.ogg", "stream", {looping=true}},
+	["sfx_boss_ceo_telegraph_dash_{01-04}"] =          {"sfx/enemy/ceo/dash/sfx_boss_ceo_telegraph_dash_{}.ogg", "static"},
+	["sfx_boss_ceo_dash_{01-06}"] =                    {"sfx/enemy/ceo/dash/sfx_boss_ceo_dash_{}.ogg", "static"},
+	["sfx_boss_ceo_telegraph_stomp_{01-04}"] =         {"sfx/enemy/ceo/stomp/sfx_boss_ceo_telegraph_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_stomp_{01-04}"] =                   {"sfx/enemy/ceo/stomp/sfx_boss_ceo_stomp_{}.ogg", "static"},
+	["sfx_boss_ceo_telegraph_lob_{01-04}"] =           {"sfx/enemy/ceo/lob/sfx_boss_ceo_telegraph_lob_{}.ogg", "static"},
+	["sfx_boss_ceo_phase2"] =                          {"sfx/enemy/ceo/sfx_boss_ceo_phase2.ogg", "static"},
+	["sfx_boss_ceo_death"] =                           {"sfx/enemy/ceo/sfx_boss_ceo_death.ogg", "static"},
 
 	-- UPGRADES
 	["sfx_upgrades_apple_juice_pickedup"] = {"sfx/upgrades/sfx_upgrades_apple_juice_pickedup.ogg", "static"},
@@ -321,7 +386,7 @@ local sfxnames = {
 	-- Achievements
 	["sfx_ui_achievement"] = {"sfx/ui/sfx_ui_achievement.ogg", "static"},
 	["sfx_ui_unlock"] = {"sfx/ui/sfx_ui_unlock.ogg", "static"},
-	["sfx_ui_xpbar_{01-03}"] = {"sfx/ui/sfx_ui_xpbar_tick_{}.ogg", "static"},
+	["sfx_ui_xpbar_tick"] = {"sfx/ui/sfx_ui_xpbar_tick.ogg", "static"},
 
 	-- LEVEL
 	["sfx_door_open"] = {"sfx/level/door/sfx_door_open.ogg", "static"},
@@ -337,9 +402,6 @@ local sfxnames = {
 	["chipper_telegraph"] = {"placeholder/chipper_telegraph.ogg", "static"},
 	["sfx_enemy_death"] = {"placeholder/sfx_enemy_death.ogg", "static"},
 
-	-- CUTSCENE
-	["sfx_cutscene_rocket"] = {"sfx/cutscene/sfx_cutscene_rocket.ogg", "stream"},
-	
 	-- Ambience
 	["amb_pad_cafeteria_lp"] = {"sfx/ambience/amb_pad_cafeteria_lp.ogg", "stream", {looping = true}},
 	["amb_pad_lobby_lp"] = {"sfx/ambience/amb_pad_lobby_lp.ogg", "stream", {looping = true}},

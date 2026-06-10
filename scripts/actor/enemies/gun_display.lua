@@ -17,7 +17,7 @@ function GunDisplay:init(x, y, gun)
     self.gun = gun or guns.Triple:new(nil)
 	self.counts_as_enemy = false
 
-    self.life = 25
+    self.life = 15
 
     self.dissapear_life = 20
     self.loot = {}
