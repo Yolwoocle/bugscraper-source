@@ -8,11 +8,11 @@ local guns = require "data.guns"
 
 local utf8 = require "utf8"
 
-local GunDisplay = Prop:inherit()
+local GunOrb = Prop:inherit()
 
-function GunDisplay:init(x, y, gun)
-    GunDisplay.super.init(self, x, y, images.gun_display, 16, 16)
-    self.name = "gun_display"
+function GunOrb:init(x, y, gun)
+    GunOrb.super.init(self, x, y, images.gun_orb, 16, 16)
+    self.name = "gun_orb"
     
     self.gun = gun or guns.Triple:new(nil)
 	self.counts_as_enemy = false
@@ -64,12 +64,12 @@ function GunDisplay:init(x, y, gun)
     self.gun_spr = Sprite:new(self.gun.spr)
 end
 
-function GunDisplay:assign_upgrade(upgrade)
+function GunOrb:assign_upgrade(upgrade)
     self.product = upgrade
 end
 
-function GunDisplay:update(dt)
-    GunDisplay.super.update(self, dt)
+function GunOrb:update(dt)
+    GunOrb.super.update(self, dt)
 
     -- scotch
     if self.buffer_vx then
@@ -114,22 +114,22 @@ function GunDisplay:update(dt)
     self.gun_spr:set_flashing_white(self:is_flashing_white())
 end
 
-function GunDisplay:draw()
+function GunOrb:draw()
     if self.gun and self.blink_is_shown then
         -- self.gun:draw()
         self.gun_spr:draw(self.x, self.y, self.w, self.h)
     end
-	GunDisplay.super.draw(self) 
+	GunOrb.super.draw(self) 
 end
 
-function GunDisplay:on_death(damager, reason)
+function GunOrb:on_death(damager, reason)
     Particles:image(self.mid_x, self.mid_y, 10, images.glass_shard, self.h)
 
     local dropped = Loot.Gun:new(self.x, self.y, nil, random_neighbor(20), -random_range(10, 30), self.gun)
     game:new_actor(dropped)
 end
 
-function GunDisplay:after_collision(col, other)
+function GunOrb:after_collision(col, other)
     if col.type ~= "cross" then
         local s = 0
         if col.normal.y == 0 then
@@ -147,8 +147,8 @@ function GunDisplay:after_collision(col, other)
     end
 end
 
-function GunDisplay:on_stomped(stomper)
+function GunOrb:on_stomped(stomper)
     self:apply_force_from(500 * self.self_knockback_mult, stomper)
 end
 
-return GunDisplay
+return GunOrb

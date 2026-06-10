@@ -476,7 +476,7 @@ function Enemy:drop_loot(loot, params)
 	local vy = random_range(-200, -500)
 	local loot_type = params.loot_type
 	if loot_type == "gun" then
-		instance = game:new_gun_display(self.mid_x, self.mid_y)
+		instance = game:new_gun_orb(self.mid_x, self.mid_y)
 	elseif loot_type == "ammo" or loot_type == "life" then
 		instance = loot:new(self.mid_x, self.mid_y, params.value, vx, vy)
 	end 

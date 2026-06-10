@@ -37,7 +37,7 @@ local Layer                  = require "scripts.graphics.layer"
 local LightLayer             = require "scripts.graphics.light_layer"
 local ScreenshotManager      = require "scripts.screenshot"
 local QueuedPlayer           = require "scripts.game.queued_player"
-local GunDisplay             = require "scripts.actor.enemies.gun_display"
+local GunOrb             = require "scripts.actor.enemies.gun_orb"
 local MetaprogressionManager = require "scripts.game.metaprogression"
 local StatsManager           = require "scripts.game.stats_manager"
 local BackroomTutorial       = require "scripts.level.backroom.backroom_tutorial"
@@ -1213,9 +1213,9 @@ function Game:screenshot()
 end
 
 -- SCOTCH!!!
-function Game:new_gun_display(x, y)
+function Game:new_gun_orb(x, y)
 	local gun = guns:get_random_gun()
-	return GunDisplay:new(x, y, gun)
+	return GunOrb:new(x, y, gun)
 end
 
 function Game:play_cutscene(cutscene_name)
