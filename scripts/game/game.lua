@@ -37,12 +37,10 @@ local Layer                  = require "scripts.graphics.layer"
 local LightLayer             = require "scripts.graphics.light_layer"
 local ScreenshotManager      = require "scripts.screenshot"
 local QueuedPlayer           = require "scripts.game.queued_player"
-local GunOrb             = require "scripts.actor.enemies.gun_orb"
+local LifeOrb = require "scripts.actor.enemies.life_orb"
 local MetaprogressionManager = require "scripts.game.metaprogression"
 local StatsManager           = require "scripts.game.stats_manager"
 local BackroomTutorial       = require "scripts.level.backroom.backroom_tutorial"
-local MusicDisk              = require "scripts.audio.music_disk"
-local MusicDiskWeb           = require "scripts.audio.music_disk_web"
 
 local measure                = require "lib.batteries.measure"
 
@@ -1212,10 +1210,10 @@ function Game:screenshot()
 	-- Particles:word(CANVAS_WIDTH/2, CANVAS_HEIGHT/2)
 end
 
--- SCOTCH!!!
-function Game:new_gun_orb(x, y)
-	local gun = guns:get_random_gun()
-	return GunOrb:new(x, y, gun)
+function Game:new_life_orb(x, y, value)
+    local vx = random_neighbor(300)
+    local vy = random_range(-200, -500)
+	return LifeOrb:new(x, y, value or 1.0, vx, vy)
 end
 
 function Game:play_cutscene(cutscene_name)

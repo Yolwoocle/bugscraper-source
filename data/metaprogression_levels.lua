@@ -10,7 +10,7 @@ return {
     { threshold = 5000, rewards = { { type = "skin", skin = t.amb } } },
     { threshold = 5000, rewards = { { type = "skin", skin = t.dodu } } },
     -- end of demo content 
-    { threshold = 5000, rewards = { { type = "upgrade", upgrade = "UpgradeGazpacho" } } },
+    -- { threshold = 5000, rewards = { { type = "upgrade", upgrade = "UpgradeGazpacho" } } },
     { threshold = 5000, rewards = { { type = "skin", skin = t.nob } } },
     { threshold = 5000, rewards = { { type = "skin", skin = t.leo } } },
     { threshold = 5000, rewards = { { type = "skin", skin = t.yv } } },

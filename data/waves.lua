@@ -217,37 +217,37 @@ local thorns_arc_params = {
 
 local waves_defs = {
 
-    { -- FINAL BOSS
-        roll_type = WAVE_ROLL_TYPE_FIXED,
+    -- { -- FINAL BOSS
+    --     roll_type = WAVE_ROLL_TYPE_FIXED,
 
-        min = 1,
-        max = 1,
-        enemies = {
-            { E.FinalBoss, 1, 
-                position = { 12.5 * 16, 10 * 16 + 8 }, 
-                life = 1,
-                args = {{init_state = "introduction"}} }
-        },
+    --     min = 1,
+    --     max = 1,
+    --     enemies = {
+    --         { E.FinalBoss, 1, 
+    --             position = { 12.5 * 16, 10 * 16 + 8 }, 
+    --             life = 1,
+    --             args = {{init_state = "introduction"}} }
+    --     },
 
-        -- cutscene = "final_boss_enter",
+    --     -- cutscene = "final_boss_enter",
 
-        counter_display_func = function(_)
-            -- Pseudo random looking floor counter
-            local frame = math.floor(game.in_game_frame / 5)
-            local nb = (32849 * frame) % 999
-            return math.floor(clamp(nb, 100, 999))
-        end,
+    --     counter_display_func = function(_)
+    --         -- Pseudo random looking floor counter
+    --         local frame = math.floor(game.in_game_frame / 5)
+    --         local nb = (32849 * frame) % 999
+    --         return math.floor(clamp(nb, 100, 999))
+    --     end,
 
-        run = function(self, level)
-            for _, actor in pairs(game.actors) do
-                if actor.name == "final_boss" then
-                    actor.state_machine:set_state("start")
-                end
-            end
+    --     run = function(self, level)
+    --         for _, actor in pairs(game.actors) do
+    --             if actor.name == "final_boss" then
+    --                 actor.state_machine:set_state("start")
+    --             end
+    --         end
 
-            level.freeze_fury_override = false
-        end
-    },
+    --         level.freeze_fury_override = false
+    --     end
+    -- },
 
     -- {
     --     min = 0,

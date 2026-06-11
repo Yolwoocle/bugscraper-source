@@ -63,7 +63,7 @@ function MetaprogressionManager:init()
     end
 
     self:load_xp()
-    self:remove_duplicates({"skins", "upgrades", "achievements"})
+    self:remove_duplicates({"skins", "upgrades", "achievements"}) 
 
     self.old_xp = self:get_xp()
     self.old_total_xp = self:get_total_xp()

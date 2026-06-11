@@ -1,0 +1,80 @@
+9cb8abc41d083e5b71ef490f08c3aed5d5b0d76e Léo Bernard 2026-05-05 09:21:50 +0200 0.11.3
+aa80719c513b5bd4c88033f35ee917a4366bcb03 Léo Bernard 2026-05-07 08:31:43 +0200 Update changes.md
+a7b00ca2d0ce983c4458dd4389516bd9f201d2ff Léo Bernard 2026-05-09 00:12:06 +0200 Ajustements to D2 to make it fairer (spikes slower, flash on spawn + simplified some waves) / hopefully still a fair challenge
+0f85d86ada167283cebbd0cc22b576fbaff286ae Léo Bernard 2026-05-09 00:12:16 +0200 Merge branch 'main' of https://github.com/Yolwoocle/bugscraper
+020dcdb1fcc55dea88a1535a076555df34a75423 Léo Bernard 2026-05-10 10:23:42 +0200 ES fix
+e6e44f1e93b8a5760e59b084b009e83c7ba51450 Léo Bernard 2026-05-11 13:40:02 +0200 ES padding fix
+5572c84a83bf35e6febdb094cba76479abfccc7e Verbaudet 2026-05-12 15:06:21 +0200 Ambience SFX for my boss
+5ed4d41eac4c402e4a4a15de39d6cca5df6fd22a Verbaudet 2026-05-12 15:18:48 +0200 Create sfx_upgrades_gazpacho_pickedup.ogg
+2259c7cf95f73794d8ee193c89c7c201596fd9e6 Verbaudet 2026-05-12 15:40:08 +0200 mrdung jump telegraph
+0b9e6fd9be73e776319c400a9f273a861674e4fe Verbaudet 2026-05-12 16:04:36 +0200 Motherboard SFX
+baf401702c13f4f001013d9cf1c1e0dd1ee95f6d Verbaudet 2026-05-12 19:15:12 +0200 new ennemies sfx (w4)
+0cbf5028799e3ed5ec223e05005893e386f62ad0 Verbaudet 2026-05-12 19:25:41 +0200 big berry "fix"
+67cd40b8be10216c573268fe7640a900939c2e4d Verbaudet 2026-05-12 19:41:48 +0200 s'more enemies in W4
+c5e1e04242f0fcc1d785ebfe7bdbb6849bd4c50e Verbaudet 2026-05-12 19:53:43 +0200 SFX ui
+419d450126fdb83a4fad942ed10c6e07014f24a0 Léo Bernard 2026-05-14 12:01:53 +0200 Fixed: ghost players could stomp on final boss minions
+efe294e1c9488ff0a7cb9b993980cc175f1e7674 Léo Bernard 2026-05-14 12:12:56 +0200 Fixed: boss 2 would have spikes appearing at the edge of the cabin beginning of its fight
+c8d5d6b0abea6fbc191148155551a4b6c2ba88db Léo Bernard 2026-05-14 13:49:55 +0200 First batch of SFX integ (see desc)
+ac8fec69692d6440e9ae690dd2a46124fb3896e0 Verbaudet 2026-05-15 11:28:12 +0200 Merge branch 'main' into verbaudetsd
+b01cea61f1147f2d9f8d2bbf2efcd3865634d684 Verbaudet 2026-05-15 11:30:02 +0200 unused folder deleted - ui
+4d630ec0237449488b8628bf0ddacbf7a4908ad9 Léo Bernard 2026-05-15 11:50:22 +0200 SFX integ (the rest)
+350278d38f9f97f217be77e21410607bc12c7cd6 Léo Bernard 2026-05-15 11:50:27 +0200 Merge branch 'verbaudetsd' of https://github.com/Yolwoocle/bugscraper into verbaudetsd
+71ca4b61365ba30e01f9af8aea7f1c9f79ea8a4f Léo Bernard 2026-05-15 12:59:49 +0200 Moved XP bar tick
+8660272696187c4da18a71ec3bf042859fab0136 Léo Bernard 2026-05-15 13:26:59 +0200 Merge pull request #87 from Yolwoocle/verbaudetsd
+f4b54a3188c2d6c695d64519f9ed7de726269409 Verbaudet 2026-05-16 17:10:03 +0200 V2 batch
+acd6ef4f7224d14eda83400cfc0bae7f4a763d2d Verbaudet 2026-05-18 15:19:06 +0200 Cutscene door
+01265a5dbfb828dac05de7502f18d9ad5dec25b5 Verbaudet 2026-05-18 15:40:51 +0200 cutscene fall + pickup letter
+3a3f4e38d8902563d15edf34451940ec07af7bc1 Verbaudet 2026-05-18 16:28:40 +0200 more cutscenes sfx
+90b588b413d8774c14cdc73a76f856756dbee836 Léo Bernard 2026-05-18 17:25:44 +0200 Lights to w2 boss
+07ac81c22c847503bbd5de16c76a3155825276de Léo Bernard 2026-05-18 17:26:24 +0200 Bool menu item SFX
+e5abf7fc27c0c1ab8f6e8959062fddcfb2d6f5bb Verbaudet 2026-05-25 12:41:21 +0200 Merge branch 'main' into verbaudetsd
+9ad1ea7d84956b73bec1d1e0276a475d4e296ecc Verbaudet 2026-05-25 12:42:22 +0200 Rollossus sfx first batch (see desc)
+ac6753fc4973298961e64c0959e7900a963d4c39 Verbaudet 2026-05-25 13:16:52 +0200 rollossus batch 2
+7a84eae7d83afbbd92d3c2c82c4d61b33913c2b0 Verbaudet 2026-05-27 00:17:15 +0200 sfx plus fort mr dung
+7543b45919e5f5795632f4c6f06b4c43e91e5be3 Verbaudet 2026-05-27 00:23:54 +0200 plus fort encore ?
+27d8fc259aef5b6574706c58eecc45ec9d8216e2 Verbaudet 2026-05-27 00:39:08 +0200 Update sfx_boss_rollossus_death.ogg
+70bf3f881702b37bae1c7017d63ceee6bd52dc16 Verbaudet 2026-05-27 00:46:46 +0200 des sons plus fort !!
+661a84819d465c981bdc9dd15feb68bdded9e099 Verbaudet 2026-05-27 00:56:28 +0200 Create sfx_boss_rollossus_intro.ogg
+967d5209efba1802a90eb772b96eeb9b28add451 Verbaudet 2026-05-27 00:56:59 +0200 oupsi my bad patron il est 1h du mat
+a7c36840eb1551c21c531bc8d34c0ad7fcd48e8d Léo Bernard 2026-05-27 01:00:06 +0200 SFX integ: dropper, rollossus & other
+765fa71d8c5aba9bc58cdc20f15ca0b638882bd4 DPS2004 2026-05-27 00:50:47 -0400 update name
+7039fc4f7c881bcbba7fa3a20b4291ed5ef12d1f Léo Bernard 2026-05-29 01:04:37 +0200 Added + sound design to OLX credits
+9eda27dbb04a0740bbb9918eae2d11ab3a6ddd9c Verbaudet 2026-05-30 17:19:06 +0200 Update sfx_enemy_motherboard_death.ogg
+b6e0a648ffa4425b3cc3ef65c8d10fd00eb082dd Verbaudet 2026-05-30 22:57:42 +0200 rollossus v2
+b2d5d967440c02a21f51f9bd9e44c553cd96b2dd Verbaudet 2026-05-31 12:06:31 +0200 CEO first batch
+c92baa1929022b3ba22293d79f9fca3ff944e704 Verbaudet 2026-05-31 12:12:31 +0200 oups les majuscules
+7d67d17f3ef1bb52df61ce39a613a33e323589c6 Verbaudet 2026-05-31 12:12:49 +0200 majuscules réparées
+4b3800b998673320ea97307294b1e7b7b65831c1 Verbaudet 2026-05-31 17:08:08 +0200 CEO SFX
+b67e87a6b80d74b261b006253fe2506db3cf96ce Verbaudet 2026-05-31 17:26:55 +0200 rocket sfx
+1bc29c159747bc4b7e99df5a9d595b5242604cb8 Verbaudet 2026-05-31 18:18:14 +0200 last batch for V1
+690b63e70a30c28fd2ca613889430479cba1bc73 Verbaudet 2026-05-31 18:47:45 +0200 i'm done
+66cb319b46ef7f534babd39550365cbbf16074eb Léo Bernard 2026-06-02 20:22:49 +0200 Cloud dropper SFX
+9df765fd8ffd2fa5344c34074eedd8580386574e Léo Bernard 2026-06-02 20:23:10 +0200 Difficulty adjustements
+8e07a8844b93bca83a44e38a0d806eacba2dac69 Léo Bernard 2026-06-02 20:23:14 +0200 Merge branch 'verbaudetsd' of https://github.com/Yolwoocle/bugscraper into verbaudetsd
+c2a8c4ce7b4a099c233f7348eb3f1a7d3fd9f630 Léo Bernard 2026-06-03 01:43:39 +0200 SFX integ, final boss, rollossus
+8ed465a3a2895cc393d3985737ac6c43125eff0b Léo Bernard 2026-06-03 01:43:48 +0200 Decreased gun orb HP
+a9d56ea63c18477f392cbd926df971b9162eae7a Léo Bernard 2026-06-03 16:26:18 +0200 Rollossus SFX integ + renamed from "mole_boss"
+241eea4528d61d8484ce35e48c6133f351a361d6 Verbaudet 2026-06-03 23:18:09 +0200 V2 CEO
+f730aee8456630116700df243c2bfb274c7e7e6b Léo Bernard 2026-06-03 23:41:34 +0200 SFX integ : cutscenes (w3 escape & ceo office)
+4506e5d37f0757072aed0ac42019a167a45eef10 Léo Bernard 2026-06-03 23:41:37 +0200 Merge branch 'verbaudetsd' of https://github.com/Yolwoocle/bugscraper into verbaudetsd
+406ac9131b73e8f840f66fa01873c6dd7dbddb8f Léo Bernard 2026-06-05 11:11:55 +0200 Changed tutorial text
+707d06e267fdea89c8dc8227353437b763ffd6ec Léo Bernard 2026-06-05 11:12:04 +0200 Added life param to wave
+3223d4018acab239db961a3de727aad50c8bebd2 Léo Bernard 2026-06-05 11:53:03 +0200 SFX integ: final cutscenes + tuto improvements
+04467c9dcab7f11f090bad39a29a3f3fb512ae9a Léo Bernard 2026-06-08 17:02:39 +0200 More cutscene sfx integ
+a2ddcd3b5087acc212a4c50659e72b0ec0717873 Léo Bernard 2026-06-08 18:31:07 +0200 Better credits
+2b2ebef6a49a3ebeb03bfa21dbc8cf152282cfbd Léo Bernard 2026-06-09 13:25:50 +0200 Final cutscene stuff & sfx integ
+f85a962d4dc9f69e589bc31a2ec44fe49244c3f9 Léo Bernard 2026-06-09 13:29:14 +0200 Merge pull request #89 from DPS2004/main
+fc18b008e4b17b68ea1cebea255fb920e9ead9c0 Verbaudet 2026-06-10 10:05:02 +0200 Merge branch 'main' into verbaudetsd
+e8aa06e8da62a947535bf086c77eab5e2ef846aa Verbaudet 2026-06-10 10:05:57 +0200 ceo telegraph dash + new opening/ending screen (see desc)
+bbbad90c35da53671453c0a7c2d012996254e642 Verbaudet 2026-06-10 10:38:55 +0200 more variations + mio slaps harder
+8269eee57d8b9bd02b8aff14b1728326b36788cc Léo Bernard 2026-06-10 10:42:04 +0200 Increased default music volume
+36241c2bf756d34323fc5418873ed7d7346d46a2 Léo Bernard 2026-06-10 10:42:08 +0200 Merge branch 'verbaudetsd' of https://github.com/Yolwoocle/bugscraper into verbaudetsd
+ef1258f96b3995f139f06ed0332ffc03dad568ab Léo Bernard 2026-06-10 10:53:15 +0200 Merge pull request #88 from Yolwoocle/verbaudetsd
+65431657b11ce63abc7f3703c3d9c2afe34f446d Léo Bernard 2026-06-10 11:11:30 +0200 Renamed gun display to gun orb
+712131d03743a03a594cb3fdc720f8624e394729 Léo Bernard 2026-06-10 11:12:28 +0200 Renamed gun display to gun orb
+a44bec082df056a9b5ec0c643a63c46c20cba034 Léo Bernard 2026-06-10 11:19:21 +0200 Fix SFX crash
+547e7f9ab3feba1668171f8e99f9cf0fe3500af1 Léo Bernard 2026-06-10 11:21:51 +0200 old ceo telegraph dash sound
+970ecb1c5e84d08627153571f1510913b9a9e4d6 Léo Bernard 2026-06-10 12:02:13 +0200 Removed gun orbs and added Life orbs
+82f480bc077606ffd2ba38459b0b959407abd78b Léo Bernard 2026-06-10 12:11:02 +0200 Heart jar velocity
+dc50d4f6eaec63da6f02c95d1823d1c0797825e1 Léo Bernard 2026-06-11 15:17:11 +0200 Removed Gazpacho
+a0077be642c5e7898f47e14a9220699f44cf516f Léo Bernard 2026-06-11 15:17:33 +0200 *Slightly decreased life orb spawn chance
