@@ -22,7 +22,7 @@ This changelog includes changes related to the private beta. For access request,
     </ul>
 </details>
 
-### Audio
+### Audio 
 - Added and updated various sound effects across the game, courtesy of Martin Domergue, including audio for bosses, dept. 4 enemies, cutscenes, and UI elements.
 - Increased default music volume from 50% to 75%
 
