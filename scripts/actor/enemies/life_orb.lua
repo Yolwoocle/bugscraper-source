@@ -32,7 +32,7 @@ function LifeOrb:init(x, y, life, vx, vy)
     self.is_stompable = true
     self.is_killed_on_stomp = false
     self.stomps = 500
-    self.damage_on_stomp = 5
+    self.damage_on_stomp = 3
 
 	self.destroy_bullet_on_impact = true
 	self.is_immune_to_bullets = false
