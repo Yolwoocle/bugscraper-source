@@ -85,7 +85,8 @@ function Enemy:init_enemy(x,y, img, w,h)
 	self.speed_y = 0
 
 	self.loot = {
-		{nil, 180},
+		-- {nil, 180},
+		{nil, 1},
 		{Loot.Life, 7, loot_type="life", value=1},
 		{Loot.Gun, 3, loot_type="gun"},
 	}

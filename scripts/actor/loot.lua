@@ -285,6 +285,7 @@ function Loot.Life:init(x, y, val, vx, vy, params)
 	self.loot_type = "life"
 	self.value = val
 	self.friction_x = 0.95
+	self.uncollectable_timer = 0.0
 
 	self.target_player = param(params.target_player, nil)
 end
