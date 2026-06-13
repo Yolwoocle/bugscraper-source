@@ -9,7 +9,9 @@ This changelog includes changes related to the private beta. For access request,
 ### Gameplay
 - ⭐ Removed Gun Orbs and replaced them with Life Orbs
     - Life Orbs break in a couple hits and will drop a heart that acts identically to the old heart.
-    - To compensate, slightly increased Life Orb spawn chance
+    - To compensate, slightly increased Life Orb spawn chance.
+    - Removed heart jars in cafeterias. 
+    - Guns will now directly drop instead of spawning in an orb.
 - ⭐ Removed Gazpacho upgrade. I plan on adding it back in a later update, but right now I do not have the time to properly balance it.
 - ⭐ Adjusted Department 2 difficulty to make it fairer 
     - Spikes are slower, flash on spawn, and simplified some waves
