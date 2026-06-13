@@ -3,8 +3,14 @@
 This changelog includes changes related to the private beta. For access request, please ask me on [Discord](https://bugscraper.net/discord).
 
 
+## 0.11.5
+(*2026-06-13*)
+
+- Fixed an issue where enemies would drop an enormous amount of hearts and guns
+
+
 ## 0.11.4
-(*2026-06-11*)
+(*2026-06-13*)
 
 ### Gameplay
 - ⭐ Removed Gun Orbs and replaced them with Life Orbs
