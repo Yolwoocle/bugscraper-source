@@ -25,6 +25,8 @@ function HeartJar:init(x, y, params)
     self.break_num_particles = 50
     self.heart_count_per_player = param(params.heart_count_per_player, 1)
 
+    self.counts_as_enemy = true
+
     self.collision_info = CollisionInfo:new {
         type = COLLISION_TYPE_SEMISOLID,
         is_slidable = true,
