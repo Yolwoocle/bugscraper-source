@@ -542,6 +542,8 @@ function FinalBoss:init(x, y, params)
                 self.damage = 0 
                 self.life = 0
 	            self.fury_damage_multiplier = 0.0
+
+                self.disable_minions = true
                 
                 self.invincible_timer = math.huge
                 self.destroy_bullet_on_impact = false
@@ -629,7 +631,7 @@ function FinalBoss:update(dt)
     end
 
     -- minions
-    if self.spawn_minion_timer:update(dt) then
+    if self.spawn_minion_timer:update(dt) and not self.disable_minions then
         self.spawn_minion_timer:start()
 
         if #self.minions < self.max_minions then
