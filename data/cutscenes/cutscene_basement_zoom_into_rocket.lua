@@ -101,7 +101,8 @@ return Cutscene:new("basement_zoom_into_rocket", {
         end
     }),
     CutsceneScene:new({
-        description = "",
+        description = "Rocket rises",
+
         duration = 1.0,
         enter = function(cutscene, data)
             game.ambience_player:fade_out("off", 1.0)
@@ -130,13 +131,16 @@ return Cutscene:new("basement_zoom_into_rocket", {
     }),
 
     CutsceneScene:new({
-        description = "",
+        description = "Give back control to players",
+
         duration = 1.0,
         enter = function(cutscene, data)
             game.menu_manager:set_can_pause(true)
 
             game.level.slowdown_timer_override = 2.0
             game.level.backroom.can_exit_basement = true
+            game.level.do_level_slowdown_on_new_wave = false
+            game.level.level_speed = game.level.level_speed_advancing * 2.5 -- this is duplicated from waves but fuck it 
 
             for _, player in pairs(game.players) do
                 player:set_input_mode(PLAYER_INPUT_MODE_USER)
@@ -144,16 +148,17 @@ return Cutscene:new("basement_zoom_into_rocket", {
 
                 local px = lerp(game.level.cabin_inner_rect.ax+16, game.level.cabin_inner_rect.ax+16*4, (player.n-1) / (MAX_NUMBER_OF_PLAYERS-1))
                 player:set_position(px, game.level.door_rect.by)
-
-                game.level:set_bounds(Rect:new(unpack(RECT_ELEVATOR_PARAMS)))
-
+    
                 player.gravity_mult = 1.0
             end
+
+            game.level:set_bounds(Rect:new(unpack(RECT_ELEVATOR_PARAMS)))
         end,
     }),
     
     CutsceneScene:new({
-        description = "",
+        description = "Open iris",
+
         duration = 1.0,
         enter = function(cutscene, data)
             local x = lerp(game.level.cabin_inner_rect.ax+16, game.level.cabin_inner_rect.ax+16*4, 0.5)
