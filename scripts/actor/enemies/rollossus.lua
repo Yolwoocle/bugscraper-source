@@ -39,7 +39,7 @@ function Rollossus:init(x, y)
     }, "digging")
     self.spr:set_anchor(SPRITE_ANCHOR_CENTER_CENTER)
 
-    self:set_max_life(80)
+    self:set_max_life(100)
 
     self.fly_speed = 500
     self.def_walk_speed = 250
