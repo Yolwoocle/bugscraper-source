@@ -35,7 +35,7 @@ function Loot:init_loot(spr, x, y, w, h, val, vx, vy, params)
 	self.requires_interaction = param(params.requires_interaction, false)
 	self.interacted_players = {}
 	if self.requires_interaction then
-		self.is_interactible = true
+		self.is_interactible = true 
 		self.player_filter = function(player)
 			return self.interacted_players[player.n] and filter(player)
 		end
