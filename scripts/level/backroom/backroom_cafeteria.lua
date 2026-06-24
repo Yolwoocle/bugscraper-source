@@ -51,10 +51,6 @@ function BackroomCafeteria:generate(world_generator)
 		world_generator:write_rect(Rect:new(51, 13, 53, 13), TILE_METAL_SEMISOLID)
 	end
 
-	game:new_actor(
-		HeartJar:new(31*16, 10*16)
-	)
-
 	self:assign_cafeteria_upgrades()
 
 	game.camera.max_x = CANVAS_WIDTH

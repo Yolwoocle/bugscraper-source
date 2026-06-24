@@ -2,6 +2,55 @@
 
 This changelog includes changes related to the private beta. For access request, please ask me on [Discord](https://bugscraper.net/discord).
 
+
+## 0.11.5
+(*2026-06-13*)
+
+- Fixed an issue where enemies would drop an enormous amount of hearts and guns
+
+
+## 0.11.4
+(*2026-06-13*)
+
+### Gameplay
+- ⭐ Removed Gun Orbs and replaced them with Life Orbs
+    - Life Orbs break in a couple hits and will drop a heart that acts identically to the old heart.
+    - To compensate, slightly increased Life Orb spawn chance.
+    - Removed heart jars in cafeterias. 
+    - Guns will now directly drop instead of spawning in an orb.
+- ⭐ Removed Gazpacho upgrade. I plan on adding it back in a later update, but right now I do not have the time to properly balance it.
+- ⭐ Adjusted Department 2 difficulty to make it fairer 
+    - Spikes are slower, flash on spawn, and simplified some waves
+- General difficulty adjustments
+
+<details>
+    <summary>SPOILERS (Boss 2)</summary>
+    <ul>
+        <li>Added lights to players in dept. 2 boss</li>
+    </ul>
+</details>
+
+### Audio 
+- Added and updated various sound effects across the game, courtesy of Martin Domergue, including audio for bosses, dept. 4 enemies, cutscenes, and UI elements.
+- Increased default music volume from 50% to 75%
+
+### UI & Misc
+- Changed tutorial text
+- Changes to credits and improved layout/formatting
+- Slight changes to final cutscene
+
+### Fixes 
+- Fixed: Spanish padding issues
+- Fixed: boss 2 would have spikes appearing at the edge of the cabin beginning of its fight
+
+<details>
+    <summary>SPOILERS (Final boss)</summary>
+    <ul>
+        <li>Fixed: ghost players could stomp on final boss minions</li>
+    </ul>
+</details>
+
+
 ## 0.11.3
 - Fixed: electric arcs and vines were not properly removed on some waves
 

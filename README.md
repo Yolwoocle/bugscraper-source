@@ -23,7 +23,7 @@ Welcome to the bugscraper.
 ## Is this game open source?
 **This game is _NOT_ [open source](https://en.wikipedia.org/wiki/Open-source_software)**, rather it is [source available](https://en.wikipedia.org/wiki/Source-available_software). **Not having a licence means that by default I reserve all original rights for the game, even if the code is public.**  
 
-However, this is moreso to legally cover my ass from abusers. I am very lax with what you can do with the source code. Please feel free to reuse, modify, fork or remix it for any non-commercial project. **PLEASE DO NOT DIRECTLY DISTRIBUTE ANY EXECUTABLES.** Please note that I reserve the right to act accordingly if I see any abuse. 
+However, this is moreso to legally cover my ass from abusers. Please feel free to reuse or modify parts of the code for any non-commercial project. **PLEASE DO NOT DIRECTLY DISTRIBUTE ANY EXECUTABLES.** Please note that I reserve the right to act accordingly if I see any abuse. 
 
 If it does not fit that description please [contact me first](https://yolwoocle.com/about). I don't bite! :)
 

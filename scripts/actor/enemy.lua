@@ -5,6 +5,7 @@ local Loot = require "scripts.actor.loot"
 local images = require "data.images"
 local sounds = require "data.sounds"
 local shaders= require "data.shaders"
+local guns = require "data.guns"
 
 local Enemy = Actor:inherit()
 
@@ -85,7 +86,7 @@ function Enemy:init_enemy(x,y, img, w,h)
 
 	self.loot = {
 		{nil, 180},
-		{Loot.Life, 6, loot_type="life", value=1},
+		{Loot.Life, 7, loot_type="life", value=1},
 		{Loot.Gun, 3, loot_type="gun"},
 	}
 
@@ -476,9 +477,12 @@ function Enemy:drop_loot(loot, params)
 	local vy = random_range(-200, -500)
 	local loot_type = params.loot_type
 	if loot_type == "gun" then
-		instance = game:new_gun_display(self.mid_x, self.mid_y)
-	elseif loot_type == "ammo" or loot_type == "life" then
-		instance = loot:new(self.mid_x, self.mid_y, params.value, vx, vy)
+		local gun = guns:get_random_gun()
+		instance = loot:new(self.mid_x, self.mid_y, params.value, vx, vy, gun)
+
+	elseif loot_type == "life" then
+		instance = game:new_life_orb(self.mid_x, self.mid_y)
+
 	end 
 
 	game:new_actor(instance)

@@ -269,7 +269,7 @@ local img_names = {
 
 	upgrade_jar =              "actors/enemies/upgrade_jar",
 	heart_jar =                "actors/enemies/heart_jar",
-	gun_display =              "actors/enemies/gun_display",
+	gun_orb =              "actors/enemies/gun_orb",
 	big_red_button_crack0 =    "actors/enemies/big_red_button_crack0",
 	big_red_button_crack1 =    "actors/enemies/big_red_button_crack1",
 	big_red_button_crack2 =    "actors/enemies/big_red_button_crack2",

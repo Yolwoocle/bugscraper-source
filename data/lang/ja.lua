@@ -60,7 +60,7 @@ return {
         -- Look at google doc for image references
         machinegun = "ナッツガン",
         triple = "トリプルペッパー",
-        burst = "ボムカフン",
+        burst = "バクカフン",--「爆風」Explosion+「花粉」Pollen / Previous proposal: ボムカフン
         shotgun = "ラズベリーショット",
         minigun = "タネガン",
         ring = "ビッグベリー",
@@ -98,7 +98,8 @@ return {
         -- "The Webmaster" is a play on words between the theme of the area and spider webs)
 
         -- A somewhat witty and clownesque exectutive based off a Dung Beetle. 
-        boss_1 = "スカ・シッペー",--「スカラベ」scarab + 「すかしっぺ」 mean silent fart.
+        boss_1 = "フンコロ上司",--「フンコロガシ」Dung Beetle + 「上司」 Manager.
+        --Previous proposal: "スカ・シッペー",--「スカラベ」scarab + 「すかしっぺ」 mean silent fart.
 
         -- The queen of the Factory, who's also a metal/rock singer.  
         boss_2 = "クイーン陛下", 
@@ -109,7 +110,7 @@ return {
         -- A very large green cabbage-like, boulder-like, rolling enemy from the Garden area.   
         -- You're free to be more creative with this one. 
         -- (example: in French, I chose "Grobroco", "gros" (large) + "broco" (diminutive of broccoli))
-        boss_4 = "ローリングキャベツ",
+        boss_4 = "ローリングキャベツ",--Cabegge Roll+ing
 
         -- The CEO of the company, and the final boss. Its name is somewhat ominous-sounding.
         -- Try to avoid ambiguity with the term "boss", which could be confused with the generic term for a video game boss.
@@ -168,7 +169,7 @@ return {
             -- When you take damange, you have a 5-second window, where if you deal enough damage
             -- to enemies, you can recover 1 HP
             title = "ガスパチョ",
-            description = "ダメージを受けると 反撃して1❤回復",
+            description = "ダメージを受けた時 反撃できれば1❤回復",
         },
     },
     input = {
