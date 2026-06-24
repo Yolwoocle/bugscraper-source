@@ -96,27 +96,28 @@ function DebugCommandManager:init()
             return true
         end,
     }
-    -- self.commands["backroom"] = DebugCommand:new {
-    --     name = "backroom",
-    --     description = "Starts a game with a backroom",
-    --     args = {
-    --         { "name:string", values = backrooms_keys },
-    --     },
-    --     run = function(name)
-    --         local backroom_class = backrooms["backroom_" .. tostring(name)]
-    --         if not backroom_class then
-    --             return false, "Backroom '" .. name .. "' not found"
-    --         end
+    self.commands["backroom"] = DebugCommand:new {
+        name = "backroom",
+        description = "Starts a game with a backroom",
+        args = {
+            { "name:string", values = backrooms_keys },
+        },
+        run = function(name)
+            local backroom_class = backrooms["backroom_" .. tostring(name)]
+            if not backroom_class then
+                return false, "Backroom '" .. name .. "' not found"
+            end
 
-    --         self:add_message("Started backroom '" .. name .. "'")
+            self:add_message("Started backroom '" .. name .. "'")
 
-    --         game:new_game({ 
-    --             backroom = backroom_class:new(),
-    --         })
+            game:new_game({ 
+                backroom = backroom_class:new(),
+            })
+            game.game_state = GAME_STATE_PLAYING
 
-    --         return true
-    --     end,
-    -- }
+            return true
+        end,
+    }
     self.commands["randomupgrades"] = DebugCommand:new {
         name = "randomupgrades",
         description = "Applies a number of random upgrades",

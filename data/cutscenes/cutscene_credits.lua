@@ -6,7 +6,7 @@ return Cutscene:new("credits", {
     CutsceneScene:new({
         description = "Linger on logo",
 
-        duration = 4.0,
+        duration = 5.0,
         enter = function(cutscene, data)
             game.level.backroom.draw_logo = true
         end,
@@ -33,7 +33,7 @@ return Cutscene:new("credits", {
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
             game.game_ui:start_title("{menu.credits.leo_bernard}", "Yolwoocle", "{menu.credits.game_by}", 0.5, 5.0, 0.5)
         end,
@@ -42,16 +42,16 @@ return Cutscene:new("credits", {
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("OLX", "", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("OLX", "Alexandre Mercier", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5)
         end,
     }),
 
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
             game.game_ui:start_title("Martin Domergue", "Verbaudet", "{menu.credits.sound_design}", 0.5, 5.0, 0.5)
         end,
