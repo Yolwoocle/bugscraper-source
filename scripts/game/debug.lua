@@ -77,6 +77,9 @@ function Debug:init(game)
 
     self.removeme_i = 0
     self.actions = {
+        ["escape"] = { "force pause", function()
+            game.menu_manager:pause(true)
+        end},
         ["f2"] = { "toggle collision view mode", function()
             self.colview_mode = not self.colview_mode
         end, do_not_require_ctrl = true },

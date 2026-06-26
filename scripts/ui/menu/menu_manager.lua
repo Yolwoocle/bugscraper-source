@@ -169,10 +169,12 @@ function MenuManager:set_can_pause(value)
     self.can_pause = value
 end
 
-function MenuManager:pause()
+function MenuManager:pause(force_pause)
 	-- Retry if game ended
-	if self.is_paused then return end
-	if not self.can_pause then return end
+	if not force_pause then
+		if self.is_paused then return end
+		if not self.can_pause then return end
+	end
 
 	if self.cur_menu == nil then
 		self.is_paused = true

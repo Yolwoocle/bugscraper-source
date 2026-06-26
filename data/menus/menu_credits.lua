@@ -21,7 +21,7 @@ return Menu:new(game, "{menu.credits.title}", {
     { "Martin Domergue (Verbaudet) 🔗", func_url("https://linktr.ee/martindomerguesd") },
     { "" },
     { "<<< {menu.credits.additional_art} >>>" },
-    { "Noam Goldfarb 🔗", func_url("https://x.com/SSlime7")  }, 
+    { "Noam Goldfarb (Slime) 🔗", func_url("https://x.com/SSlime7")  }, 
     { "Colin Roullé (OHX) 🔗", func_url("https://roullecolin.com/") }, 
     { "caridescent 🔗", func_url("https://caridescent.carrd.co/") }, 
     { "" },
@@ -32,7 +32,7 @@ return Menu:new(game, "{menu.credits.title}", {
     { "< {language.pt_BR} >" },
     { "Nicole Sanches (rhysuki)", empty_func },
     { "kiwisky", empty_func },
-    { "parinamais", empty_func },
+    { "Marina Pais (parinamais)", empty_func },
     { "" },
     { "< {language.es} >" },
     { "Alejandro Alzate Sánchez", empty_func }, -- https://github.com/alejandro-alzate

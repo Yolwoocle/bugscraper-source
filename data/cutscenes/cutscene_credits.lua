@@ -1,5 +1,6 @@
 local Cutscene      = require "scripts.game.cutscene"
 local CutsceneScene = require "scripts.game.cutscene_scene"
+local images        = require "data.images"
 
 return Cutscene:new("credits", {
     -- [[
@@ -35,7 +36,11 @@ return Cutscene:new("credits", {
 
         duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("{menu.credits.leo_bernard}", "Yolwoocle", "{menu.credits.game_by}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("{menu.credits.leo_bernard}", "Yolwoocle", "{menu.credits.game_by}", 0.5, 5.0, 0.5, {
+                image = images.credits_mio_beach,
+                image_x = 62,
+                image_y = 92,
+            })
         end,
     }),
 
@@ -283,7 +288,7 @@ return Cutscene:new("credits", {
         duration = 8.0,
         enter = function(cutscene, data)
             game.game_ui:start_title({
-                "{menu.credits.thank_you_for_playing}",
+                "",
             }, "", "", 0.5, 7.0, 0.5)
         end,
     }),
@@ -332,6 +337,7 @@ return Cutscene:new("credits", {
         
         duration = 0.0,
         enter = function(cutscene, data)
+            game.music_player:set_disk("off")
         	game.menu_manager:set_menu("win")
         end,
     }),

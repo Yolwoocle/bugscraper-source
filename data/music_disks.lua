@@ -71,6 +71,10 @@ return {
         [MUSIC_MODE_INGAME] = sounds.music_cafeteria_empty_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_cafeteria_paused.source,
     }),
+    ["cutscene_tutorial_end"] = disk_class:new({
+        [MUSIC_MODE_INGAME] = sounds.music_cutscene_tutorial_end.source,
+        [MUSIC_MODE_PAUSE] = sounds.music_cutscene_tutorial_end.source,
+    }),
     ["cutscene_enter_ceo_office"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_cutscene_enter_ceo_office.source,
         [MUSIC_MODE_PAUSE] = sounds.music_cutscene_enter_ceo_office.source,

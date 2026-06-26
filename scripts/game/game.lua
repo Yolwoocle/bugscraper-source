@@ -305,12 +305,19 @@ function Game:new_game(params)
 
 	self.check_achievements_timer = 1.0
 
+	self.ready_run = params.ready_run
+
 	_G_t_test = love.timer.getTime()
 end
 
 function Game:ready()
 	self.is_ready = true
-
+	
+	if self.ready_run then
+		self.ready_run()
+		self.ready_run = nil
+	end
+	
 	if not Options:get("has_chosen_language") then
 		self.game_state = GAME_STATE_LANGUAGE_SETUP
 		for _, joy in pairs(love.joystick.getJoysticks()) do
