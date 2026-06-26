@@ -66,7 +66,7 @@ return {
         ring = "Baya grande",
         mushroom_cannon = "Cañón de champiñones",
 
-        resignation_letter = "Carta de Resignación",
+        resignation_letter = "Carta de renuncia",
     },
     player = {
         name = {
@@ -113,7 +113,7 @@ return {
 
         -- The CEO of the company, and the final boss. Its name is somewhat ominous-sounding.
         -- Try to avoid ambiguity with the term "boss", which could be confused with the generic term for a video game boss.
-        boss_5 = "El Patronazo",
+        boss_5 = "El Jefazo",
     },
     upgrade = {
         tea = {
@@ -163,7 +163,7 @@ return {
         },
         energy_drink = {
             title = "Bebida Energizante",
-            description = "El medidor del combo baja mas lento",
+            description = "El medidor del combo baja más lento",
         },
         gazpacho = {
             title = "Gazpacho",
@@ -352,7 +352,7 @@ return {
             time_total = "Tiempo jugado (total)",
             time_ingame = "Tiempo jugado (en juego)",
             runs = "Rondas",
-            best_run = "Oleada mas alta", -- The biggest wave number reached on any run
+            best_run = "Oleada más alta", -- The biggest wave number reached on any run
         },
         new_reward = {
             new_skin = "Nuevo Carácter!",
@@ -380,11 +380,11 @@ return {
             additional_art = "Arte adicional",
             playtesting = "Probadores de Jugabilidad",
             special_thanks = "Agradecimentos especiales",
-            trailer = "Tráiler",
+            trailer = "Trailer",
             asset_creators = "Creadores de recursos",
             tv_slideshow = "Contribuciones de la presentación en la TV", -- Refers to the powerpoint TV slideshow on the title screen, which was contributed by a variety of people
             licenses = "Recursos y Lisencias de librerías",
-            more = "Y muchos mas...",                                    -- For the people that I might have forgotten in the special thanks section
+            more = "Y muchos más...",                                    -- For the people that I might have forgotten in the special thanks section
             thank_you_for_playing = "¡Gracias por jugar!",               -- Shown at the end of the credits
 
             x_by_y = "%s por %s",                                        -- "ASSET_NAME by CREATOR". Used to credit assets such as sound effects
