@@ -77,6 +77,10 @@ function GameUI:init(game, is_visible)
 	self.title_state = "intro"
 	self.title_state_timer = Timer:new(0.0)
 	self.current_title_state_duration = "intro"
+
+	self.title_image = nil
+	self.title_image_x = 0
+	self.title_image_y = 0
 	
 	self.title_tvs_on = false
 	self.title_tv_grid = nil
@@ -152,11 +156,12 @@ function GameUI:draw()
 	self:draw_convention_video()
 	self:draw_player_previews()
 	self:draw_cinematic_bars()
-	self:draw_iris_transition()
 	self:draw_fury()
 	self:draw_boss_bar()
 	
 	self:draw_titles()
+	self:draw_iris_transition()
+	
 	if self.dark_overlay_alpha > 0 then
 		rect_color(transparent_color(self.dark_overlay_color_override or COL_BLACK_BLUE, self.dark_overlay_alpha), "fill", 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 	end
@@ -187,7 +192,9 @@ function GameUI:set_gameplay_hud_visible(bool)
 	end	
 end
 
-function GameUI:start_title(title, subtitle, overtitle, intro_dur, stay_dur, outro_dur)
+function GameUI:start_title(title, subtitle, overtitle, intro_dur, stay_dur, outro_dur, params)
+	params = params or {}
+
 	local titles = {}
 	if type(title) == "string" then
 		titles = {title}
@@ -206,6 +213,14 @@ function GameUI:start_title(title, subtitle, overtitle, intro_dur, stay_dur, out
 	self.title_stay_duration = stay_dur
 	self.title_outro_duration = outro_dur
 	self.title_tvs_on = false
+
+	if params.image then
+		self.title_image = params.image
+		self.title_image_x = params.image_x or 0
+		self.title_image_y = params.image_y or 0
+	else
+		self.title_image = nil
+	end
 
 	self.title_state = "intro"
 
@@ -260,6 +275,9 @@ function GameUI:update_title(dt)
 			self.subtitle = nil
 			self.overtitle = nil
 			self.title_tvs_on = false
+			self.title_image = nil
+			self.title_image_x = 0
+			self.title_image_y = 0
 		end
 	end
 
@@ -341,6 +359,10 @@ function GameUI:draw_titles()
 			print_centered_outline(COL_LIGHTEST_GRAY, nil, self.overtitle, CANVAS_CENTER[1], CANVAS_CENTER[2] - titles_height/2 - 9)
 		end
 		Text:pop_font()
+
+		if self.title_image then
+			love.graphics.draw(self.title_image or images.empty, self.title_image_x or 0, self.title_image_y or 0)
+		end
 		
 		self:draw_title_tv_grid()
 		

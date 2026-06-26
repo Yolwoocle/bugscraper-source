@@ -759,6 +759,14 @@ local img_names = {
 	
 	-----------------------------------------------------
 	
+	-- credits
+	credits_mio_beach =      "credits/credits_mio_beach",
+	credits_cap =            "credits/credits_cap",
+	credits_nob =            "credits/credits_nob",
+	credits_metal_bee =      "credits/credits_metal_bee",
+
+	-----------------------------------------------------
+
 	-- misc
 	splash = "splash",
 

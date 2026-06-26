@@ -173,7 +173,13 @@ function Game:new_game(params)
 	if self.music_player then self.music_player:stop() end
 	self.music_player = MusicPlayer:new(music_disks, "ground_floor_empty", {processes_pause = true, volume = Options:get("music_volume")})
 	self:set_music_volume(Options:get("music_volume"))
-	self.music_player:set_disk("ground_floor_empty") -- TODO put correct disk depending on nb of players
+	if not params.quick_restart then
+		if Input:get_number_of_users() == 0 then
+			self.music_player:set_disk("ground_floor_empty")
+		else
+			self.music_player:set_disk("ground_floor_players")
+		end
+	end
 
 	if self.ambience_player then self.ambience_player:stop() end
 	self.ambience_player = MusicPlayer:new(ambience_disks, "cafeteria", {})
@@ -305,12 +311,19 @@ function Game:new_game(params)
 
 	self.check_achievements_timer = 1.0
 
+	self.ready_run = params.ready_run
+
 	_G_t_test = love.timer.getTime()
 end
 
 function Game:ready()
 	self.is_ready = true
-
+	
+	if self.ready_run then
+		self.ready_run()
+		self.ready_run = nil
+	end
+	
 	if not Options:get("has_chosen_language") then
 		self.game_state = GAME_STATE_LANGUAGE_SETUP
 		for _, joy in pairs(love.joystick.getJoysticks()) do

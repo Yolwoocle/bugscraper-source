@@ -1,12 +1,13 @@
 local Cutscene      = require "scripts.game.cutscene"
 local CutsceneScene = require "scripts.game.cutscene_scene"
+local images        = require "data.images"
 
 return Cutscene:new("credits", {
     -- [[
     CutsceneScene:new({
         description = "Linger on logo",
 
-        duration = 4.0,
+        duration = 5.0,
         enter = function(cutscene, data)
             game.level.backroom.draw_logo = true
         end,
@@ -33,25 +34,29 @@ return Cutscene:new("credits", {
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("{menu.credits.leo_bernard}", "Yolwoocle", "{menu.credits.game_by}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("{menu.credits.leo_bernard}", "Yolwoocle", "{menu.credits.game_by}", 0.5, 5.0, 0.5, {
+                image = images.credits_mio_beach,
+                image_x = 62,
+                image_y = 92,
+            })
         end,
     }),
 
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("OLX", "", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("OLX", "Alexandre Mercier", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5)
         end,
     }),
 
     CutsceneScene:new({
         description = "",
 
-        duration = 6.0,
+        duration = 7.0,
         enter = function(cutscene, data)
             game.game_ui:start_title("Martin Domergue", "Verbaudet", "{menu.credits.sound_design}", 0.5, 5.0, 0.5)
         end,
@@ -293,6 +298,11 @@ return Cutscene:new("credits", {
         
         duration = 1.0,
         enter = function(cutscene, data)
+            game.game_ui:start_title({""}, "", "", 0.5, 10.0, 0.5, {
+                image = images.credits_metal_bee,
+                image_x = CANVAS_CENTER[1] - 112/2,
+                image_y = CANVAS_CENTER[2] - 80/2,
+            })
         end,
 
         exit = function(cutscene, data)
@@ -304,7 +314,7 @@ return Cutscene:new("credits", {
         duration = 1.0,
         enter = function(cutscene, data)
             Audio:play("sfx_cutscene_endingscreen")
-            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, CANVAS_WIDTH, 64)
+            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, CANVAS_WIDTH, 90)
             game.music_player:fade_out("off", 3.0)
         end,
     }),
@@ -319,7 +329,7 @@ return Cutscene:new("credits", {
         duration = 1.0,
         enter = function(cutscene, data)
             Audio:play("sfx_cutscene_endingscreen")
-            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, 64, 0)
+            game.game_ui:start_iris_transition(CANVAS_CENTER[1], CANVAS_CENTER[2], 0.5, 90, 0)
         end,
     }),
     CutsceneScene:new({
@@ -332,6 +342,7 @@ return Cutscene:new("credits", {
         
         duration = 0.0,
         enter = function(cutscene, data)
+            game.music_player:set_disk("off")
         	game.menu_manager:set_menu("win")
         end,
     }),

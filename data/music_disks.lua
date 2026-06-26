@@ -30,7 +30,7 @@ return {
     ["w4"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w4_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w4_paused.source,
-    }),
+    }, { loop_start = 3.609, loop_end = 60+48.270 }),
     ["w5"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w5_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w5_paused.source,
@@ -71,8 +71,16 @@ return {
         [MUSIC_MODE_INGAME] = sounds.music_cafeteria_empty_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_cafeteria_paused.source,
     }),
+    ["cutscene_tutorial_end"] = disk_class:new({
+        [MUSIC_MODE_INGAME] = sounds.music_cutscene_tutorial_end.source,
+        [MUSIC_MODE_PAUSE] = sounds.music_cutscene_tutorial_end.source,
+    }),
+    ["cutscene_enter_ceo_office"] = disk_class:new({
+        [MUSIC_MODE_INGAME] = sounds.music_cutscene_enter_ceo_office.source,
+        [MUSIC_MODE_PAUSE] = sounds.music_cutscene_enter_ceo_office.source,
+    }),
     ["credits"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_credits.source,
         [MUSIC_MODE_PAUSE] = sounds.music_credits.source,
-    }, { loop_start = 13.708, loop_end = 60+54.857 }),
+    }),
 }

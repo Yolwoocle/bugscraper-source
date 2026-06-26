@@ -35,8 +35,9 @@ local sfxnames = {
 	["music_cafeteria_ingame"] =            { "music/music_cafeteria_ingame.ogg", "stream", { looping = true } },
 	["music_cafeteria_paused"] =            { "music/music_cafeteria_paused.ogg", "stream", { looping = true } },
 	["music_cafeteria_empty_ingame"] =      { "music/music_cafeteria_empty_ingame.ogg", "stream", { looping = true } },
-	["music_credits"] =                     { "music/music_credits.ogg", "stream", { looping = false } },
-	["music_cutscene_tutorial_end"] =       {"music/music_cutscene_tutorial_end.mp3", "stream"},
+	["music_credits"] =                     { "music/music_credits.ogg", "stream" },
+	["music_cutscene_tutorial_end"] =       { "music/music_cutscene_tutorial_end.ogg", "stream"},
+	["music_cutscene_enter_ceo_office"] =   { "music/music_cutscene_enter_ceo_office.ogg", "stream"},
 
 	["music_boss_w1_ingame"] =              { "music/music_boss_w1_ingame.ogg", "stream", { looping = true } },
 	["music_boss_w1_paused"] =              { "music/music_boss_w1_paused.ogg", "stream", { looping = true } },

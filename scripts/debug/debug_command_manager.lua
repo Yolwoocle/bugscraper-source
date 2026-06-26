@@ -9,8 +9,11 @@ local skins           = require "data.skins"
 local skin_name_to_id = require "data.skin_name_to_id"
 local BackroomBasement = require "scripts.level.backroom.backroom_basement"
 local BackroomCredits = require "scripts.level.backroom.backroom_credits"
+local BackroomEnding  = require "scripts.level.backroom.backroom_ending"
 local achievements    = require "data.achievements"
 local backrooms       = require "data.backrooms"
+local BackgroundAboveCity = require "scripts.level.background.background_above_city"
+
 
 local DebugCommandManager = Class:inherit()
 
@@ -96,27 +99,28 @@ function DebugCommandManager:init()
             return true
         end,
     }
-    -- self.commands["backroom"] = DebugCommand:new {
-    --     name = "backroom",
-    --     description = "Starts a game with a backroom",
-    --     args = {
-    --         { "name:string", values = backrooms_keys },
-    --     },
-    --     run = function(name)
-    --         local backroom_class = backrooms["backroom_" .. tostring(name)]
-    --         if not backroom_class then
-    --             return false, "Backroom '" .. name .. "' not found"
-    --         end
+    self.commands["backroom"] = DebugCommand:new {
+        name = "backroom",
+        description = "Starts a game with a backroom",
+        args = {
+            { "name:string", values = backrooms_keys },
+        },
+        run = function(name)
+            local backroom_class = backrooms["backroom_" .. tostring(name)]
+            if not backroom_class then
+                return false, "Backroom '" .. name .. "' not found"
+            end
 
-    --         self:add_message("Started backroom '" .. name .. "'")
+            self:add_message("Started backroom '" .. name .. "'")
 
-    --         game:new_game({ 
-    --             backroom = backroom_class:new(),
-    --         })
+            game:new_game({ 
+                backroom = backroom_class:new(),
+                quick_restart = true,
+            })
 
-    --         return true
-    --     end,
-    -- }
+            return true
+        end,
+    }
     self.commands["randomupgrades"] = DebugCommand:new {
         name = "randomupgrades",
         description = "Applies a number of random upgrades",
@@ -436,12 +440,49 @@ function DebugCommandManager:init()
         args = {
         },
         run = function()
-            game:new_game({ 
-                backroom = BackroomCredits:new(),
-                iris_params = {0, 0, 0, 0, 0}
-            })
+            game:set_floor(100)
 
-            self:add_message(concat("Enabled rocket backroom"))
+            for _, p in pairs(game.players) do
+                p:set_position(CANVAS_CENTER[1], CANVAS_CENTER[2] + 64)
+            end
+            game.can_start_game = true
+            game.camera:reset()
+            game:start_game()
+
+            for k, e in pairs(game.actors) do
+                if e.is_enemy then
+                    e:remove()
+                end
+            end
+
+            game.level.new_wave_animation_speed_mutliplier = 20.0
+
+            for _, p in pairs(game.players) do
+                p.vx = -10000 
+                p:set_invincibility(1.0)
+            end
+
+            game.skip_cutscene_flag = true
+
+            for _, actor in pairs(game.actors) do
+                if actor.is_enemy and actor.life then
+                    actor.life = 0
+                end
+            end
+
+            __debug_invincible = true
+            for _, player in pairs(game.players) do
+                if __debug_invincible then
+                    player.invincible_time = math.huge
+                    player.max_invincible_time = math.huge
+                    player.debug_values[10] = "inv"
+                else
+                    player.invincible_time = 0
+                    player.max_invincible_time = player.def_max_invincible_time
+                    player.debug_values[10] = nil
+                end
+            end
+
             return true
         end,
     }

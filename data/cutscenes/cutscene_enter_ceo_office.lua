@@ -63,7 +63,14 @@ return Cutscene:new("enter_ceo_office", {
     }),
     CutsceneScene:new({
         description = "Wait a bit",
-        duration = 2.0,
+        duration = 0.9,
+        enter = function(cutscene, data)
+            game.music_player:set_disk("cutscene_enter_ceo_office")
+        end,
+    }),
+    CutsceneScene:new({
+        description = "Wait a bit",
+        duration = 1.1,
         enter = function(cutscene, data)
             
         end,
@@ -538,7 +545,7 @@ return Cutscene:new("enter_ceo_office", {
             data.fake_counter = 80
             game.level.backroom.background_state = "bg"
 
-            Audio:play("sfx_cutscene_numbers")
+            Audio:play("sfx_cutscene_numbers", 0.3)
         end,
         update = function(cutscene, data, dt)
             data.bg_w4.offset_y = 160

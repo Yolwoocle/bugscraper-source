@@ -307,7 +307,7 @@ local waves_defs = {
             { E.Larva, 3, entrances = { "main" } },
         },
         music = "w1",
-        fade_out_music = false,
+        fade_out_music = true,
         ambience = "w1",
 
         over_title = get_world_prefix(1),

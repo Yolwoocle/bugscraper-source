@@ -68,6 +68,8 @@ function Cutscene:update(dt)
             end
             self:stop()
             game.skip_cutscene_flag = false
+            game:reset_screenshake()
+            game.frames_to_skip = 0
             Audio.disable_playing = false
             return
         end
@@ -75,6 +77,9 @@ function Cutscene:update(dt)
         local skip_scene = (self.current_scene:update(self, self.data, dt) == true) or game.skip_scene_flag
         if game.skip_scene_flag then
             game.skip_scene_flag = false
+
+            local time_left =  
+            game.music_player.current_disk.current_source:seek(game.music_player.current_disk.current_source:tell() + 10)
         end
         
         if skip_scene or self.timer:update(dt) then
