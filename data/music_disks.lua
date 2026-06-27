@@ -52,11 +52,11 @@ return {
     ["boss_w4"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w4_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w4_paused.source,
-    }, { loop_start = 0, loop_end = 0 }),
+    }, { loop_start = 10.154, loop_end = 60+40.615 }), -- BPM: 130, 3 + 2.5 mesures intro
     ["boss_w5"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w5_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w5_paused.source,
-    }),
+    }, { loop_start = 3.821, loop_end = 60*2 + 9.172}), -- BPM: 157, 2.5 loop
 
 
     ["game_over"] = disk_class:new({
