@@ -35,6 +35,7 @@ function BeeBoss:init(x, y)
 
     self.spr = AnimatedSprite:new({
         normal = {images.bee_boss_alt, 0.05, 2},
+        dead = {images.bee_boss_dead, 0.05, 1},
     }, "normal", SPRITE_ANCHOR_CENTER_CENTER) 
 
     self.def_friction_x = self.friction_x
@@ -408,15 +409,32 @@ function BeeBoss:init(x, y)
                 game:screenshake(8)
                 Input:vibrate_all(0.3, 0.7)
 
+                self.spr:set_animation("dead")
+                self.spr:set_shake(4)
+
                 game.music_player:set_disk("off")
+                self:play_sound("sfx_boss_majesty_death")
+                state.t = 0.0
+
+                state.sfx_t = 0.0
             end,
             update = function(state, dt)
                 if self.state_timer:update(dt) then
-                    self:play_sound("sfx_boss_majesty_death")    
+                    self:play_sound("sfx_boss_majesty_death")
                     Particles:ejected_player(images.bee_boss_dead, self.mid_x, self.mid_y)
                     
                     self:kill()
                 end
+
+                state.sfx_t = state.sfx_t - dt
+                if state.sfx_t < 0.0 then
+                    state.sfx_t = state.sfx_t + 0.3
+                    self:play_sound("sfx_boss_majesty_hit_{01-06}")
+                end
+
+                state.t = state.t + dt
+                self.spr:set_flashing_white(state.t % 0.2 < 0.1)
+                self.spr:set_rotation(self.spr.rot + dt * 5)
             end,
         }
 
@@ -492,7 +510,7 @@ function BeeBoss:on_negative_life()
     end
 
     game.ambience_player:fade_out("bee_boss_crowd_cheer", 0.4)
-    game.level.elevator:cheer_audience(200000000.0)
+    game.level.elevator:cheer_audience_intense(200000000.0)
 
     self.state_machine:set_state("dying")
 end
