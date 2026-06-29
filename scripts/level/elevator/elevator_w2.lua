@@ -138,4 +138,9 @@ function ElevatorW2:cheer_audience(duration)
 	self.cheer_timer = duration
 end
 
+function ElevatorW2:cheer_audience_intense(duration)
+	self.bee_frame2_oy = 6
+	self.cheer_timer = duration
+end
+
 return ElevatorW2

@@ -18,45 +18,45 @@ return {
     ["w1"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w1_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w1_paused.source,
-    }, { loop_start = 13.708, loop_end = 60+54.857 }),
+    }, { loop_start = 17.994, loop_end = 60+59.142 }), -- BPM: 140, 8 + 2.5 mesures intro
     ["w2"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w2_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w2_paused.source,
-    }),
+    }, { loop_start = 6.452, loop_end = 60*4+24.512 }), -- BPM: 93, 2.5 mesures intro
     ["w3"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w3_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w3_paused.source,
-    }),
+    }, { loop_start = 5.714, loop_end = 60*2+4.571 }), -- BPM: 105, 2.5 mesures intro
     ["w4"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w4_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w4_paused.source,
-    }, { loop_start = 3.609, loop_end = 60+48.270 }),
+    }, { loop_start = 8.120, loop_end = 60+56.391 }), -- BPM: 133, 2 + 2.5 mesures intro
     ["w5"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_w5_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_w5_paused.source,
-    }),
+    }, { loop_start = 5.172, loop_end = 60+50.683 }), -- BPM: 116, 2.5 mesures intro
 
     
     ["boss_w1"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w1_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w1_paused.source,
-    }),
+    }, { loop_start = 10.212, loop_end = 60*2+37.907 }), -- BPM: 152.75, 4 + 2.5 mesures intro
     ["boss_w2"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w2_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w2_paused.source
-    }),
+    }, { loop_start = 12.903, loop_end = 2*60 + 6.452 }), -- BPM: 93, 5 mesures intro
     ["boss_w3"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w3_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w3_paused.source,
-    }, { loop_start = 5.741, loop_end = 60+58.333 }),
+    }, { loop_start = 9.619, loop_end = 60*2+2.215 }), -- BPM: 162, intro: idk
     ["boss_w4"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w4_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w4_paused.source,
-    }),
+    }, { loop_start = 10.154, loop_end = 60+40.615 }), -- BPM: 130, 3 + 2.5 mesures intro
     ["boss_w5"] = disk_class:new({
         [MUSIC_MODE_INGAME] = sounds.music_boss_w5_ingame.source,
         [MUSIC_MODE_PAUSE] = sounds.music_boss_w5_paused.source,
-    }),
+    }, { loop_start = 3.821, loop_end = 60*2 + 9.172}), -- BPM: 157, 2.5 loop
 
 
     ["game_over"] = disk_class:new({

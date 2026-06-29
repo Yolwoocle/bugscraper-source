@@ -143,7 +143,12 @@ function Debug:init(game)
         end},
 
         ["t"] = {"add +10s to music", function()
-            game.music_player.current_disk.current_source:seek(game.music_player.current_disk.current_source:tell() + 10)
+            if love.keyboard.isDown("lshift") or love.keyboard.isDown("rshift") then
+                game.music_player.current_disk.current_source:seek(game.music_player.current_disk.current_source:tell() - 5)
+            else
+                game.music_player.current_disk.current_source:seek(game.music_player.current_disk.current_source:tell() + 5)
+            end
+                
         end},
 
         [";"] = {"cutscnee play", function()
