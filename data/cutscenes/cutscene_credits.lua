@@ -49,7 +49,11 @@ return Cutscene:new("credits", {
 
         duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("OLX", "Alexandre Mercier", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("OLX", "Alexandre Mercier", "{menu.credits.music} + {menu.credits.sound_design}", 0.5, 5.0, 0.5, {
+                image = images.credits_cap,
+                image_x = CANVAS_WIDTH - 62 - 64,
+                image_y = 92,
+            })
         end,
     }),
 
@@ -58,7 +62,11 @@ return Cutscene:new("credits", {
 
         duration = 7.0,
         enter = function(cutscene, data)
-            game.game_ui:start_title("Martin Domergue", "Verbaudet", "{menu.credits.sound_design}", 0.5, 5.0, 0.5)
+            game.game_ui:start_title("Martin Domergue", "Verbaudet", "{menu.credits.sound_design}", 0.5, 5.0, 0.5, {
+                image = images.credits_nob,
+                image_x = 62,
+                image_y = 92,
+            })
         end,
     }),
 
@@ -87,7 +95,7 @@ return Cutscene:new("credits", {
                 "< {language.pt_BR} >" ,
                 "Nicole Sanches (rhysuki)",
                 "kiwisky",
-                "parinamais",
+                "Marina Pais (parinamais)",
             }, "", "{menu.credits.localization}", 0.5, 7.0, 0.5)
         end,
     }),

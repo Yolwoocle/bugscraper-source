@@ -201,7 +201,7 @@ local sfxnames = {
 	["sfx_cutscene_rocket_flying"] =            {"sfx/cutscene/sfx_cutscene_rocket_flying.ogg", "static"},
 	["sfx_cutscene_rocket_stops"] =             {"sfx/cutscene/sfx_cutscene_rocket_stops.ogg", "static"},
 	["sfx_cutscene_rocket_explode"] =           {"sfx/cutscene/sfx_cutscene_rocket_explode.ogg", "static"},
-	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"},
+	["sfx_cutscene_fall"] =                     {"sfx/cutscene/sfx_cutscene_fall.ogg", "static"}, 
 
 	-- Falling to rocket
 	["sfx_cutscene_mio_falling_to_rocket"] =    {"sfx/cutscene/sfx_cutscene_mio_falling_to_rocket.ogg", "static"},

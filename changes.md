@@ -3,6 +3,34 @@
 This changelog includes changes related to the private beta. For access request, please ask me on [Discord](https://bugscraper.net/discord).
 
 
+
+## 0.11.6
+(*2026-06-29*)
+
+Final update before the final release of the game!!!
+
+### Gameplay
+- Increased Rollossus HP from 80 to 100
+- Added Her Majesty death animation
+- Finished credits
+
+### Sound
+- Added final batch of SFX, especially related to final cutscenes
+- Added final batches of Music, in particular, cutscene music, and pause music variants
+
+### Localization
+- Updated pt_BR
+- Updated JA
+- Updated ES
+
+### Fixes
+- Fixed: wrong music would play when starting back into ground floor after death
+- Fixed: final boss could start even if you didn't destroy the heart jar
+- Fixed: final boss would still spawn its minions after death
+- Fixed: background after basement rocket animation would be static for a short period before moving
+
+
+
 ## 0.11.5
 (*2026-06-13*)
 
