@@ -1,4 +1,4 @@
-BUGSCRAPER_VERSION = "0.11.6"
+BUGSCRAPER_VERSION = "1.0"
 DISTRIBUTION_PLATFORM = "steam" -- default | itchio | steam
 BUILD_TYPE = "fullgame" -- fullgame | demo
 BETA_BUILD = false

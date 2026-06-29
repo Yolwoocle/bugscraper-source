@@ -3,6 +3,12 @@
 This changelog includes changes related to the private beta. For access request, please ask me on [Discord](https://bugscraper.net/discord).
 
 
+## 1.0
+(*2026-06-30*)
+
+Initial release of the game! No changes compared to 0.11.6.
+
+
 
 ## 0.11.6
 (*2026-06-29*)
