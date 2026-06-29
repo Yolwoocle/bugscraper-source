@@ -213,7 +213,7 @@ local sfxnames = {
 	-- Final "W5 escape" CEO cutscene
 	["sfx_cutscene_pickup_letter"] =            {"sfx/cutscene/sfx_cutscene_pickup_letter.ogg", "static"},
 	["sfx_cutscene_ceo_afraid_anger_{01-04}"] = {"sfx/cutscene/ceo_afraid_anger/sfx_cutscene_ceo_afraid_anger_{}.ogg", "static"},
-	["sfx_cutscene_ceo_boingboing"] =           {"sfx/cutscene/sfx_cutscene_ceo_boingboing.ogg", "static"},
+	["sfx_cutscene_ceo_boingboing_{01-04}"] =   {"sfx/cutscene/ceo_boingboing/sfx_cutscene_ceo_boingboing_{}.ogg", "static"},
 	["sfx_cutscene_mio_slaps_ceo"] =            {"sfx/cutscene/sfx_cutscene_mio_slaps_ceo.ogg", "static"},
 	["sfx_cutscene_door_slam"] =                {"sfx/cutscene/door/sfx_cutscene_door_slam.ogg", "static"},
 	["sfx_cutscene_door_open"] =                {"sfx/cutscene/door/sfx_cutscene_door_open.ogg", "static"},
