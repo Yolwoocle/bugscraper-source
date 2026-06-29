@@ -134,7 +134,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.spr:set_animation("shocked")
             data.ceo.vy = -200
             dust_particles(data)
@@ -145,7 +145,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -155,7 +155,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.5,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -175,7 +175,7 @@ return Cutscene:new("ceo_escape_w5", {
         duration = 1.0,
         enter = function(cutscene, data)
             data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_03")
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -196,7 +196,7 @@ return Cutscene:new("ceo_escape_w5", {
         duration = 0.4,
         enter = function(cutscene, data)
             data.ceo:play_sound("sfx_cutscene_ceo_afraid_anger_04")
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -207,7 +207,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vx = 200
             data.ceo.vy = -200
             dust_particles(data)
@@ -390,7 +390,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -400,7 +400,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -420,7 +420,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -430,7 +430,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
@@ -440,7 +440,7 @@ return Cutscene:new("ceo_escape_w5", {
 
         duration = 0.4,
         enter = function(cutscene, data)
-            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing", 0.1, 1.2, {volume=0.7})
+            data.ceo:play_sound_var("sfx_cutscene_ceo_boingboing_{01-04}", 0.1, 1.2, {volume=0.7})
             data.ceo.vy = -200
             dust_particles(data)
         end,
