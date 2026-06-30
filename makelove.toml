@@ -24,6 +24,11 @@ love_files = [
 "lib/steam/win64/luasteam.dll" = "luasteam.dll"
 "lib/steam/win64/steam_api64.dll" = "steam_api64.dll"
 
+[win64]
+# Emit a plain directory instead of a .zip. The CI export pipeline re-zips
+# this via actions/upload-artifact, so a zip here would be double-wrapped.
+artifacts = ["directory"]
+
 [windows.exe_metadata]
 FileDescription = "Bugscraper: Rise to the top of a bug-filled skyscraper"
 CompanyName = "Ninesliced"
