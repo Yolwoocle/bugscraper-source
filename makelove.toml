@@ -24,6 +24,9 @@ love_files = [
 "lib/steam/win64/luasteam.dll" = "luasteam.dll"
 "lib/steam/win64/steam_api64.dll" = "steam_api64.dll"
 
+[win64]
+artifacts = ["directory"]
+
 [windows.exe_metadata]
 FileDescription = "Bugscraper: Rise to the top of a bug-filled skyscraper"
 CompanyName = "Ninesliced"

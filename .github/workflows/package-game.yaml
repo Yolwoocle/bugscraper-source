@@ -54,7 +54,7 @@ jobs:
       - name: Create Steam packages
         run: |
           mkdir -p '${{ env.STEAM_DIR }}/'{win64,macos,linux}
-          unzip '${{ env.EXPORT_DIR }}/win64/'*.zip -d '${{ env.STEAM_DIR }}/win64'
+          cp -r '${{ env.EXPORT_DIR }}/win64/'*/. '${{ env.STEAM_DIR }}/win64/'
           unzip '${{ env.EXPORT_DIR }}/macos/'*.zip -d '${{ env.STEAM_DIR }}/macos'
           cp '${{ env.EXPORT_DIR }}/appimage/'*.AppImage '${{ env.STEAM_DIR }}/linux/bugscraper.AppImage'
 
