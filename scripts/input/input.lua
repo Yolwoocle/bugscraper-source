@@ -598,7 +598,6 @@ function InputManager:draw_input_prompt(player_n, actions, label, label_color, x
         ox = ox + icon_w + spacing
     end
     
-    
     local text = Text:parse(label)
     local text_w = get_text_width(text)
     local total_w = text_w + ox
@@ -615,10 +614,18 @@ function InputManager:draw_input_prompt(player_n, actions, label, label_color, x
     if params.outline_color then
         rect_color(params.outline_color, "line", x-3, y, total_w+6, get_text_height()+3)
     end
-    for _, icon_data in pairs(icons) do
-        love.graphics.draw(icon_data.icon, math.floor(x + icon_data.x), math.floor(y))
+
+    local icon_start = x
+    local text_start = x + ox
+    if params.icon_side == "right" then
+        icon_start = x + text_w + (ox > 0 and spacing or 0)
+        text_start = x
     end
-    print_outline(label_color, COL_BLACK_BLUE, text, x + ox, y)
+
+    for _, icon_data in pairs(icons) do
+        love.graphics.draw(icon_data.icon, math.floor(icon_start + icon_data.x), math.floor(y))
+    end
+    print_outline(label_color, COL_BLACK_BLUE, text, text_start, y)
 
     x = x + ox + text_w
     return x

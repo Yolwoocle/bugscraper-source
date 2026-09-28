@@ -34,9 +34,7 @@ function PlayerPreview:init(player_n, x, y, w, h)
                 self.user = nil
                 self.prompts = {
                     { -1, {
-                        { "join_game", INPUT_TYPE_KEYBOARD },
-                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_XBOX },
-                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_PLAYSTATION4 },
+                        { "join_game", INPUT_TYPE_CONTROLLER, ternary(player_n == 1, BUTTON_STYLE_ARCADE1, BUTTON_STYLE_ARCADE2) },
                     }, "", COL_WHITE },
                     { -1, {}, Text:text("input.prompts.join"), COL_WHITE },
                 }
@@ -44,26 +42,10 @@ function PlayerPreview:init(player_n, x, y, w, h)
             update = function(state, dt)
                 self.prompts = {
                     { -1, {
-                        -- { "join_game", INPUT_TYPE_KEYBOARD },
-                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_ARCADE1 },
-                        -- { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_PLAYSTATION4 },
+                        { "join_game", INPUT_TYPE_CONTROLLER, ternary(player_n == 1, BUTTON_STYLE_ARCADE1, BUTTON_STYLE_ARCADE2) },
                     }, "", COL_WHITE },
                     { -1, {}, Text:text("input.prompts.join"), COL_WHITE },
                 }
-
-                local number_of_keyboard_users = Input:get_number_of_users(INPUT_TYPE_KEYBOARD)
-                if number_of_keyboard_users == 1 then
-                    table.remove(self.prompts[1][2], 1)
-
-                    if self.player_n == Input:find_free_user_number() then
-                        table.insert(self.prompts, {
-                            -1, { "split_keyboard" }, "", COL_WHITE
-                        })
-                        table.insert(self.prompts, {
-                            -1, {}, Text:text("input.prompts.split_keyboard"), COL_WHITE
-                        })
-                    end
-                end
 
                 if Input:get_user(self.player_n) then
                     return "character_select"
@@ -94,10 +76,10 @@ function PlayerPreview:init(player_n, x, y, w, h)
 
                 self.queued_player = game.queued_players[self.player_n]
 
-                self.prompts = {
-                    { self.player_n, { "ui_back" }, "🔙", COL_WHITE, x_alignment = "start", y_alignment = "start" },
-                    { self.player_n, { "ui_select" }, Text:text("input.prompts.ui_select"), COL_WHITE },
-                }
+                self.prompts = {}
+                --     { self.player_n, { "ui_back" }, "{input.prompts.ui_back}", COL_WHITE, x_alignment = "start", y_alignment = "end" },
+                --     { self.player_n, { "ui_select" }, "{input.prompts.ui_select}", COL_WHITE, x_alignment = "end", y_alignment = "end" },
+                -- }
             end,
             update = function(state, dt)
                 if not self.queued_player or self.queued_player.is_removed then
@@ -142,7 +124,7 @@ function PlayerPreview:init(player_n, x, y, w, h)
                 end
 
                 local x = self.x + self.ox + self.w / 2
-                local y = self.y + self.oy + 18
+                local y = self.y + self.oy + 26
 
                 local w = 32 * self.scale
                 local palette = self.selection.color_palette
@@ -175,10 +157,15 @@ function PlayerPreview:init(player_n, x, y, w, h)
                     rect_color(col, "fill", ix+1, _y, 2, ternary(i == self.selection_n, 3, 1))
                 end
 
-                local icon_left = Input:get_action_primary_icon(self.player_n, "ui_left")
-                local icon_right = Input:get_action_primary_icon(self.player_n, "ui_right")
-                draw_centered(icon_left,  x - w * 0.93 + self.left_prompt_ox,  y + 20, 0, self.scale)
-                draw_centered(icon_right, x + w * 0.93 + self.right_prompt_ox, y + 20, 0, self.scale)
+                -- local icon_left = Input:get_action_primary_icon(self.player_n, "ui_left")
+                -- local icon_right = Input:get_action_primary_icon(self.player_n, "ui_right")
+                -- draw_centered(icon_left,  x - w * 0.93 + self.left_prompt_ox,  y + 20, 0, self.scale)
+                -- draw_centered(icon_right, x + w * 0.93 + self.right_prompt_ox, y + 20, 0, self.scale)
+                Input:draw_input_prompt(self.player_n, { "ui_select" }, "{input.prompts.ui_select}", COL_WHITE, self.x + 8, self.y + self.h - 24, {})
+                Input:draw_input_prompt(self.player_n, { "ui_back" }, "{input.prompts.ui_back}", COL_WHITE, self.x + self.w - 8, self.y + self.h - 24, {
+                    alignment = "right",
+                    icon_side = "right",
+                })
             end,
         },
 
@@ -403,7 +390,7 @@ function PlayerPreview:draw()
             if prompt_x_alignment == "start" then
                 _x = self.x + self.padding
             elseif prompt_x_alignment == "center" then
-                _x = self.x + self.w /2 
+                _x = self.x + self.w / 2
             end
             if prompt_x_alignment == "end" then
                 _x = self.x + self.w - self.padding

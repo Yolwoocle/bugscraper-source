@@ -204,7 +204,7 @@ DEFAULT_MENU_PADDING = 0.17
 ---------------------------------------------
 
 -- Game
-MAX_NUMBER_OF_PLAYERS = 4
+MAX_NUMBER_OF_PLAYERS = 2
 
 GAME_STATE_WAITING = "waiting"
 GAME_STATE_PLAYING = "playing"

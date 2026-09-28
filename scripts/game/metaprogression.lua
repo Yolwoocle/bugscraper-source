@@ -63,7 +63,7 @@ function MetaprogressionManager:init()
     end
 
     self:load_xp()
-    self:remove_duplicates({"skins", "upgrades", "achievements"}) 
+    self:remove_duplicates({"skins", "upgrades", "achievements"})
 
     self.old_xp = self:get_xp()
     self.old_total_xp = self:get_total_xp()
@@ -71,6 +71,16 @@ function MetaprogressionManager:init()
 
     self.saving_disabled = false
     self:save_progress()
+
+    -- Grant all rewards in demo
+    for i=1, #self.levels do
+        local level = self.levels[i]
+        local rewards = level.rewards
+
+        for _, reward in pairs(rewards) do
+            self:grant_reward(reward)
+        end
+    end
 end
 
 function MetaprogressionManager:load_xp()

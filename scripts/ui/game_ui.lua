@@ -24,7 +24,7 @@ function GameUI:init(game, is_visible)
 	self.floating_text_target_y = -100
 
 	self.player_previews = {}
-	local w = 108
+	local w = 226
 	local spacing = 10
 	local x = CANVAS_WIDTH/2 - ((w + spacing) * (MAX_NUMBER_OF_PLAYERS-1) + w)/2
 	local y = 200
