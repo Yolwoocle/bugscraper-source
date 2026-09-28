@@ -44,9 +44,9 @@ function PlayerPreview:init(player_n, x, y, w, h)
             update = function(state, dt)
                 self.prompts = {
                     { -1, {
-                        { "join_game", INPUT_TYPE_KEYBOARD },
-                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_XBOX },
-                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_PLAYSTATION4 },
+                        -- { "join_game", INPUT_TYPE_KEYBOARD },
+                        { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_ARCADE1 },
+                        -- { "join_game", INPUT_TYPE_CONTROLLER, BUTTON_STYLE_PLAYSTATION4 },
                     }, "", COL_WHITE },
                     { -1, {}, Text:text("input.prompts.join"), COL_WHITE },
                 }

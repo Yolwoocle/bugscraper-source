@@ -825,15 +825,15 @@ local function load_images()
 	end
 
 	local brands = copy_table_deep(CONTROLLER_BRANDS)
-	local ps5_index = 0
-	for i = 1, #brands do 
-		if brands[i] == BUTTON_STYLE_PLAYSTATION5 then
-			ps5_index = i
-			break
-		end
-	end
-	assert(ps5_index ~= 0, "no PS5 button scheme found")
-	table.remove(brands, ps5_index)
+	-- local ps5_index = 0
+	-- for i = 1, #brands do 
+	-- 	if brands[i] == BUTTON_STYLE_PLAYSTATION5 then
+	-- 		ps5_index = i
+	-- 		break
+	-- 	end
+	-- end
+	-- assert(ps5_index ~= 0, "no PS5 button scheme found")
+	-- table.remove(brands, ps5_index)
 	for _, brand in pairs(brands) do
 		for button, __ in pairs(CONTROLLER_BUTTONS) do
 			load_button_icon(brand, button)

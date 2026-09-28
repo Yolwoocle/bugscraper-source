@@ -465,16 +465,21 @@ function InputManager:unsplit_keyboard()
 end
 
 function InputManager:get_button_style(player_n)
-    local user_brand = nil
-    if self:get_user(player_n) then
-        user_brand = self:get_user(player_n):get_button_style()
+    if player_n == 1 then
+        return BUTTON_STYLE_ARCADE1
     else
-        user_brand = Options:get("button_style_p"..tostring(player_n))
-        if user_brand == BUTTON_STYLE_DETECT then
-            user_brand = BUTTON_STYLE_XBOX
-        end
+        return BUTTON_STYLE_ARCADE2
     end
-    return user_brand or BUTTON_STYLE_XBOX
+    -- local user_brand = nil
+    -- if self:get_user(player_n) then
+    --     user_brand = self:get_user(player_n):get_button_style()
+    -- else
+    --     user_brand = Options:get("button_style_p"..tostring(player_n))
+    --     if user_brand == BUTTON_STYLE_DETECT then
+    --         user_brand = BUTTON_STYLE_XBOX
+    --     end
+    -- end
+    -- return user_brand or BUTTON_STYLE_XBOX
 end
 
 function InputManager:get_last_ui_player_colors()
