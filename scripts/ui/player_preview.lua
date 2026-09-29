@@ -4,6 +4,7 @@ local StateMachine = require "scripts.state_machine"
 local images = require "data.images"
 local skins = require "data.skins"
 local utf8 = require "utf8"
+local shaders = require "data.shaders"
 
 local PlayerPreview = Class:inherit()
 
@@ -175,13 +176,10 @@ function PlayerPreview:init(player_n, x, y, w, h)
                 self.prompt_y_alignment = "center"
                 
                 self.prompts = {
-                    { self.player_n, { "up" }, Text:text("input.prompts.move"), COL_WHITE },
-                    { self.player_n, { "jump" }, Text:text("input.prompts.jump"), COL_WHITE },
-                    { self.player_n, { "shoot" }, Text:text("input.prompts.shoot"), COL_WHITE },
-                    -- { self.player_n, { "interact" }, 
-                    --     Text:text_params("menu.pause.options", {capitalized=true}), 
-                    --     COL_WHITE 
-                    -- },
+                    { self.player_n, { "up" }, "{input.prompts.move}", COL_WHITE },
+                    { self.player_n, { "jump" }, "{input.prompts.jump}", COL_WHITE },
+                    { self.player_n, { "shoot" }, "{input.prompts.shoot}", COL_WHITE },
+                    -- { self.player_n, { "interact" }, "(Maintenir) {input.prompts.leave_game}", COL_WHITE },
                 }
                 
                 if self.user:get_skin() then
@@ -320,6 +318,7 @@ function PlayerPreview:draw_player_abbreviation()
     local txt_top = ""
     local txt_bot = ""
     local color = COL_MID_GRAY
+    local skinimg
     
     if self.state_machine.current_state_name == "waiting" then
         color = COL_MID_GRAY
@@ -334,13 +333,30 @@ function PlayerPreview:draw_player_abbreviation()
         txt_top = txt_top .. Text:text("player.abbreviation", self.player_n)
 
         if self.user and self.user:get_skin() then
-            txt_bot = txt_bot .. " " .. self.user:get_skin().icon
+            -- txt_bot = txt_bot .. " " .. self.user:get_skin().icon
             color = self.user:get_skin().color_palette[2]
+
+            skinimg = self.user:get_skin().img_walk_down
+
+            shaders.draw_in_color:send("fillColor", self.user:get_skin().color_palette[2])
+            exec_using_shader(
+                shaders.draw_in_color,
+                function()
+                    love.graphics.draw(skinimg, self.x + self.ox + self.w - 6, self.y + self.oy + self.h - 4 - skinimg:getHeight(),                       0, -1, 1)
+                end
+            )
+
+            txt_bot = utf8.upper(Text:text("player.name." .. self.user:get_skin().text_key) or "")
         end
     end
 
     print_color(color, txt_top, self.x + self.ox + self.w - get_text_width(txt_top) - 4, self.y)--self.oy + self.h - 16)
-    print_color(color, txt_bot, self.x + self.ox + self.w - get_text_width(txt_bot) - 4, self.y + self.oy + self.h - 16)
+
+    local bot_ox = 0
+    if skinimg then
+        bot_ox = skinimg:getWidth()
+    end
+    print_color(color, txt_bot, self.x + self.ox + self.w - get_text_width(txt_bot) - 8 - bot_ox, self.y + self.oy + self.h - 16)
 end
 
 function PlayerPreview:draw_bg_card()
@@ -356,7 +372,7 @@ function PlayerPreview:draw()
     self.state_machine:draw()
     self:draw_player_abbreviation()
 
-    local default_prompt_height = 14
+    local default_prompt_height = 16
     local total_height = 0
     for _,p in pairs(self.prompts) do
         total_height = total_height + (p.height or default_prompt_height)

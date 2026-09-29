@@ -11,9 +11,6 @@ local func_set_menu     = menu_util.func_set_menu
 local PROMPTS_NORMAL    = menu_util.PROMPTS_NORMAL
 
 return Menu:new(game, "{menu.options.title}", {
-    { "<<< {menu.options.input.title} >>>" },
-    { "🔘 {menu.options.input.input}", func_set_menu("options_input") },
-    { "" },
     { "<<< {menu.options.audio.title} >>>" },
     { BoolOptionMenuItem, "🔊 {menu.options.audio.sound}", "sound_on" },
     { RangeOptionMenuItem, "🔉 {menu.options.audio.volume}", "volume", { 0.0, 1.0 }, 0.05, "%",
@@ -73,8 +70,8 @@ return Menu:new(game, "{menu.options.title}", {
 		return string.format("%d%%", round(value * 100)) 
 	end },
     { BoolOptionMenuItem, "🕐 {menu.options.game.timer}", "timer_on" },
-    { BoolOptionMenuItem, "↖ {menu.options.game.mouse_visible}", "mouse_visible" },
-    { BoolOptionMenuItem, "🛅 {menu.options.game.pause_on_unfocus}", "pause_on_unfocus" },
+    -- { BoolOptionMenuItem, "↖ {menu.options.game.mouse_visible}", "mouse_visible" },
+    -- { BoolOptionMenuItem, "🛅 {menu.options.game.pause_on_unfocus}", "pause_on_unfocus" },
     { BoolOptionMenuItem, "⏭ {menu.options.game.skip_boss_intros}", "skip_boss_intros" },
     { BoolOptionMenuItem, "⚠ {menu.options.game.show_fps_warning}", "show_fps_warning" },
     -- { BoolOptionMenuItem, "⚠ convention_mode", "convention_mode" },

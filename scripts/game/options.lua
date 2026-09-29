@@ -7,7 +7,7 @@ local OptionsManager = Class:inherit()
 function OptionsManager:init()
 	self.default_options = {
 		["$version"] = OPTIONS_FILE_FORMAT_VERSION,
-		language = "default",
+		language = "fr",
 
 		volume = 1.0,
 		music_volume = 0.75,
@@ -55,7 +55,8 @@ function OptionsManager:init()
 		xp = 0,
 		xp_level = 0,
 		
-        has_chosen_language = false,
+        -- has_chosen_language = false,
+        has_chosen_language = true,
 	}
 	self.setters = {
 		sound_on = function(value) 
@@ -100,7 +101,8 @@ function OptionsManager:init()
 		end,
 	}
 
-	self:load_options()
+	-- self:load_options()
+	self.options = copy_table_deep(self.default_options)
 end
 
 function OptionsManager:load_options()

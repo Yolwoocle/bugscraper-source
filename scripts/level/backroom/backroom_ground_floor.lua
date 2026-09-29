@@ -253,12 +253,20 @@ function BackroomGroundFloor:draw_items()
 
 	if BUILD_TYPE == "demo" then
 		local oy = 0
-		if is_in_table({"ja", "zh", "zh_Hans", "zh_Hant"}, Text.language) then 
+		if is_in_table({"ja", "zh", "zh_Hans", "zh_Hant"}, Text.language) then
 			oy = 2
 		end
 		print_outline(COL_MID_GRAY, COL_BLACK_BLUE, Text:text("game.demo"), 566, 102+oy)
 		print_outline(COL_WHITE, COL_BLACK_BLUE, Text:text("game.demo"), 564, 102+oy)
 	end
+
+	print_outline(COL_MID_GRAY, COL_BLACK_BLUE, "Édition ", 492, 115)
+	print_outline(COL_MID_BLUE, COL_BLACK_BLUE, "7", get_text_width("Édition ") + 492, 115)
+	print_outline(COL_DARK_RED, COL_BLACK_BLUE, "Fault", get_text_width("Édition 7") + 492, 115)
+
+	print_outline(COL_WHITE, COL_BLACK_BLUE, "Édition ", 490, 115)
+	print_outline(COL_LIGHT_BLUE, COL_BLACK_BLUE, "7", get_text_width("Édition ") + 490, 115)
+	print_outline(COL_LIGHT_RED, COL_BLACK_BLUE, "Fault", get_text_width("Édition 7") + 490, 115)
 	
 	game.level.elevator:draw_counter()
 

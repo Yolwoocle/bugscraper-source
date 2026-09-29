@@ -303,7 +303,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     ui_up =     {"k_up",    "k_w"},
     ui_down =   {"k_down",  "k_s"},
     split_keyboard = {"k_y"},
-    join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b"},
+    join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b", "c_x", "c_y", "c_leftshoulder", "c_rightshoulder"},
 
     debug = {"k_f1", "c_back"},
 }
@@ -313,13 +313,13 @@ RAW_INPUT_MAP_DEFAULT_CONTROLLER = {
     right =     {"c_leftxpos", "c_dpright"},
     up =        {"c_leftyneg", "c_dpup"},
     down =      {"c_leftypos", "c_dpdown"},
-    jump =      {"c_a", "c_triggerleft", "c_leftshoulder"},
-    shoot =     {"c_x", "c_triggerright", "c_rightshoulder"},
-    interact =  {"c_y"},
+    jump =      {"c_a", "c_x"},
+    shoot =     {"c_b", "c_leftshoulder"},
+    interact =  {"c_y", "c_rightshoulder"},
 
     pause =     {"c_start"},
-    ui_select = {"c_a", "c_y"},
-    ui_back =   {"c_b"},
+    ui_select = {"c_a", "c_x"},
+    ui_back =   {"c_b", "c_leftshoulder"},
     ui_left =   {"c_leftxneg", "c_dpleft"},
     ui_right =  {"c_leftxpos", "c_dpright"},
     ui_up =     {"c_leftyneg", "c_dpup"},

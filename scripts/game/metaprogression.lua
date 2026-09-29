@@ -26,11 +26,11 @@ function MetaprogressionManager:init()
             "UpgradeHotChocolate",
             "UpgradeCoconutWater",
         },
-        achievements = {},
+        achievements = {"ach_all_upgrades", "ach_all_skins"},
 
-		has_seen_intro_credits = false,
-		has_played_tutorial = false,
-		has_seen_stomp_tutorial = false,
+		has_seen_intro_credits = true,
+		has_played_tutorial = true,
+		has_seen_stomp_tutorial = true,
 
         has_seen_w1_transition_cutscene = false,
         has_seen_w2_transition_cutscene = false,
@@ -234,7 +234,8 @@ function MetaprogressionManager:reset()
 end
 
 function MetaprogressionManager:read_progress()
-    self.data = Files:read_config_file("progress.txt", self.default_data)
+    -- self.data = Files:read_config_file("progress.txt", self.default_data)
+    self.data = copy_table_deep(self.default_data)
 end
 
 function MetaprogressionManager:remove_duplicates(fields)

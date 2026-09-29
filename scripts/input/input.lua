@@ -667,7 +667,7 @@ function InputManager:load_control_file(profile_id, profile)
     local filename = concat("inputprofile_",profile_id,".txt")
 
     -- Check if file exists
-    local file_exists = love.filesystem.getInfo(filename)
+    local file_exists = false--love.filesystem.getInfo(filename)
     if not file_exists then
         print(filename, "does not exist, so creating it")
         self:update_controls_file(profile_id)
