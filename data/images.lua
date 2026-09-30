@@ -670,6 +670,7 @@ local img_names = {
 	player_preview_bg = "ui/player_preview/player_preview_bg",
 	player_preview_detail = "ui/player_preview/player_preview_detail",
 	player_preview_dotted = "ui/player_preview/player_preview_dotted",
+	player_preview_arcade_tuto = "ui/player_preview/player_preview_arcade_tuto",
 
 	-----------------------------------------------------
 	

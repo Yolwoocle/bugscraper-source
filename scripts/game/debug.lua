@@ -660,7 +660,7 @@ function Debug:draw_input_view_for(user, x)
 end
 
 function Debug:draw_joystick_view()
-    local spacing = 70
+    local spacing = 100
     local i = 0
     for _, joy in pairs(love.joystick.getJoysticks()) do
         self:draw_joystick_view_for(joy, i * spacing, -20, "leftx", "lefty", true)
@@ -673,11 +673,20 @@ end
 function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     Text:push_font(FONT_MINI)
     local user_n = Input:get_joystick_user_n(joystick)
-    local name = concat(utf8.sub(joystick:getName(), 1, 10), "...", utf8.sub(joystick:getName(), -10, -1))
+    -- local name = concat(utf8.sub(joystick:getName(), 1, 10), "...", utf8.sub(joystick:getName(), -10, -1))
+    local name = joystick:getName()
+    local id, instanceid = joystick:getID( )
+    local vendorID, productID, productVersion = joystick:getDeviceInfo( )
 
     if is_first then
         print_outline(COL_WHITE, COL_BLACK_BLUE, name, x + 30, y + 20)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("(Ply '", user_n, "')"), x + 30, y + 30)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("GUID: ", joystick:getGUID()), x + 30, y + 30)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ID: ", id), x + 30, y + 40)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("InstanceID: ", instanceid), x + 30, y + 50)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("VendorID: ", vendorID), x + 30, y + 60)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductID: ", productID), x + 30, y + 70)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductVersion: ", productVersion), x + 30, y + 80)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("(Ply '", user_n, "')"), x + 30, y + 90)
     end
 
     -- print_outline(ternary(Input:action_down(user_n, "left"), COL_GREEN, COL_WHITE),  COL_BLACK_BLUE, ternary(Input:action_down_any_player("left"), "✅", "❎"), x+30, y+60)
@@ -686,7 +695,7 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     -- print_outline(ternary(Input:action_down(user_n, "down"), COL_GREEN, COL_WHITE),  COL_BLACK_BLUE, ternary(Input:action_down_any_player("down"), "✅", "❎"), x+50, y+80)
 
     local ox = x + 60
-    local oy = y + 80
+    local oy = y + 130
     local r = 30
     love.graphics.setColor(COL_GREEN)
     circle_color({ 0, 0, 0, 0.5 }, "fill", ox, oy, r)
@@ -721,23 +730,24 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     local u = Input:get_user(user_n)
     local j = joystick
     if u ~= nil then
-        circle_color(COL_RED, "fill", ox + r * j:getGamepadAxis(axis_x), oy + r * j:getGamepadAxis(axis_y), 2)
+        circle_color(COL_RED, "fill", ox + r * j:getGamepadAxis(axis_x), oy + 10 + r * j:getGamepadAxis(axis_y), 2)
 
         local val_x = round(j:getGamepadAxis(axis_x), 3)
         local val_y = round(j:getGamepadAxis(axis_y), 3)
         local val_a = round(get_axis_angle(j, axis_x, axis_y), 3)
         local val_r = round(math.sqrt(get_axis_radius_sqr(j, axis_x, axis_y)), 3)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, "x " .. tostring(val_x), ox - 20, oy + 40)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, "y " .. tostring(val_y), ox - 20, oy + 50)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, "a " .. tostring(val_a), ox - 20, oy + 60)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, "r " .. tostring(val_r), ox - 20, oy + 70)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, "x " .. tostring(val_x), ox - 20, oy + 10 + 40)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, "y " .. tostring(val_y), ox - 20, oy + 10 + 50)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, "a " .. tostring(val_a), ox - 20, oy + 10 + 60)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, "r " .. tostring(val_r), ox - 20, oy + 10 + 70)
     end
 
     if is_first then
         local zl = j:getGamepadAxis("triggerleft")
-        local zr = j:getGamepadAxis("triggerright")
         print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ZL ", zl), ox - 20, oy + 80)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ZR ", zr), ox - 20, oy + 90)
+    else
+        local zr = j:getGamepadAxis("triggerright")
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ZR ", zr), ox - 20, oy + 80)
     end
 
     local keys = ternary(is_first, {
@@ -748,7 +758,6 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
             "back",
             "start",
             "leftstick",
-            "rightstick",
         },
         {
             "leftshoulder",
@@ -757,6 +766,7 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
             "dpdown",
             "dpleft",
             "dpright",
+            "rightstick",
             -- "misc1",
             -- "paddle1",
             -- "paddle2",
@@ -766,7 +776,7 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
         })
     for i, key in ipairs(keys) do
         local txt = concat(key, " ", ternary(j:isGamepadDown(key), "O", "-"))
-        print_outline(COL_WHITE, COL_BLACK_BLUE, txt, ox - 20, oy + 90 + 10 * i)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, txt, ox - 20, oy + 80 + 10 * i)
     end
     Text:pop_font(FONT_MINI)
 end

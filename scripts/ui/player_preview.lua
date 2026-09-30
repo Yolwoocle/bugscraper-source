@@ -176,10 +176,10 @@ function PlayerPreview:init(player_n, x, y, w, h)
                 self.prompt_y_alignment = "center"
                 
                 self.prompts = {
-                    { self.player_n, { "up" }, "{input.prompts.move}", COL_WHITE },
-                    { self.player_n, { "jump" }, "{input.prompts.jump}", COL_WHITE },
-                    { self.player_n, { "shoot" }, "{input.prompts.shoot}", COL_WHITE },
-                    -- { self.player_n, { "interact" }, "(Maintenir) {input.prompts.leave_game}", COL_WHITE },
+                    -- { self.player_n, { "up" }, "{input.prompts.move}", COL_WHITE },
+                    -- { self.player_n, { "jump" }, "{input.prompts.jump}", COL_WHITE },
+                    -- { self.player_n, { "shoot" }, "{input.prompts.shoot}", COL_WHITE },
+                    -- { self.player_n, { "interact" }, "{input.prompts.interact}", COL_WHITE },
                 }
                 
                 if self.user:get_skin() then
@@ -198,15 +198,17 @@ function PlayerPreview:init(player_n, x, y, w, h)
                 end
 
                 -- TODO make this generic somewhere because this is awful 🙏
-                state.t = state.t + dt
-                if state.t > 1.0 then
-                    state.t = state.t - 1.0
-                    state.btn_i = mod_plus_1(state.btn_i + 1, 4)
-                    self.prompts[1][2] = {({ "up", "left", "down", "right" })[state.btn_i]}
-                end
+                -- state.t = state.t + dt
+                -- if state.t > 1.0 then
+                --     state.t = state.t - 1.0
+                --     state.btn_i = mod_plus_1(state.btn_i + 1, 4)
+                --     self.prompts[1][2] = {({ "up", "left", "down", "right" })[state.btn_i]}
+                -- end
             end,
             draw = function(state)
                 self:draw_bg_card()
+                local cardx, cardy = self.x + self.ox, self.y + self.oy
+                love.graphics.draw(images.player_preview_arcade_tuto, cardx + 1, cardy + 2)
             end,
             exit = function(state)
                 self.user = nil
@@ -342,7 +344,7 @@ function PlayerPreview:draw_player_abbreviation()
             exec_using_shader(
                 shaders.draw_in_color,
                 function()
-                    love.graphics.draw(skinimg, self.x + self.ox + self.w - 6, self.y + self.oy + self.h - 4 - skinimg:getHeight(),                       0, -1, 1)
+                    love.graphics.draw(skinimg, self.x + self.ox + 6, self.y + self.oy + self.h - 4 - skinimg:getHeight())
                 end
             )
 
@@ -350,14 +352,15 @@ function PlayerPreview:draw_player_abbreviation()
         end
     end
 
-    print_color(color, txt_top, self.x + self.ox + self.w - get_text_width(txt_top) - 4, self.y)--self.oy + self.h - 16)
+    print_color(color, txt_top, self.x + self.ox + 6, self.y)--self.oy + self.h - 16)
 
     local bot_ox = 0
     if skinimg then
         bot_ox = skinimg:getWidth()
     end
-    print_color(color, txt_bot, self.x + self.ox + self.w - get_text_width(txt_bot) - 8 - bot_ox, self.y + self.oy + self.h - 16)
+    print_color(color, txt_bot, self.x + self.ox + 10 + bot_ox, self.y + self.oy + self.h - 16)
 end
+
 
 function PlayerPreview:draw_bg_card()
     local x, y = self.x + self.ox, self.y + self.oy
@@ -367,6 +370,7 @@ function PlayerPreview:draw_bg_card()
     exec_color(self.secondary_color or COL_LIGHT_GRAY,
         function() love.graphics.draw(images.player_preview_detail, x, y) end)
 end
+
 
 function PlayerPreview:draw()
     self.state_machine:draw()
