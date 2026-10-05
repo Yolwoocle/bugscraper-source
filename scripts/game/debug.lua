@@ -660,7 +660,11 @@ function Debug:draw_input_view_for(user, x)
 end
 
 function Debug:draw_joystick_view()
-    local spacing = 100
+    local spacing = 60
+    for i, joy in pairs(love.joystick.getJoysticks()) do
+        rect_color({0, 0, 0, 0.7}, "fill", (i-1) * spacing * 2, 0, CANVAS_WIDTH/4, CANVAS_HEIGHT)
+    end
+    
     local i = 0
     for _, joy in pairs(love.joystick.getJoysticks()) do
         self:draw_joystick_view_for(joy, i * spacing, -20, "leftx", "lefty", true)
@@ -679,14 +683,15 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     local vendorID, productID, productVersion = joystick:getDeviceInfo( )
 
     if is_first then
-        print_outline(COL_WHITE, COL_BLACK_BLUE, name, x + 30, y + 20)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("GUID: ", joystick:getGUID()), x + 30, y + 30)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ID: ", id), x + 30, y + 40)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("InstanceID: ", instanceid), x + 30, y + 50)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("VendorID: ", vendorID), x + 30, y + 60)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductID: ", productID), x + 30, y + 70)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductVersion: ", productVersion), x + 30, y + 80)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("(Ply '", user_n, "')"), x + 30, y + 90)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, name, x + 10, y + 20)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("GUID: ", utf8.sub(joystick:getGUID(), 1, 15)), x + 10, y + 30)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("...", utf8.sub(joystick:getGUID(), 16, -1)), x + 10, y + 40)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ID: ", id, " / Ply '", user_n, "'"), x + 10, y + 50)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("InstanceID: ", instanceid), x + 10, y + 60)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("VendorID: ", vendorID), x + 10, y + 70)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductID: ", productID), x + 10, y + 80)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductVersion: ", productVersion), x + 10, y + 90)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat(), x + 10, y + 90)
     end
 
     -- print_outline(ternary(Input:action_down(user_n, "left"), COL_GREEN, COL_WHITE),  COL_BLACK_BLUE, ternary(Input:action_down_any_player("left"), "✅", "❎"), x+30, y+60)
@@ -694,7 +699,7 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     -- print_outline(ternary(Input:action_down(user_n, "up"), COL_GREEN, COL_WHITE),    COL_BLACK_BLUE, ternary(Input:action_down_any_player("up"), "✅", "❎"), x+50, y+40)
     -- print_outline(ternary(Input:action_down(user_n, "down"), COL_GREEN, COL_WHITE),  COL_BLACK_BLUE, ternary(Input:action_down_any_player("down"), "✅", "❎"), x+50, y+80)
 
-    local ox = x + 60
+    local ox = x + 30
     local oy = y + 130
     local r = 30
     love.graphics.setColor(COL_GREEN)
@@ -773,7 +778,8 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
             -- "paddle3",
             -- "paddle4",
             -- "touchpad",
-        })
+        }
+    )
     for i, key in ipairs(keys) do
         local txt = concat(key, " ", ternary(j:isGamepadDown(key), "O", "-"))
         print_outline(COL_WHITE, COL_BLACK_BLUE, txt, ox - 20, oy + 80 + 10 * i)
