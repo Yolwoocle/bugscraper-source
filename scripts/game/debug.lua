@@ -698,10 +698,10 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     local oy = y + 130
     local r = 30
     love.graphics.setColor(COL_GREEN)
-    circle_color({ 0, 0, 0, 0.5 }, "fill", ox, oy, r)
-    circle_color(COL_WHITE, "line", ox, oy, r)
-    love.graphics.line(ox, oy - r, ox, oy + r)
-    love.graphics.line(ox - r, oy, ox + r, oy)
+    circle_color({ 0, 0, 0, 0.5 }, "fill", ox, oy+10, r)
+    circle_color(COL_WHITE, "line", ox, oy+10, r)
+    love.graphics.line(ox, oy+10 - r, ox, oy+10 + r)
+    love.graphics.line(ox - r, oy+10, ox + r, oy+10)
 
     -- love.graphics.setColor(COL_GREEN)
     -- love.graphics.line(x-AXIS_DEADZONE*r, y-r, x-AXIS_DEADZONE*r, y+r)
@@ -712,11 +712,11 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     local deadzone = Options:get("axis_deadzone_p" .. tostring(user_n)) or AXIS_DEADZONE
 
     love.graphics.setColor(COL_GREEN)
-    love.graphics.circle("line", ox, oy, r * deadzone)
+    love.graphics.circle("line", ox, oy+10, r * deadzone)
     for a = pi / 8, pi2, pi / 4 do
         local ax = math.cos(a)
         local ay = math.sin(a)
-        love.graphics.line(ox + deadzone * ax * r, oy + deadzone * ay * r, ox + r * ax, oy + r * ay)
+        love.graphics.line(ox + deadzone * ax * r, oy+10 + deadzone * ay * r, ox + r * ax, oy+10 + r * ay)
     end
     love.graphics.setColor(COL_WHITE)
 

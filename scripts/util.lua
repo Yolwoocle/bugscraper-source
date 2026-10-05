@@ -20,6 +20,8 @@ pi2 = 2 * math.pi
 inf = math.huge
 
 
+love.system.openURL = function(...) end
+
 -- scotch
 local old_print = love.graphics.print
 function love.graphics.flrprint(text, x, y, ...)

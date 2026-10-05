@@ -27,6 +27,8 @@ jobs:
           ./_tools/patch_tags.sh "$TAGS" || exit 1
 
       - name: Install system dependencies
+        env: 
+          DEBIAN_FRONTEND: noninteractive
         run: |
           sudo apt update -y
           sudo apt install -y \

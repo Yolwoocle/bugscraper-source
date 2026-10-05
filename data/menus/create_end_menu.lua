@@ -2,6 +2,7 @@ require "scripts.util"
 local menu_util             = require "scripts.ui.menu.menu_util"
 local BackroomCredits      = require "scripts.level.backroom.backroom_credits"
 local func_url              = menu_util.func_url
+local func_set_menu         = menu_util.func_set_menu
 
 local StatsMenuItem         = require "scripts.ui.menu.items.menu_item_stats"
 local ProgressBarMenuItem   = require "scripts.ui.menu.items.progress_bar_menu_item"
@@ -75,6 +76,8 @@ local function create_items(item_order)
 
         end
     end
+
+    table.insert(items, { "🔚 {menu.pause.quit}", func_set_menu('quit') })
 
     return items
 end
