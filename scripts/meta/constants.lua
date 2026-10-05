@@ -295,7 +295,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     shoot =     {},
     interact =  {},
 
-    pause =     {"k_escape", "k_p"},
+    pause =     {"k_escape", "k_p", "c_back"},
     ui_select = {"k_c", "k_z", "k_j", "k_l", "k_return"},
     ui_back =   {"k_x", "k_k", "k_escape", "k_backspace"},
     ui_left =   {"k_left",  "k_a"},
@@ -317,7 +317,7 @@ RAW_INPUT_MAP_DEFAULT_CONTROLLER = {
     shoot =     {"c_b", "c_leftshoulder"},
     interact =  {"c_y", "c_rightshoulder"},
 
-    pause =     {"c_start"},
+    pause =     {"c_back"},
     ui_select = {"c_a", "c_x"},
     ui_back =   {"c_b", "c_leftshoulder"},
     ui_left =   {"c_leftxneg", "c_dpleft"},

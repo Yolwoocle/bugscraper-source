@@ -35,16 +35,16 @@ return {
         image = "ach_death",
         steam_id = "ACH_DEATH",
     },
-    {
-        name = "ach_all_upgrades",
-        image = "ach_all_upgrades",
-        steam_id = "ACH_ALL_UPGRADES",
-    },
-    {
-        name = "ach_all_skins",
-        image = "ach_all_skins",
-        steam_id = "ACH_ALL_SKINS",
-    },
+    -- {
+    --     name = "ach_all_upgrades",
+    --     image = "ach_all_upgrades",
+    --     steam_id = "ACH_ALL_UPGRADES",
+    -- },
+    -- {
+    --     name = "ach_all_skins",
+    --     image = "ach_all_skins",
+    --     steam_id = "ACH_ALL_SKINS",
+    -- },
     {
         name = "ach_max_hearts",
         image = "ach_max_hearts",

@@ -1009,8 +1009,8 @@ end
 function Game:queue_join_game(input_profile_id, joystick)
 	self.join_cooldown_frames = 2
 	
-	local player_n = Input:find_free_user_number()
-	if player_n == nil then
+	local first_free_player_n = Input:find_free_user_number()
+	if first_free_player_n == nil then
 		return
 	end
 	-- Is joystick already taken?
@@ -1018,6 +1018,17 @@ function Game:queue_join_game(input_profile_id, joystick)
 		return
 	end
 	
+	local player_n = first_free_player_n
+	if joystick ~= nil then
+		-- SCOTCH pour la borne mais je pense que ça marche
+    	local id, instanceid = joystick:getID( )
+		if id == 2 then
+			player_n = 1
+		else
+			player_n = 2
+		end
+	end
+
 	Input:new_user(player_n)
 	Input:set_last_ui_user_n(player_n)
 	if joystick ~= nil then

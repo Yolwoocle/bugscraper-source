@@ -22,6 +22,18 @@ inf = math.huge
 
 love.system.openURL = function(...) end
 
+local old_getJoysticks = love.joystick.getJoysticks
+function love.joystick.getJoysticks(...)
+	local res = old_getJoysticks(...)
+	local out = {}
+	for i, joy in pairs(res) do
+		if utf8.sub(joy:getName(), 1, 4) == "Xbox" then
+			table.insert(out, joy)
+		end
+	end
+	return out
+end
+
 -- scotch
 local old_print = love.graphics.print
 function love.graphics.flrprint(text, x, y, ...)

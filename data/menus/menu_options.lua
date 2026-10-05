@@ -40,35 +40,35 @@ return Menu:new(game, "{menu.options.title}", {
     },
     { "" },
     { "<<< {menu.options.visuals.title} >>>" },
-    { BoolOptionMenuItem, "🔳 {menu.options.visuals.fullscreen}", "is_fullscreen" },
-    { EnumOptionMenuItem, "🔲 {menu.options.visuals.pixel_scale}", "pixel_scale", { "auto", "max_whole", "1", "2", "3", "4", "5", "6" },
-        function(value)
-            if tonumber(value) then
-                return tostring(value)
-            else
-                return tostring(Text:text("menu.options.visuals.pixel_scale_value." .. value))
-            end
-        end,
-        function(self)
-            if OPERATING_SYSTEM == "Web" then
-                self.is_selectable = false
-            end
-        end
-    },
-    { BoolOptionMenuItem, "📺 {menu.options.visuals.vsync}", "is_vsync" },
+    -- { BoolOptionMenuItem, "🔳 {menu.options.visuals.fullscreen}", "is_fullscreen" },
+    -- { EnumOptionMenuItem, "🔲 {menu.options.visuals.pixel_scale}", "pixel_scale", { "auto", "max_whole", "1", "2", "3", "4", "5", "6" },
+    --     function(value)
+    --         if tonumber(value) then
+    --             return tostring(value)
+    --         else
+    --             return tostring(Text:text("menu.options.visuals.pixel_scale_value." .. value))
+    --         end
+    --     end,
+    --     function(self)
+    --         if OPERATING_SYSTEM == "Web" then
+    --             self.is_selectable = false
+    --         end
+    --     end
+    -- },
+    -- { BoolOptionMenuItem, "📺 {menu.options.visuals.vsync}", "is_vsync" },
     { BoolOptionMenuItem, "💧 {menu.options.visuals.menu_blur}", "menu_blur" },
     { RangeOptionMenuItem, "🌄 {menu.options.visuals.background_speed}", "background_speed", { 0.0, 1.0 }, 0.05, "%" },
     { RangeOptionMenuItem, "🥚 {menu.options.visuals.bullet_lightness}", "bullet_lightness", { 0.1, 1.0 }, 0.1, "%" },
-    { "" },
-    { "<<< {menu.options.game.title} >>>" },
-    { "🌐 {menu.options.game.language}", func_set_menu("options_language") },
-    { "🎓 {menu.options.game.tutorial}", func_set_menu("confirm_tutorial") }, 
     { RangeOptionMenuItem, "🛜 {menu.options.game.screenshake}", "screenshake", { 0.0, 2.0 }, 0.05, function(value)
         if value == 2.0 then
             return "Vlambeer"
         end
 		return string.format("%d%%", round(value * 100)) 
 	end },
+    { "" },
+    { "<<< {menu.options.game.title} >>>" },
+    { "🌐 {menu.options.game.language}", func_set_menu("options_language") },
+    { "🎓 {menu.options.game.tutorial}", func_set_menu("confirm_tutorial") }, 
     { BoolOptionMenuItem, "🕐 {menu.options.game.timer}", "timer_on" },
     -- { BoolOptionMenuItem, "↖ {menu.options.game.mouse_visible}", "mouse_visible" },
     -- { BoolOptionMenuItem, "🛅 {menu.options.game.pause_on_unfocus}", "pause_on_unfocus" },

@@ -32,6 +32,8 @@ local Debug            = Class:inherit()
 local col_a            = { random_range(0, 1), random_range(0, 1), random_range(0, 1), 1 }
 local col_b            = { random_range(0, 1), random_range(0, 1), random_range(0, 1), 1 }
 
+local current_joystick_view = 1
+
 function Debug:init(game)
     self.game = game
 
@@ -91,7 +93,11 @@ function Debug:init(game)
             end
         end, do_not_require_ctrl = true },
         ["f4"] = { "view joystick info", function()
-            self.joystick_view = not self.joystick_view
+            if love.keyboard.isDown("lctrl") then
+                self:next_joystick_view()
+            else
+                self.joystick_view = not self.joystick_view
+            end
         end, do_not_require_ctrl = true },
         ["f5"] = { "view input info", function()
             self.input_view = not self.input_view
@@ -526,6 +532,8 @@ function Debug:update(dt)
             game.level.new_wave_animation_speed_mutliplier = 1.0
         end
     end
+
+    self:update_joystick_view()
 end
 
 function Debug:debug_action(key, scancode)
@@ -659,14 +667,28 @@ function Debug:draw_input_view_for(user, x)
     Text:pop_font()
 end
 
+function Debug:update_joystick_view()
+end
+
+function Debug:next_joystick_view()
+    local joystick_count = #(love.joystick.getJoysticks())
+    current_joystick_view = mod_plus_1(current_joystick_view + 4, joystick_count)
+end
+
 function Debug:draw_joystick_view()
+    local joystick_count = #(love.joystick.getJoysticks())
+    if current_joystick_view > joystick_count then
+        current_joystick_view = 1
+    end 
+
     local spacing = 60
     for i, joy in pairs(love.joystick.getJoysticks()) do
         rect_color({0, 0, 0, 0.7}, "fill", (i-1) * spacing * 2, 0, CANVAS_WIDTH/4, CANVAS_HEIGHT)
     end
     
     local i = 0
-    for _, joy in pairs(love.joystick.getJoysticks()) do
+    for joystick_i = current_joystick_view, min(current_joystick_view+4, joystick_count)  do
+        local joy = (love.joystick.getJoysticks())[joystick_i]
         self:draw_joystick_view_for(joy, i * spacing, -20, "leftx", "lefty", true)
         i = i + 1
         self:draw_joystick_view_for(joy, i * spacing, -20, "rightx", "righty")
@@ -683,14 +705,17 @@ function Debug:draw_joystick_view_for(joystick, x, y, axis_x, axis_y, is_first)
     local vendorID, productID, productVersion = joystick:getDeviceInfo( )
 
     if is_first then
-        print_outline(COL_WHITE, COL_BLACK_BLUE, name, x + 10, y + 20)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("GUID: ", utf8.sub(joystick:getGUID(), 1, 15)), x + 10, y + 30)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("...", utf8.sub(joystick:getGUID(), 16, -1)), x + 10, y + 40)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ID: ", id, " / Ply '", user_n, "'"), x + 10, y + 50)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("InstanceID: ", instanceid), x + 10, y + 60)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("VendorID: ", vendorID), x + 10, y + 70)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductID: ", productID), x + 10, y + 80)
-        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductVersion: ", productVersion), x + 10, y + 90)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, utf8.sub(name, 1, 20), x + 10, y + 20)
+        if #utf8.sub(name, 21, -1) > 0 then
+            print_outline(COL_WHITE, COL_BLACK_BLUE, "..." .. utf8.sub(name, 21, -1), x + 10, y + 30)
+        end
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("GUID: ", utf8.sub(joystick:getGUID(), 1, 15)), x + 10, y + 40)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("...", utf8.sub(joystick:getGUID(), 16, -1)), x + 10, y + 50)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ID: ", id, " / Ply '", user_n, "'"), x + 10, y + 60)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("InstanceID: ", instanceid), x + 10, y + 70)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("VendorID: ", vendorID), x + 10, y + 80)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductID: ", productID), x + 10, y + 90)
+        print_outline(COL_WHITE, COL_BLACK_BLUE, concat("ProductVersion: ", productVersion), x + 10, y + 100)
         print_outline(COL_WHITE, COL_BLACK_BLUE, concat(), x + 10, y + 90)
     end
 

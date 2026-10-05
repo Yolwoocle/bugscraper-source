@@ -208,10 +208,10 @@ end
 
 function MetaprogressionManager:check_achievements()
     if Achievements and #self:get("upgrades") >= self.max_upgrades and BUILD_TYPE ~= "demo" then
-        Achievements:grant("ach_all_upgrades")
+        -- Achievements:grant("ach_all_upgrades")
     end
     if Achievements and #self:get("skins") >= self.max_skins and BUILD_TYPE ~= "demo" then
-        Achievements:grant("ach_all_skins")
+        -- Achievements:grant("ach_all_skins")
     end
 end
 

@@ -38,32 +38,6 @@ function StatsMenu:init(game)
             { StatsMenuItem, Text:parse("⭐ {menu.stats.best_run}"), function(self) 
                 return Stats:get("best_run") 
             end },
-            { "" },
-            { ProgressBarMenuItem,
-                {
-                    update_value = function(item, dt)
-                    end,
-                    init_value = function(item)
-                        -- total_xp
-                        -- xp
-                        -- xp_level
-                        item.value = Metaprogression:get("xp")
-                        item.overlay_value = nil
-                        local threshold = Metaprogression:get_xp_level_threshold(Metaprogression:get("xp_level"))
-                        if threshold ~= math.huge then
-                            item.max_value = threshold
-                        else
-                            item.max_value = 1
-                        end
-
-                        if threshold ~= math.huge then
-                            item.text = concat(Metaprogression:get("xp"), "/", threshold)
-                        else
-                            item.text = concat(Metaprogression:get("xp"))
-                        end
-                    end
-                }
-            },
         }, 
         DEFAULT_MENU_BG_COLOR,
         PROMPTS_NORMAL, 
