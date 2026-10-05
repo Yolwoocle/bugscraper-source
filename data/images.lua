@@ -671,6 +671,15 @@ local img_names = {
 	player_preview_detail = "ui/player_preview/player_preview_detail",
 	player_preview_dotted = "ui/player_preview/player_preview_dotted",
 	player_preview_arcade_tuto = "ui/player_preview/player_preview_arcade_tuto",
+	
+	arcade_button_red =          "ui/player_preview/arcade_button_red",
+	arcade_button_red_pressed =  "ui/player_preview/arcade_button_red_pressed",
+	arcade_button_blue =         "ui/player_preview/arcade_button_blue",
+	arcade_button_blue_pressed = "ui/player_preview/arcade_button_blue_pressed",
+
+	arcade_joystick_base =       "ui/player_preview/arcade_joystick_base",
+	arcade_joystick_head_blue =  "ui/player_preview/arcade_joystick_head_blue",
+	arcade_joystick_head_red =   "ui/player_preview/arcade_joystick_head_red",
 
 	-----------------------------------------------------
 	

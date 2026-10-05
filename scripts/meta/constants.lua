@@ -295,7 +295,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     shoot =     {},
     interact =  {},
 
-    pause =     {"k_escape", "k_p", "c_back"},
+    pause =     {"k_escape", "k_p", "k_e", "c_back"},
     ui_select = {"k_c", "k_z", "k_j", "k_l", "k_return"},
     ui_back =   {"k_x", "k_k", "k_escape", "k_backspace"},
     ui_left =   {"k_left",  "k_a"},
@@ -305,7 +305,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     split_keyboard = {"k_y"},
     join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b", "c_x", "c_y", "c_leftshoulder", "c_rightshoulder"},
 
-    debug = {"k_f1", "c_back"},
+    debug = {"k_f1"},
 }
 
 RAW_INPUT_MAP_DEFAULT_CONTROLLER = {
@@ -327,7 +327,7 @@ RAW_INPUT_MAP_DEFAULT_CONTROLLER = {
     split_keyboard = {},
     join_game = {},
 
-    debug = {},
+    debug = {"c_start"},
 }
 
 RAW_INPUT_MAP_DEFAULT_KEYBOARD_SOLO = {

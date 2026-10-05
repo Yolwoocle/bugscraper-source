@@ -737,7 +737,7 @@ function InputManager:load_controls()
 	end
 
 	for profile_id, profile in pairs(self.input_profiles) do
-        self:load_control_file(profile_id, profile)
+        -- self:load_control_file(profile_id, profile)
 	end
 end
 
@@ -814,7 +814,7 @@ function InputManager:load_global_mappings()
     local kb_solo_profile = self.input_profiles["keyboard_solo"]
     
     for _, action in pairs(actions) do
-        global_profile.mappings[action] = copy_table_deep(kb_solo_profile.mappings[action])
+        -- global_profile.mappings[action] = copy_table_deep(kb_solo_profile.mappings[action])
     end
 
     self:update_controls_file("global") 

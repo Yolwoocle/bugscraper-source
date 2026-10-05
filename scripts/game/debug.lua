@@ -660,7 +660,7 @@ function Debug:draw_input_view_for(user, x)
     }
         
     Text:push_font(FONT_MINI)
-    print_outline(nil, nil, concat("user ", user), x, 0)
+    print_outline(nil, nil, concat("user ", user.n), x, 0)
     for i, a in ipairs(actions) do
         print_outline(nil, nil, concat(a, ": ", user.action_states[a].state), x, 14 * i)
     end

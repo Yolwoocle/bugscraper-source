@@ -207,8 +207,7 @@ function PlayerPreview:init(player_n, x, y, w, h)
             end,
             draw = function(state)
                 self:draw_bg_card()
-                local cardx, cardy = self.x + self.ox, self.y + self.oy
-                love.graphics.draw(images.player_preview_arcade_tuto, cardx + 1, cardy + 2)
+                self:draw_tuto(state)
             end,
             exit = function(state)
                 self.user = nil
@@ -369,6 +368,52 @@ function PlayerPreview:draw_bg_card()
         function() love.graphics.draw(images.player_preview_bg, x, y) end)
     exec_color(self.secondary_color or COL_LIGHT_GRAY,
         function() love.graphics.draw(images.player_preview_detail, x, y) end)
+end
+
+
+function PlayerPreview:draw_tuto()
+    local cardx, cardy = self.x + self.ox + 1, self.y + self.oy + 2
+    love.graphics.draw(images.player_preview_arcade_tuto, cardx, cardy)
+
+    local color = ternary(self.player_n == 1, "blue", "red")
+    local actions = {
+        {"jump",     98,  42},
+        {"shoot",    113, 38},
+        {"interact", 128, 42},
+    }
+
+    local user = Input:get_user(self.player_n)
+    for _, action_table in pairs(actions) do
+        local action, x, y = unpack(action_table)
+        local pressed = ternary(user:action_down(action), "_pressed", "")
+        love.graphics.draw(images["arcade_button_" .. color .. pressed], cardx + x, cardy + y)
+    end
+
+    love.graphics.draw(images.arcade_joystick_base, cardx + 71, cardy + 44)
+
+    local joyx, joyy = 0, 0
+    local joyox, joyoy = 0, 0
+    if user:action_down("left") then joyx = joyx - 1 end
+    if user:action_down("right") then joyx = joyx + 1 end
+    if user:action_down("up") then joyy = joyy - 1 end
+    if user:action_down("down") then joyy = joyy + 1 end
+    if not (joyx == 0 and joyy == 0) then
+        joyx, joyy = normalise_vect(joyx, joyy)
+        joyox, joyoy = joyx * 10, joyy * 7 + 5
+    end
+    
+    local old_width = love.graphics.getLineWidth()
+    
+    local basex, basey = cardx + 71 + 7, cardy + 44 + 5
+    local headcx, headcy = cardx + 71 + joyox + 7, cardy + 27 + joyoy + 7
+
+    love.graphics.setLineWidth(4)
+    line_color(COL_BLACK_BLUE, basex, basey, headcx, headcy)
+    love.graphics.setLineWidth(2)
+    line_color(COL_LIGHTEST_GRAY, basex, basey, headcx, headcy)
+    love.graphics.setLineWidth(old_width)
+
+    love.graphics.draw(images["arcade_joystick_head_"..color], cardx + 71 + joyox, cardy + 27 + joyoy)
 end
 
 
