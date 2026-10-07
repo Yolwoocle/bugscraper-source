@@ -1,0 +1,46 @@
+{
+    //// Des propriétés peuvent être supprimées, une valeur par défaut leur sera attribuées.
+
+    // Nom de votre jeu: tel qu'il sera affiché partout sur la borne.
+    // Pensez à vérifier que votre texte s'affiche en entier sur la borne.
+    "name": "Bugscraper",
+
+    // Description de votre jeu: introduisez brièvement votre jeu et son but, le nom des participants, ...
+    // Pensez à vérifier que votre texte s'affiche en entier sur la borne.
+    "description": "Ravagez à travers une entreprise tyrannique et réglez vos comptes avec votre patron dans ce jeu de tir roguelike, jouable en mode coopératif ou solo.\nRéalisé par Léo Bernard (Yolwoocle).",
+
+    // Nombre de joueur: tag solo, coop, versus, ...
+    // Regarder dans LauncherBuilds/config.json les tags associés à des icônes spéciales.
+    "players": "1-2 joueurs",
+
+    // Genre: arcade, rythme, ...
+    // Regarder dans LauncherBuilds/config.json les tags associés à des icônes spéciales.
+    "genre": "arcade",
+
+    // Collection: Listes, Jeux sous le sapin, ...
+    // Regarder dans LauncherBuilds/config.json les tags associés à des icônes spéciales.
+    // Optionnel: si laissé vide, n'apparaît pas.
+    "collection": "",
+
+    // Label spécial: chemin depuis LauncherMeta vers une icône à mettre en label flottant sur l'icône du jeu
+    // Utilisé pour les occasions spéciales (ex: tournoi). Laisser vide par défaut.
+    "specialLabelPath": "", //"Icons/Points_inte.png",
+
+    // Contrôles: les descriptions des touches utilisées par votre jeu
+    // Pensez à vérifier que votre texte s'affiche en entier sur la borne.
+    // Si laissé vide, n'apparaît pas.
+    "controlLJ": "Bouger", // joystick gauche
+    "controlL1": "Sauter", // boutons gauches (numérotés gauche->droite, haut->bas)
+    "controlL2": "Tirer",
+    "controlL3": "Interagir",
+    "controlL4": "",
+    "controlL5": "",
+    "controlL6": "",
+    "controlRJ": "Bouger", // joystick droit
+    "controlR1": "Sauter", // boutons droits (numérotés gauche->droite, haut->bas)
+    "controlR2": "Tirer",
+    "controlR3": "Interagir",
+    "controlR4": "",
+    "controlR5": "",
+    "controlR6": ""
+ }

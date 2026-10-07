@@ -43,7 +43,7 @@ function PlayerPreview:init(player_n, x, y, w, h)
             update = function(state, dt)
                 self.prompts = {
                     { -1, {
-                        { "join_game", INPUT_TYPE_CONTROLLER, ternary(player_n == 1, BUTTON_STYLE_ARCADE1, BUTTON_STYLE_ARCADE2) },
+                        { ternary(self.t % 0.5 < 0.25, "join_game", "debug"), INPUT_TYPE_CONTROLLER, ternary(player_n == 1, BUTTON_STYLE_ARCADE1, BUTTON_STYLE_ARCADE2) },
                     }, "", COL_WHITE },
                     { -1, {}, Text:text("input.prompts.join"), COL_WHITE },
                 }
@@ -92,7 +92,6 @@ function PlayerPreview:init(player_n, x, y, w, h)
                     end
                 end
 
-                self.t = self.t + dt
                 self.is_pressed = Input:action_pressed(self.player_n, "ui_select")
                 if self.t > 0.1 then 
                     if Input:action_pressed(self.player_n, "ui_select") then
@@ -283,6 +282,8 @@ function PlayerPreview:draw_rotated_rectangle(color, mode, x, y, width, height, 
 end
 
 function PlayerPreview:update(dt)
+    self.t = self.t + dt
+
     self.state_machine:update(dt)
 
     self.ox = lerp(self.ox, 0, 0.3)

@@ -305,7 +305,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     split_keyboard = {"k_y"},
     join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b", "c_x", "c_y", "c_leftshoulder", "c_rightshoulder"},
 
-    debug = {"k_f1"},
+    debug = {"c_leftstick"},
 }
 
 RAW_INPUT_MAP_DEFAULT_CONTROLLER = {
