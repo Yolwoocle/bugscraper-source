@@ -7,6 +7,9 @@ local skin_name_to_id = require "data.skin_name_to_id"
 local StatsManager = Class:inherit()
 
 function StatsManager:init()
+    local floors_stat = {}
+    for i=1, 100 do floors_stat[i] = random_range(0, 10) end
+
     self.default_data = {
         ["$version"] = STATS_FILE_FORMAT_VERSION,
 
@@ -18,6 +21,8 @@ function StatsManager:init()
         kills = 0,
         max_combo = 0,
         best_run = 0,
+
+        floors_ended = floors_stat,
 
         runs_floor = { -1 },
         runs_time = { -1 },
@@ -61,18 +66,18 @@ function StatsManager:check_achievements()
 		Achievements:grant("ach_death")
 	end
     
-    if self:get("best_run") >= 20 then
-		Achievements:grant("ach_complete_w1")
-	end
-    if self:get("best_run") >= 40 then
-		Achievements:grant("ach_complete_w2")
-	end
-    if self:get("best_run") >= 60 then
-		Achievements:grant("ach_complete_w3")
-	end
-    if self:get("best_run") >= 80 then
-		Achievements:grant("ach_complete_w4")
-	end
+    -- if self:get("best_run") >= 20 then
+	-- 	Achievements:grant("ach_complete_w1")
+	-- end
+    -- if self:get("best_run") >= 40 then
+	-- 	Achievements:grant("ach_complete_w2")
+	-- end
+    -- if self:get("best_run") >= 60 then
+	-- 	Achievements:grant("ach_complete_w3")
+	-- end
+    -- if self:get("best_run") >= 80 then
+	-- 	Achievements:grant("ach_complete_w4")
+	-- end
     
     if self:get("max_combo") >= 100 then
 		Achievements:grant("ach_big_combo")

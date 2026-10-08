@@ -100,6 +100,7 @@ local enemies = {
 	ButtonSmall =        require "scripts.actor.enemies.button_small",
 	ButtonSmallRocket =  require "scripts.actor.enemies.button_small_rocket",
 	ExitSign =           require "scripts.actor.enemies.exit_sign",
+	ExitSignMoving =     require "scripts.actor.enemies.exit_sign_moving",
 	UpgradeDisplay =     require "scripts.actor.enemies.upgrade_display",
 	HeartJar =           require "scripts.actor.enemies.heart_jar",
 	GunOrb =         require "scripts.actor.enemies.gun_orb",

@@ -776,6 +776,15 @@ function Game:listen_for_player_join(dt)
 		end
 	end
 
+	for n=1, MAX_NUMBER_OF_PLAYERS do
+		if Input:action_pressed(n, "debug") then
+			if self.level.backroom.name == "ground_floor" and self.level.backroom.signs[n] then
+				self.level.backroom.signs[n]:activate(self.players[n])
+			end
+			self:leave_game(n)
+		end
+	end
+
 	if Input:action_pressed_global("split_keyboard") then
 		if Input:get_number_of_users(INPUT_TYPE_KEYBOARD) == 1 then
 			self:queue_join_game("keyboard_solo")

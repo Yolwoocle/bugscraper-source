@@ -680,6 +680,7 @@ local img_names = {
 	arcade_joystick_base =       "ui/player_preview/arcade_joystick_base",
 	arcade_joystick_head_blue =  "ui/player_preview/arcade_joystick_head_blue",
 	arcade_joystick_head_red =   "ui/player_preview/arcade_joystick_head_red",
+	arcade_button_2p =           "ui/player_preview/arcade_button_2p",
 
 	-----------------------------------------------------
 	

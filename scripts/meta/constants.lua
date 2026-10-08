@@ -349,7 +349,7 @@ RAW_INPUT_MAP_DEFAULT_KEYBOARD_SOLO = {
     split_keyboard = {},
     join_game = {},
 
-    debug = {},
+    debug = {"k_o"},
 }
 
 RAW_INPUT_MAP_DEFAULT_SPLIT_KEYBOARD_P1 = {
@@ -654,6 +654,6 @@ TV_CREDITS = {
 ---------------------------------------------
 
 -- Super secret easter egg stuff :)
-SMASH_EASTER_EGG_PROBABILITY = 0.05
+SMASH_EASTER_EGG_PROBABILITY = 1.05
 TV_BLUESCREEN_PROBABILITY = 0.05
 HORNET_EASTER_EGG_PROBABILITY = 0.05

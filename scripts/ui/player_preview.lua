@@ -372,9 +372,12 @@ function PlayerPreview:draw_bg_card()
 end
 
 
-function PlayerPreview:draw_tuto()
+function PlayerPreview:draw_tuto(state)
     local cardx, cardy = self.x + self.ox + 1, self.y + self.oy + 2
     love.graphics.draw(images.player_preview_arcade_tuto, cardx, cardy)
+    if self.player_n == 2 then
+        love.graphics.draw(images.arcade_button_2p, cardx + 210, cardy + 3)
+    end
 
     local color = ternary(self.player_n == 1, "blue", "red")
     local actions = {

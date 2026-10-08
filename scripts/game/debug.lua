@@ -975,6 +975,12 @@ function Debug:draw_info_view()
 
     self:test_info_view_3d_renderer()
 
+    local floors = Stats:get("floors_ended")
+    for i=1, #floors do
+        local x = i * 4
+        rect_color(COL_RED, "fill", x, 10, 3, max(1, 3 * floors[i]))
+    end
+
     -- local w = 255
     -- local col_a = color(0x0c00b8)
     -- local col_b = color(0xb82609)

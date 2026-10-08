@@ -980,7 +980,7 @@ local waves_defs = {
         ambience = "w3",
         pull_music_buffer = true, 
 
-        floating_text = "🈶 {input.prompts.jetpack}"
+        floating_text = "🈶 {input.prompts.jetpack}",
     },
 
     {

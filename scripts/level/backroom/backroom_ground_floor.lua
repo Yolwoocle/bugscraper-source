@@ -28,6 +28,8 @@ function BackroomGroundFloor:init(params)
 	self.has_opened_door = false
 	self.highlight_number_of_players_in_door = true
 	self.door_anim_o = 0
+
+	self.signs = {}
 end
 
 function BackroomGroundFloor:generate(world_generator)
@@ -108,7 +110,14 @@ function BackroomGroundFloor:generate(world_generator)
 
 	-- Exit sign
 	local exit_x = CANVAS_WIDTH * 0.25
-	game:new_actor(create_actor_centered(enemies.ExitSign, floor(744), floor(ny)))
+	-- game:new_actor(create_actor_centered(enemies.ExitSign, floor(744), floor(ny)))
+
+	for n = 1, MAX_NUMBER_OF_PLAYERS do
+		local sign = create_actor_centered(enemies.ExitSignMoving, 744, ny, n)
+		game:new_actor(sign)
+
+		self.signs[n] = sign
+	end
 
 	game:new_actor(create_actor_centered(enemies.Clock, floor(440), floor(105)))
 

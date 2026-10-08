@@ -109,7 +109,7 @@ function ExitSign:activate(player)
     end
 end
 
-function ExitSign:draw()    
+function ExitSign:draw()
     self.spr:set_image(images.exit_sign)
     self:draw_enemy()
 
@@ -160,6 +160,7 @@ function ExitSign:activate_smash_easter_egg(player)
 end
 
 function ExitSign:update_smash_easter_egg(dt) 
+    print_debug("self.smash_x, self.smash_y", self.smash_x, self.smash_y, " x,y ", self.x, self.y)
     self.smash_unzoom_timer = math.max(0, self.smash_unzoom_timer - dt)
 
     if self.is_in_smash_easter_egg then
