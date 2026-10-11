@@ -462,15 +462,20 @@ function Debug:init(game)
             game:screenshot()
         end },
 
-        ["m"] = { "wave info to file", function()
-            local canvas_ = love.graphics.newCanvas(CANVAS_WIDTH, CANVAS_HEIGHT * 10)
-            local old_canvas = love.graphics.getCanvas()
-            love.graphics.setCanvas(canvas_)
-            love.graphics.clear(COL_BLACK)
-            debug_draw_waves({ x = CANVAS_CENTER[1], y = 0 })
-            love.graphics.setCanvas(old_canvas)
-            save_canvas_as_file(canvas_, os.date('bugscraper_waves_%Y-%m-%d_%H-%M-%S.png'), "png")
+        -- ["m"] = { "wave info to file", function()
+        --     local canvas_ = love.graphics.newCanvas(CANVAS_WIDTH, CANVAS_HEIGHT * 10)
+        --     local old_canvas = love.graphics.getCanvas()
+        --     love.graphics.setCanvas(canvas_)
+        --     love.graphics.clear(COL_BLACK)
+        --     debug_draw_waves({ x = CANVAS_CENTER[1], y = 0 })
+        --     love.graphics.setCanvas(old_canvas)
+        --     save_canvas_as_file(canvas_, os.date('bugscraper_waves_%Y-%m-%d_%H-%M-%S.png'), "png")
+        -- end },
+        
+        ["m"] = { "toggle sound", function()
+            Options:set("sound_on", not Options:get("sound_on"))
         end },
+
 
         ["x"] = { "toggle frame-by-frame", function()
             _G_frame_by_frame_mode = not _G_frame_by_frame_mode
