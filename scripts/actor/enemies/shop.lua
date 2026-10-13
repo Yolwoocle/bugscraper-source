@@ -257,15 +257,15 @@ function Shop:draw_products()
     if self.selected_player then
         local icon_left = Input:get_action_primary_icon(self.selected_player.n, "ui_left")
         local icon_right = Input:get_action_primary_icon(self.selected_player.n, "ui_right")
-        draw_centered(icon_left,  self.mid_x - sep * (#self.products + 1)/2 - 8 + self.left_prompt_ox,  y, 0, s)
-        draw_centered(icon_right, self.mid_x + sep * (#self.products + 1)/2 + 8 + self.right_prompt_ox, y, 0, s)
+        -- draw_centered(icon_left,  self.mid_x - sep * (#self.products + 1)/2 - 8 + self.left_prompt_ox,  y, 0, s)
+        -- draw_centered(icon_right, self.mid_x + sep * (#self.products + 1)/2 + 8 + self.right_prompt_ox, y, 0, s)
     
         if self.animation_t >= 0.5 then
             local prompt_x = math.floor(x - 38)
             local prompt_y = y + 36 - self.animation_t * 10
-            -- local new_x = Input:draw_input_prompt(self.selected_player.n, {"ui_select"}, "{input.prompts.ui_select}", COL_WHITE, prompt_x, prompt_y)
+            local new_x = Input:draw_input_prompt(self.selected_player.n, {"ui_select"}, "{input.prompts.ui_select}", COL_WHITE, prompt_x, prompt_y)
             prompt_x = new_x + 8
-            -- local new_x = Input:draw_input_prompt(self.selected_player.n, {"ui_back"}, "{input.prompts.ui_back}", COL_WHITE, prompt_x, prompt_y)
+            new_x = Input:draw_input_prompt(self.selected_player.n, {"ui_back"}, "{input.prompts.ui_back}", COL_WHITE, prompt_x, prompt_y)
         end
     end
 end

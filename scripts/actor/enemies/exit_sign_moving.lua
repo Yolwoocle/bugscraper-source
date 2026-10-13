@@ -25,6 +25,9 @@ function ExitSignMoving:init(x, y, player_n)
 
     self.hide_time = 4.0
     self.hide_timer = 0.0
+
+    self.smash_padding_left = 80
+    self.smash_padding_right = 700
 end
 
 function ExitSignMoving:update(dt)
@@ -73,10 +76,12 @@ function ExitSignMoving:activate(player)
 
     self.is_visible = true
     self.hide_timer = self.hide_time
-    self:move_to(player.x-13, 196)
+    self:set_position(player.x-13, 196)
 
     if random_range(0, 1) < self.smash_easter_egg_probability then
-        player:move_to(player.x, self.y)
+        player:set_position(clamp(player.x, game.level.cabin_inner_rect.ax + self.smash_padding_left, game.level.cabin_inner_rect.bx - self.smash_padding_right), self.y)
+        self:set_position(player.x-13, 196)
+
         self.retracted_spring_ideal_length = 40
         self:activate_smash_easter_egg(player)
     else

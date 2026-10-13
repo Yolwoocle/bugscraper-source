@@ -143,6 +143,7 @@ function ExitSign:activate_smash_easter_egg(player)
 
     self.smash_unzoom_timer = 0.9
     game.camera:set_zoom(2)
+    game.camera.do_camera_position_clamping = false
     game:set_ui_visible(false)
     game.menu_manager:set_can_pause(false)
 
@@ -160,7 +161,6 @@ function ExitSign:activate_smash_easter_egg(player)
 end
 
 function ExitSign:update_smash_easter_egg(dt) 
-    print_debug("self.smash_x, self.smash_y", self.smash_x, self.smash_y, " x,y ", self.x, self.y)
     self.smash_unzoom_timer = math.max(0, self.smash_unzoom_timer - dt)
 
     if self.is_in_smash_easter_egg then
@@ -189,6 +189,7 @@ function ExitSign:update_smash_effect_end(dt)
     end
     
     if self.pan_camera_to_default then
+        game.camera.do_camera_position_clamping = true
         self:lerp_zoom(1)
 
         -- End smash effect

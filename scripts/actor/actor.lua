@@ -509,6 +509,7 @@ function Actor:move_to(goal_x, goal_y)
 	local actual_x, actual_y, cols, len = Collision:move(self, goal_x, goal_y)
 	self.x = actual_x
 	self.y = actual_y
+	self:update_mid_position()
 end
 
 function Actor:set_position(x, y)

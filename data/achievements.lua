@@ -30,11 +30,11 @@ return {
         image = "ach_complete_end",
         steam_id = "ACH_COMPLETE_END",
     },
-    {
-        name = "ach_death",
-        image = "ach_death",
-        steam_id = "ACH_DEATH",
-    },
+    -- {
+    --     name = "ach_death",
+    --     image = "ach_death",
+    --     steam_id = "ACH_DEATH",
+    -- },
     -- {
     --     name = "ach_all_upgrades",
     --     image = "ach_all_upgrades",

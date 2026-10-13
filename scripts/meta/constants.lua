@@ -295,7 +295,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     shoot =     {},
     interact =  {},
 
-    pause =     {"k_escape", "k_p", "k_e", "c_back"},
+    pause =     {"k_escape", "k_p"},
     ui_select = {"k_c", "k_z", "k_j", "k_l", "k_return"},
     ui_back =   {"k_x", "k_k", "k_escape", "k_backspace"},
     ui_left =   {"k_left",  "k_a"},
@@ -303,7 +303,7 @@ RAW_INPUT_MAP_DEFAULT_GLOBAL = {
     ui_up =     {"k_up",    "k_w"},
     ui_down =   {"k_down",  "k_s"},
     split_keyboard = {"k_y"},
-    join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b", "c_x", "c_y", "c_leftshoulder", "c_rightshoulder"},
+    join_game = {"k_c", "k_z", "k_j", "k_l", "k_return", "c_a", "c_b", "c_x", "c_y", "c_leftshoulder", "c_rightshoulder", "c_back"},
 
     debug = {"c_leftstick"},
 }
@@ -654,6 +654,6 @@ TV_CREDITS = {
 ---------------------------------------------
 
 -- Super secret easter egg stuff :)
-SMASH_EASTER_EGG_PROBABILITY = 1.05
+SMASH_EASTER_EGG_PROBABILITY = 0.05
 TV_BLUESCREEN_PROBABILITY = 0.05
 HORNET_EASTER_EGG_PROBABILITY = 0.05

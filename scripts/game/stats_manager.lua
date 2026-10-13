@@ -63,7 +63,7 @@ end
 
 function StatsManager:check_achievements()
     if self:get("deaths") >= 50 then
-		Achievements:grant("ach_death")
+		-- Achievements:grant("ach_death")
 	end
     
     -- if self:get("best_run") >= 20 then
@@ -79,7 +79,8 @@ function StatsManager:check_achievements()
 	-- 	Achievements:grant("ach_complete_w4")
 	-- end
     
-    if self:get("max_combo") >= 100 then
+    -- if self:get("max_combo") >= 100 then
+    if game and game.level and game.level.max_fury_combo >= 100 then
 		Achievements:grant("ach_big_combo")
 	end
 end
