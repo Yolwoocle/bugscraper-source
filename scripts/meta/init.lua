@@ -1,3 +1,4 @@
+require "errorhandler"
 require "scripts.meta.constants"
 require "bugscraper_config"
 
