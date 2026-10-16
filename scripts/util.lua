@@ -23,7 +23,7 @@ inf = math.huge
 love.system.openURL = function(...) end
 
 local old_getJoysticks = love.joystick.getJoysticks
-local LIMITED_JOYSTICK_MODE = false
+local LIMITED_JOYSTICK_MODE = true
 if LIMITED_JOYSTICK_MODE then
 	function love.joystick.getJoysticks(...)
 		local res = old_getJoysticks(...)
